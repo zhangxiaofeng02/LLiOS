@@ -1,5 +1,5 @@
 //
-//  LFLTestAppController.h
+//  LFLFirstTabController.h
 //  LFLTrunkLib
 //
 //  Created by 啸峰 on 16/4/4.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LFLBaseTableViewController.h"
 
-@interface LFLTestAppController : LFLBaseTableViewController
+@interface LFLFirstTabController : LFLBaseTableViewController
 
 @end

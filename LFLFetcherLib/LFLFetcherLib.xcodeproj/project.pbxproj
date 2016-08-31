@@ -83,6 +83,7 @@
 		E17AF7EA1CBB4B930077FF38 /* LFLJsonPraserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLJsonPraserManager.m; sourceTree = "<group>"; };
 		E17AF7ED1CBB6BE70077FF38 /* LFLCommonPraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLCommonPraser.h; sourceTree = "<group>"; };
 		E17AF7EE1CBB6BE70077FF38 /* LFLCommonPraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLCommonPraser.m; sourceTree = "<group>"; };
+		E1AFB6561D76C9B800107EFD /* libLFLToolsLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLToolsLib.a; path = "../Build/Products/Debug-iphoneos/libLFLToolsLib.a"; sourceTree = "<group>"; };
 		FFD894DDA2148D51F3DF63BF /* libPods-LFLFetcherLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LFLFetcherLib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +106,7 @@
 		862385B3A24ECE9B588056BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1AFB6561D76C9B800107EFD /* libLFLToolsLib.a */,
 				E10707181CC8A26700D716D6 /* libJSONModel.a */,
 				E16A6F0F1CC7E19F008AC5A7 /* libReactiveCocoa.a */,
 				E16A6F071CC7E0CF008AC5A7 /* libAFNetworking.a */,

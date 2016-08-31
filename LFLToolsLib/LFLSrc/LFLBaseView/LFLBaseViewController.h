@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LFLBaseNavigationController.h"
 
 @interface LFLBaseViewController : UIViewController
 
+@property (nonatomic, strong) LFLBaseNavigationController *tabNavigationController;
 @end
