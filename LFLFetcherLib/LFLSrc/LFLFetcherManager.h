@@ -22,6 +22,11 @@
 - (LFLFetcher *)fetcherWithObject:(id)object;
 
 /**
+ * 去除某个请求
+ **/
+- (void)removeFetcherWithObjects:(id)object;
+
+/**
  * 初始化数据库操作
  **/
 - (void)initCoreData;
