@@ -20,12 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     LFLMainTabBarController *root = [[LFLMainTabBarController alloc] init];
-//    self.navigationController = [[LFLBaseNavigationController alloc] initWithRootViewController:root];
-//    self.navigationController.delegate = self;
-    UIView *view = self.view;
-//    UIView *subView = self.navigationController.view;
-//    [self addChildViewController:self.navigationController];
     [self addChildViewController:root];
-    [view addSubview:root.view];
+    [self.view addSubview:root.view];
 }
 @end

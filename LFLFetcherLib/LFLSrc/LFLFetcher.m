@@ -20,7 +20,7 @@
 
 - (void)dealloc {
     [[LFLJsonPraserManager shareInstance] canclePraserInGroup:[self networkGroupID]];
-    //这里少一个取消对应的网络请求方法
+    [[LFLFetcherManager shareInstance] removeFetcherWithObjects:[self networkGroupID]];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
