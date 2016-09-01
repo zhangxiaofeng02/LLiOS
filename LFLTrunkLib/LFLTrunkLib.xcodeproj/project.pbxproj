@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A19B2DEE1F32DF67D502AAD /* libPods-LFLTrunkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F6D0BCA080FA6597E508E8 /* libPods-LFLTrunkLib.a */; };
 		E185E3411D76E64100DA26C8 /* LFLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E185E33F1D76E64100DA26C8 /* LFLChatViewController.m */; };
 		E185E3421D76E64800DA26C8 /* LFLChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E185E3401D76E64100DA26C8 /* LFLChatViewController.xib */; };
 		E185E3461D76F48B00DA26C8 /* LFLChetBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E185E3441D76F48B00DA26C8 /* LFLChetBaseViewCell.m */; };
+		E185E3551D76F7A200DA26C8 /* LFLChetRightMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E185E3531D76F7A200DA26C8 /* LFLChetRightMessageViewCell.m */; };
+		E185E3641D76FADF00DA26C8 /* user_head_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3621D76FADF00DA26C8 /* user_head_icon@2x.png */; };
+		E185E3651D76FADF00DA26C8 /* user_head_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */; };
+		E185E3681D76FBD400DA26C8 /* user_chat_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */; };
+		E185E3691D76FBD400DA26C8 /* user_chat_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */; };
+		E185E3781D770BFC00DA26C8 /* LFLChetRightMessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E185E3541D76F7A200DA26C8 /* LFLChetRightMessageViewCell.xib */; };
 		E18A4D531D76BCC6006FB742 /* libLFLFetcherLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18A4D521D76BCC6006FB742 /* libLFLFetcherLib.a */; };
 		E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */; };
 		E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AC1D76CE4700107EFD /* LFLUserCenterModel.m */; };
@@ -82,12 +87,19 @@
 
 /* Begin PBXFileReference section */
 		00F6D0BCA080FA6597E508E8 /* libPods-LFLTrunkLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LFLTrunkLib.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC311659326FCCC57656C12D /* Pods-LFLTrunkLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFLTrunkLib.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LFLTrunkLib/Pods-LFLTrunkLib.debug.xcconfig"; sourceTree = "<group>"; };
 		E185E33E1D76E64100DA26C8 /* LFLChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatViewController.h; sourceTree = "<group>"; };
 		E185E33F1D76E64100DA26C8 /* LFLChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatViewController.m; sourceTree = "<group>"; };
 		E185E3401D76E64100DA26C8 /* LFLChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFLChatViewController.xib; sourceTree = "<group>"; };
 		E185E3431D76F48B00DA26C8 /* LFLChetBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChetBaseViewCell.h; sourceTree = "<group>"; };
 		E185E3441D76F48B00DA26C8 /* LFLChetBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChetBaseViewCell.m; sourceTree = "<group>"; };
+		E185E3521D76F7A200DA26C8 /* LFLChetRightMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChetRightMessageViewCell.h; sourceTree = "<group>"; };
+		E185E3531D76F7A200DA26C8 /* LFLChetRightMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChetRightMessageViewCell.m; sourceTree = "<group>"; };
+		E185E3541D76F7A200DA26C8 /* LFLChetRightMessageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFLChetRightMessageViewCell.xib; sourceTree = "<group>"; };
+		E185E3621D76FADF00DA26C8 /* user_head_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_head_icon@2x.png"; sourceTree = "<group>"; };
+		E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_head_icon@3x.png"; sourceTree = "<group>"; };
+		E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@2x.png"; sourceTree = "<group>"; };
+		E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@3x.png"; sourceTree = "<group>"; };
+		E185E3791D770E4500DA26C8 /* libTTTAttributedLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTTTAttributedLabel.a; path = "../Build/Products/Debug-iphonesimulator/libTTTAttributedLabel.a"; sourceTree = "<group>"; };
 		E18A4D521D76BCC6006FB742 /* libLFLFetcherLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLFetcherLib.a; path = "../Build/Products/Debug-iphoneos/libLFLFetcherLib.a"; sourceTree = "<group>"; };
 		E18A4D541D76BD5A006FB742 /* libLFLToolsLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLToolsLib.a; path = "../Build/Products/Debug-iphoneos/libLFLToolsLib.a"; sourceTree = "<group>"; };
 		E1AFB65B1D76CA1500107EFD /* LFLFetcherLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLFetcherLib.xcodeproj; path = LFLFrameWorks/../../LFLFetcherLib/LFLFetcherLib.xcodeproj; sourceTree = "<group>"; };
@@ -130,7 +142,6 @@
 		E1CD9A391CB2B4EA00580FDC /* LFLTrunkBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLTrunkBundle.h; sourceTree = "<group>"; };
 		E1CD9A3A1CB2B4EA00580FDC /* LFLTrunkBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLTrunkBundle.m; sourceTree = "<group>"; };
 		E1CD9A3C1CB2B50500580FDC /* LFLTrunkLibPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLTrunkLibPrefixHeader.pch; sourceTree = "<group>"; };
-		FCCC8141ACFC8AE7CDC226F1 /* Pods-LFLTrunkLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFLTrunkLib.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LFLTrunkLib/Pods-LFLTrunkLib.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18A4D531D76BCC6006FB742 /* libLFLFetcherLib.a in Frameworks */,
-				8A19B2DEE1F32DF67D502AAD /* libPods-LFLTrunkLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,18 +163,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E5ECD7E4180B69DCDB020B3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BC311659326FCCC57656C12D /* Pods-LFLTrunkLib.debug.xcconfig */,
-				FCCC8141ACFC8AE7CDC226F1 /* Pods-LFLTrunkLib.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		CD71682786BC86358BBBD885 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E185E3791D770E4500DA26C8 /* libTTTAttributedLabel.a */,
 				E18A4D541D76BD5A006FB742 /* libLFLToolsLib.a */,
 				E18A4D521D76BCC6006FB742 /* libLFLFetcherLib.a */,
 				00F6D0BCA080FA6597E508E8 /* libPods-LFLTrunkLib.a */,
@@ -178,6 +180,17 @@
 				E1AFB65B1D76CA1500107EFD /* LFLFetcherLib.xcodeproj */,
 			);
 			path = LFLFrameWorks;
+			sourceTree = "<group>";
+		};
+		E185E3611D76FADF00DA26C8 /* 聊天模块 */ = {
+			isa = PBXGroup;
+			children = (
+				E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */,
+				E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */,
+				E185E3621D76FADF00DA26C8 /* user_head_icon@2x.png */,
+				E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */,
+			);
+			path = "聊天模块";
 			sourceTree = "<group>";
 		};
 		E1AFB65C1D76CA1500107EFD /* Products */ = {
@@ -311,6 +324,9 @@
 			children = (
 				E185E3431D76F48B00DA26C8 /* LFLChetBaseViewCell.h */,
 				E185E3441D76F48B00DA26C8 /* LFLChetBaseViewCell.m */,
+				E185E3521D76F7A200DA26C8 /* LFLChetRightMessageViewCell.h */,
+				E185E3531D76F7A200DA26C8 /* LFLChetRightMessageViewCell.m */,
+				E185E3541D76F7A200DA26C8 /* LFLChetRightMessageViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -341,7 +357,6 @@
 				E1CD9A2A1CB2A7A500580FDC /* LFLTrunkBundle */,
 				E1CD99F71CB29B2D00580FDC /* Products */,
 				E17AF7911CBA938B0077FF38 /* LFLFrameWorks */,
-				0E5ECD7E4180B69DCDB020B3 /* Pods */,
 				CD71682786BC86358BBBD885 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -387,6 +402,7 @@
 		E1CD9A2A1CB2A7A500580FDC /* LFLTrunkBundle */ = {
 			isa = PBXGroup;
 			children = (
+				E185E3611D76FADF00DA26C8 /* 聊天模块 */,
 				E1AFB6E61D76CF1600107EFD /* 数据库 */,
 				E1AFB6E11D76CEFC00107EFD /* 个人中心 */,
 				E1AFB6C01D76CEDB00107EFD /* tabbaricon */,
@@ -401,11 +417,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1CD99FF1CB29B2D00580FDC /* Build configuration list for PBXNativeTarget "LFLTrunkLib" */;
 			buildPhases = (
-				15294E2555B41FD0A3D68D94 /* Check Pods Manifest.lock */,
 				E1CD99F21CB29B2D00580FDC /* Sources */,
 				E1CD99F31CB29B2D00580FDC /* Frameworks */,
 				E1CD99F41CB29B2D00580FDC /* CopyFiles */,
-				355564C152C967514B3A9D00 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -492,20 +506,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AFB6D41D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo_select@3x.png in Resources */,
+				E185E3651D76FADF00DA26C8 /* user_head_icon@3x.png in Resources */,
 				E1AFB6DB1D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai_select@2x.png in Resources */,
 				E1AFB6DD1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao@2x.png in Resources */,
 				E185E3421D76E64800DA26C8 /* LFLChatViewController.xib in Resources */,
 				E1AFB6E41D76CEFC00107EFD /* lfl_user_center_go_icon@2x.png in Resources */,
+				E185E3641D76FADF00DA26C8 /* user_head_icon@2x.png in Resources */,
 				E1AFB6DA1D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai@3x.png in Resources */,
 				E1AFB6E01D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao_select@3x.png in Resources */,
+				E185E3681D76FBD400DA26C8 /* user_chat_bubble@2x.png in Resources */,
 				E1AFB6D21D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo@3x.png in Resources */,
 				E1AFB6BF1D76CE5400107EFD /* LFLUserCenterCustomTableViewCell.xib in Resources */,
 				E1AFB6DF1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao_select@2x.png in Resources */,
 				E1AFB6D61D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian@3x.png in Resources */,
+				E185E3691D76FBD400DA26C8 /* user_chat_bubble@3x.png in Resources */,
 				E1AFB6DC1D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai_select@3x.png in Resources */,
 				E1AFB6D51D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian@2x.png in Resources */,
 				E1AFB6E51D76CEFC00107EFD /* lfl_user_center_go_icon@3x.png in Resources */,
 				E1AFB6D31D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo_select@2x.png in Resources */,
+				E185E3781D770BFC00DA26C8 /* LFLChetRightMessageViewCell.xib in Resources */,
 				E1AFB6DE1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao@3x.png in Resources */,
 				E1AFB6D91D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai@2x.png in Resources */,
 				E1AFB6D11D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo@2x.png in Resources */,
@@ -516,45 +535,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		15294E2555B41FD0A3D68D94 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		355564C152C967514B3A9D00 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LFLTrunkLib/Pods-LFLTrunkLib-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E1CD99F21CB29B2D00580FDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E185E3411D76E64100DA26C8 /* LFLChatViewController.m in Sources */,
+				E185E3551D76F7A200DA26C8 /* LFLChetRightMessageViewCell.m in Sources */,
 				E1CD99FC1CB29B2D00580FDC /* LFLTrunkLib.m in Sources */,
 				E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */,
 				E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */,
@@ -675,7 +662,6 @@
 		};
 		E1CD9A001CB29B2D00580FDC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC311659326FCCC57656C12D /* Pods-LFLTrunkLib.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LFLTrunkLib/LFLTrunkLibPrefixHeader.pch;
@@ -696,7 +682,6 @@
 		};
 		E1CD9A011CB29B2D00580FDC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCCC8141ACFC8AE7CDC226F1 /* Pods-LFLTrunkLib.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LFLTrunkLib/LFLTrunkLibPrefixHeader.pch;

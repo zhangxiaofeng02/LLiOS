@@ -21,7 +21,7 @@
     #import "LFLGlobal.h"
 
     //MagicalRecord
-    #import <MagicalRecord/MagicalRecord.h>
+    #import "MagicalRecord.h"
 
     //ReactiveCocoa
     #import <ReactiveCocoa.h>

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E10707061CC89B1300D716D6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E10707051CC89B1300D716D6 /* libc++.tbd */; };
-		E1AFB6941D76CB0400107EFD /* libLFLToolsLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AFB6791D76CA6E00107EFD /* libLFLToolsLib.a */; };
-		E1AFB6951D76CB0400107EFD /* libLFLTrunkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AFB6711D76CA6B00107EFD /* libLFLTrunkLib.a */; };
-		E1AFB6A51D76CD5100107EFD /* LFLTrunkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AFB6731D76CA6B00107EFD /* LFLTrunkBundle.bundle */; };
+		E14F5C5C1D77F7AA006BB37F /* libLFLToolsLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */; };
+		E14F5C5D1D77F7AA006BB37F /* libLFLTrunkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */; };
+		E14F5C5F1D77F7B4006BB37F /* LFLTrunkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */; };
 		E1CD99CB1CB292F200580FDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD99CA1CB292F200580FDC /* main.m */; };
 		E1CD99CE1CB292F200580FDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD99CD1CB292F200580FDC /* AppDelegate.m */; };
 		E1CD99D41CB292F200580FDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CD99D21CB292F200580FDC /* Main.storyboard */; };
@@ -59,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		E10707051CC89B1300D716D6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLToolsLib.a; path = "../Build/Products/Debug-iphonesimulator/libLFLToolsLib.a"; sourceTree = "<group>"; };
+		E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLTrunkLib.a; path = "../Build/Products/Debug-iphonesimulator/libLFLTrunkLib.a"; sourceTree = "<group>"; };
+		E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = LFLTrunkBundle.bundle; path = "/Users/baidu/GitHub/LLiOS/Build/Products/Debug-iphonesimulator/LFLTrunkBundle.bundle"; sourceTree = "<absolute>"; };
 		E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLTrunkLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLTrunkLib/LFLTrunkLib.xcodeproj; sourceTree = "<group>"; };
 		E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLToolsLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLToolsLib/LFLToolsLib.xcodeproj; sourceTree = "<group>"; };
 		E1CD99C61CB292F200580FDC /* LFLAppShell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFLAppShell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AFB6941D76CB0400107EFD /* libLFLToolsLib.a in Frameworks */,
-				E1AFB6951D76CB0400107EFD /* libLFLTrunkLib.a in Frameworks */,
+				E14F5C5C1D77F7AA006BB37F /* libLFLToolsLib.a in Frameworks */,
+				E14F5C5D1D77F7AA006BB37F /* libLFLTrunkLib.a in Frameworks */,
 				E10707061CC89B1300D716D6 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +111,9 @@
 		E1CD99BD1CB292F200580FDC = {
 			isa = PBXGroup;
 			children = (
+				E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */,
+				E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */,
+				E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */,
 				E1CD99C81CB292F200580FDC /* LFLAppShell */,
 				E1CD9A041CB29BB100580FDC /* FrameWork */,
 				E1CD99C71CB292F200580FDC /* Products */,
@@ -252,7 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1AFB6A51D76CD5100107EFD /* LFLTrunkBundle.bundle in Resources */,
+				E14F5C5F1D77F7B4006BB37F /* LFLTrunkBundle.bundle in Resources */,
 				E1CD99D91CB292F200580FDC /* LaunchScreen.storyboard in Resources */,
 				E1CD99D61CB292F200580FDC /* Assets.xcassets in Resources */,
 				E1CD99D41CB292F200580FDC /* Main.storyboard in Resources */,

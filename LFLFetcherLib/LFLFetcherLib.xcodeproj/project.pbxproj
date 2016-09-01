@@ -7,23 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A09B85F21F762A972B31318 /* libPods-LFLFetcherLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD894DDA2148D51F3DF63BF /* libPods-LFLFetcherLib.a */; };
 		E10629121CB7618300239297 /* LFLFetcherLib.h in Copy Files */ = {isa = PBXBuildFile; fileRef = E10629111CB7618300239297 /* LFLFetcherLib.h */; };
 		E10629141CB7618300239297 /* LFLFetcherLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E10629131CB7618300239297 /* LFLFetcherLib.m */; };
 		E10706E01CC87CAA00D716D6 /* LFLBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E10706DF1CC87CAA00D716D6 /* LFLBaseViewModel.m */; };
 		E10706E31CC87CC400D716D6 /* LFLBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E10706E21CC87CC400D716D6 /* LFLBaseAction.m */; };
 		E10706E61CC87CD300D716D6 /* LFLBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E10706E51CC87CD300D716D6 /* LFLBaseRequest.m */; };
 		E10707101CC89E9500D716D6 /* LFLBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E107070F1CC89E9500D716D6 /* LFLBaseModel.m */; };
-		E10707191CC8A26700D716D6 /* libJSONModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E10707181CC8A26700D716D6 /* libJSONModel.a */; };
 		E10CADD61CBA1ABE00A089DD /* LFLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E10CADD51CBA1ABE00A089DD /* LFLFetcher.m */; };
 		E10CADD91CBA1AD100A089DD /* LFLFetcherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E10CADD81CBA1AD100A089DD /* LFLFetcherManager.m */; };
 		E10CADDC1CBA3A9B00A089DD /* LFLFetcher+NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = E10CADDB1CBA3A9B00A089DD /* LFLFetcher+NetWork.m */; };
 		E1332A311CBCC76B00ECA544 /* LFLFetcher+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1332A301CBCC76B00ECA544 /* LFLFetcher+CoreData.m */; };
 		E1332A471CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E1332A461CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m */; };
 		E13EF2EF1CC21FD600D9C7D5 /* LFLUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E13EF2EE1CC21FD600D9C7D5 /* LFLUserInfo.m */; };
-		E16A6F091CC7E0CF008AC5A7 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E16A6F071CC7E0CF008AC5A7 /* libAFNetworking.a */; };
-		E16A6F0A1CC7E0D0008AC5A7 /* libMagicalRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E16A6F081CC7E0CF008AC5A7 /* libMagicalRecord.a */; };
-		E16A6F101CC7E19F008AC5A7 /* libReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E16A6F0F1CC7E19F008AC5A7 /* libReactiveCocoa.a */; };
 		E17AF7D91CBB495A0077FF38 /* LFLURLMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7D81CBB495A0077FF38 /* LFLURLMaker.m */; };
 		E17AF7E81CBB4B830077FF38 /* LFLBaseJsonPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7E71CBB4B830077FF38 /* LFLBaseJsonPraser.m */; };
 		E17AF7EB1CBB4B930077FF38 /* LFLJsonPraserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7EA1CBB4B930077FF38 /* LFLJsonPraserManager.m */; };
@@ -45,8 +40,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2EFA44D8B0A8B3A5D9D14E31 /* Pods-LFLFetcherLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFLFetcherLib.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LFLFetcherLib/Pods-LFLFetcherLib.debug.xcconfig"; sourceTree = "<group>"; };
-		A13026FB4164684F7830CC65 /* Pods-LFLFetcherLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFLFetcherLib.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LFLFetcherLib/Pods-LFLFetcherLib.release.xcconfig"; sourceTree = "<group>"; };
 		E106290E1CB7618300239297 /* libLFLFetcherLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLFLFetcherLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E10629111CB7618300239297 /* LFLFetcherLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLFetcherLib.h; sourceTree = "<group>"; };
 		E10629131CB7618300239297 /* LFLFetcherLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFLFetcherLib.m; sourceTree = "<group>"; };
@@ -92,11 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E10707191CC8A26700D716D6 /* libJSONModel.a in Frameworks */,
-				E16A6F101CC7E19F008AC5A7 /* libReactiveCocoa.a in Frameworks */,
-				E16A6F091CC7E0CF008AC5A7 /* libAFNetworking.a in Frameworks */,
-				E16A6F0A1CC7E0D0008AC5A7 /* libMagicalRecord.a in Frameworks */,
-				8A09B85F21F762A972B31318 /* libPods-LFLFetcherLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,15 +104,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CED9B0D1341EF37C578D2CEB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2EFA44D8B0A8B3A5D9D14E31 /* Pods-LFLFetcherLib.debug.xcconfig */,
-				A13026FB4164684F7830CC65 /* Pods-LFLFetcherLib.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E10629051CB7618300239297 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +111,6 @@
 				E10CADC71CBA141400A089DD /* LFLSrc */,
 				E10CADC61CBA141400A089DD /* Framework */,
 				E106290F1CB7618300239297 /* Products */,
-				CED9B0D1341EF37C578D2CEB /* Pods */,
 				862385B3A24ECE9B588056BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -268,11 +246,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E10629171CB7618300239297 /* Build configuration list for PBXNativeTarget "LFLFetcherLib" */;
 			buildPhases = (
-				164B7DB306FCA2AE7ADFBD50 /* Check Pods Manifest.lock */,
 				E106290A1CB7618300239297 /* Sources */,
-				E106290B1CB7618300239297 /* Frameworks */,
 				E106290C1CB7618300239297 /* Copy Files */,
-				831BD97B89A8253098C3A711 /* Copy Pods Resources */,
+				E106290B1CB7618300239297 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,39 +289,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		164B7DB306FCA2AE7ADFBD50 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		831BD97B89A8253098C3A711 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LFLFetcherLib/Pods-LFLFetcherLib-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E106290A1CB7618300239297 /* Sources */ = {
@@ -457,7 +400,6 @@
 		};
 		E10629181CB7618300239297 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EFA44D8B0A8B3A5D9D14E31 /* Pods-LFLFetcherLib.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -479,7 +421,6 @@
 		};
 		E10629191CB7618300239297 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A13026FB4164684F7830CC65 /* Pods-LFLFetcherLib.release.xcconfig */;
 			buildSettings = {
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

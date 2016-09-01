@@ -10,7 +10,7 @@
 #import "LFLUserCenterCustomTableViewCell.h"
 #import "LFLFetcher+CoreData.h"
 #import "LFLUserInfo.h"
-#import <MagicalRecord/MagicalRecord.h>
+#import "MagicalRecord.h"
 #import "LFLUserCenterViewModel.h"
 #import "LFLUserCenterModel.h"
 
