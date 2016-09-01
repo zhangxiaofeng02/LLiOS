@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LFLChetRightMessageViewCell" rowHeight="68" id="KGk-i7-Jjw" customClass="LFLChetRightMessageViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="489" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="489" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_head_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="LCX-Dm-5DX">
+                        <rect key="frame" x="441" y="14" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="EDq-Zq-jgR"/>
+                            <constraint firstAttribute="width" constant="40" id="kZ4-hi-sBV"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_chat_bubble.png" translatesAutoresizingMaskIntoConstraints="NO" id="mml-E8-zEM">
+                        <rect key="frame" x="283" y="14" width="140" height="40"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1y-h9-e10" customClass="YYText">
+                        <rect key="frame" x="293" y="24" width="120" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="lbb-8j-RZZ"/>
+                            <constraint firstAttribute="height" constant="20" id="xSh-Vu-k6p"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LCX-Dm-5DX" firstAttribute="leading" secondItem="U1y-h9-e10" secondAttribute="trailing" constant="28" id="80U-Dq-MgN"/>
+                    <constraint firstItem="mml-E8-zEM" firstAttribute="bottom" secondItem="U1y-h9-e10" secondAttribute="bottom" constant="10" id="9Zn-Qd-bLh"/>
+                    <constraint firstItem="U1y-h9-e10" firstAttribute="leading" secondItem="mml-E8-zEM" secondAttribute="leading" constant="10" id="9rz-6i-HqX"/>
+                    <constraint firstAttribute="trailing" secondItem="LCX-Dm-5DX" secondAttribute="trailing" constant="8" id="Fg5-3N-AdD"/>
+                    <constraint firstItem="mml-E8-zEM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="Nad-Ja-M01"/>
+                    <constraint firstItem="U1y-h9-e10" firstAttribute="top" secondItem="mml-E8-zEM" secondAttribute="top" constant="10" id="Z6G-ek-ots"/>
+                    <constraint firstItem="LCX-Dm-5DX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="Zbq-gM-rwX"/>
+                    <constraint firstItem="mml-E8-zEM" firstAttribute="trailing" secondItem="U1y-h9-e10" secondAttribute="trailing" constant="10" id="fHP-tA-GL1"/>
+                    <constraint firstItem="LCX-Dm-5DX" firstAttribute="leading" secondItem="mml-E8-zEM" secondAttribute="trailing" constant="18" id="pIm-9X-r0k"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bubbleImageView" destination="mml-E8-zEM" id="Esr-He-zQW"/>
+                <outlet property="rightHeadIconImageView" destination="LCX-Dm-5DX" id="5Wd-DU-Tf6"/>
+                <outlet property="textLabel" destination="U1y-h9-e10" id="4Gz-oC-0et"/>
+            </connections>
+            <point key="canvasLocation" x="-996.5" y="341"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="user_chat_bubble.png" width="27" height="40"/>
+        <image name="user_head_icon.png" width="40" height="40"/>
+    </resources>
+</document>

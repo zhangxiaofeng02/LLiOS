@@ -7,6 +7,7 @@
 //
 
 #import "LFLChatViewController.h"
+#import "LFLChetRightMessageViewCell.h"
 
 @interface LFLChatViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
+    [self.messageTableView LFLRegisterNibWithClass:NSClassFromString(@"LFLChetRightMessageViewCell") bundle:@"LFLTrunkBundle"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,16 +42,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *itf = @"cell";
-//    UITableViewCell *cell = nil;
-//    cell = [tableView dequeueReusableCellWithIdentifier:itf forIndexPath:indexPath];
-//    [cell setBackgroundColor:[UIColor redColor]];
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    LFLChetRightMessageViewCell *cell = nil;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChetRightMessageViewCell" forIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ScreenHeight - 64;
+    return 80.0;
 }
 
 @end
