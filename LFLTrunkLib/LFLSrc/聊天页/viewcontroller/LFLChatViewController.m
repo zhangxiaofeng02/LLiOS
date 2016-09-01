@@ -8,11 +8,14 @@
 
 #import "LFLChatViewController.h"
 #import "LFLChatRightMessageViewCell.h"
+#import "LFLChatLeftMessageViewCell.h"
 
 @interface LFLChatViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
-@property (strong, nonatomic) NSArray *dataArr;
+@property (strong, nonatomic) NSMutableArray *dataArr;
 @property (strong, nonatomic) LFLChatRightMessageViewCell *rightMessageCell;
+@property (strong, nonatomic) LFLChatLeftMessageViewCell *leftMessageCell;
+@property (strong, nonatomic) NSMutableArray *heightArr;
 @end
 
 @implementation LFLChatViewController
@@ -20,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
+    [self.messageTableView LFLRegisterNibWithClass:[LFLChatLeftMessageViewCell class] bundle:@"LFLTrunkBundle"];
     self.dataArr = @[@"这是一条测试语句",
                      @"这是一条测是一条测试是一条测试试语句",
                      @"这是一是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试条测试语句",
@@ -39,8 +43,11 @@
                      @"这是一条测试语一条测试语一条测试语一条测试语一条测试语试语句",
                      @"这是一条测一条测一条测一条测一条测试语句",
                      @"这是一条测试语句"];
+
+    
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
+    self.messageTableView.separatorStyle = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,16 +69,49 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LFLChatRightMessageViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];
+//    LFLChatRightMessageViewCell *cell = nil;
+//    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];
+//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+//    [cell setMessage:self.dataArr[[indexPath row]]];
+//    return cell;
+    LFLChatLeftMessageViewCell *cell = nil;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell" forIndexPath:indexPath];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setMessage:self.dataArr[[indexPath row]]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = [self.rightMessageCell sizeForText:self.dataArr[[indexPath row]]];
-    return  height + 30;
+//    NSInteger row = [indexPath row];
+//    NSString *message = self.dataArr[row];
+//    if (!self.heightArr) {
+//        self.heightArr = @[].mutableCopy;
+//    }
+//    CGFloat height = 0;
+//    if (self.heightArr.count > row +1) {
+//        height = [self.heightArr[row] floatValue];
+//        if (height > 0) {
+//            return height + 60;
+//        }
+//    }
+//    height = [self.rightMessageCell sizeForText:message];
+//    [self.heightArr addObject:@(height)];
+//    return  height + 60;
+    NSInteger row = [indexPath row];
+    NSString *message = self.dataArr[row];
+    if (!self.heightArr) {
+        self.heightArr = @[].mutableCopy;
+    }
+    CGFloat height = 0;
+    if (self.heightArr.count > row +1) {
+        height = [self.heightArr[row] floatValue];
+        if (height > 0) {
+            return height + 60;
+        }
+    }
+    height = [self.leftMessageCell sizeForText:message];
+    [self.heightArr addObject:@(height)];
+    return  height + 60;
 }
 
 #pragma mark getter && setter
@@ -83,5 +123,14 @@
         _rightMessageCell = [[[LFLTrunkBundle resourceBundle] loadNibNamed:@"LFLChatRightMessageViewCell" owner:self options:nil] firstObject];
     }
     return _rightMessageCell;
+}
+
+- (LFLChatLeftMessageViewCell *)leftMessageCell {
+    if (_leftMessageCell) {
+        _leftMessageCell = [self.messageTableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell"];
+    } else {
+        _leftMessageCell = [[[LFLTrunkBundle resourceBundle] loadNibNamed:@"LFLChatLeftMessageViewCell" owner:self options:nil] firstObject];
+    }
+    return _leftMessageCell;
 }
 @end
