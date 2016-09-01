@@ -22,8 +22,8 @@
 //easy model
 #import "EasyTransModel.h"
 
-//YYText
-#import "YYText.h"
+//TTTAttributedLabel
+#import "TTTAttributedLabel.h"
 
 @interface LFLToolsLib : NSObject
 @end

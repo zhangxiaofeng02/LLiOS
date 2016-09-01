@@ -7,20 +7,40 @@
 //
 
 #import "LFLChatViewController.h"
-#import "LFLChetRightMessageViewCell.h"
+#import "LFLChatRightMessageViewCell.h"
 
-@interface LFLChatViewController ()
+@interface LFLChatViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
-
+@property (strong, nonatomic) NSArray *dataArr;
+@property (strong, nonatomic) LFLChatRightMessageViewCell *rightMessageCell;
 @end
 
 @implementation LFLChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
+    self.dataArr = @[@"这是一条测试语句",
+                     @"这是一条测是一条测试是一条测试试语句",
+                     @"这是一是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试条测试语句",
+                     @"这是一条条测试是一条测试是一条测试是一条测试是一测试语句",
+                     @"这是一条测试语句",
+                     @"这是试语句",
+                     @"这是一条测是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试试语句",
+                     @"这是一条测条测试条测试条测试条测试条测试条测试条测试试语句",
+                     @"这是一条测试条测试条测试条测试条测试语句",
+                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语句",
+                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语试语句",
+                     @"这是一条测一条测一条测一条测一条测试语句",
+                     @"这是一条测试语句",
+                     @"这是一条测条测试条测试条测试条测试条测试条测试条测试试语句",
+                     @"这是一条测试条测试条测试条测试条测试语句",
+                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语句",
+                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语试语句",
+                     @"这是一条测一条测一条测一条测一条测试语句",
+                     @"这是一条测试语句"];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
-    [self.messageTableView LFLRegisterNibWithClass:NSClassFromString(@"LFLChetRightMessageViewCell") bundle:@"LFLTrunkBundle"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,18 +58,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LFLChetRightMessageViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChetRightMessageViewCell" forIndexPath:indexPath];
+    LFLChatRightMessageViewCell *cell = nil;
+    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setMessage:self.dataArr[[indexPath row]]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
+    CGFloat height = [self.rightMessageCell sizeForText:self.dataArr[[indexPath row]]];
+    return  height + 30;
 }
 
+#pragma mark getter && setter
+
+- (LFLChatRightMessageViewCell *)rightMessageCell {
+    if (_rightMessageCell) {
+        _rightMessageCell = [self.messageTableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell"];
+    } else {
+        _rightMessageCell = [[[LFLTrunkBundle resourceBundle] loadNibNamed:@"LFLChatRightMessageViewCell" owner:self options:nil] firstObject];
+    }
+    return _rightMessageCell;
+}
 @end
