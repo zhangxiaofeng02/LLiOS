@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E10560A81D7804A30050D8A8 /* libLFLToolsLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E10560A11D78048F0050D8A8 /* libLFLToolsLib.a */; };
+		E10560A91D7804A30050D8A8 /* libLFLTrunkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E10560991D7804890050D8A8 /* libLFLTrunkLib.a */; };
+		E10560AA1D7804EB0050D8A8 /* LFLTrunkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */; };
 		E10707061CC89B1300D716D6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E10707051CC89B1300D716D6 /* libc++.tbd */; };
-		E14F5C5C1D77F7AA006BB37F /* libLFLToolsLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */; };
-		E14F5C5D1D77F7AA006BB37F /* libLFLTrunkLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */; };
-		E14F5C5F1D77F7B4006BB37F /* LFLTrunkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */; };
 		E1CD99CB1CB292F200580FDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD99CA1CB292F200580FDC /* main.m */; };
 		E1CD99CE1CB292F200580FDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD99CD1CB292F200580FDC /* AppDelegate.m */; };
 		E1CD99D41CB292F200580FDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CD99D21CB292F200580FDC /* Main.storyboard */; };
@@ -20,37 +20,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E1AFB6701D76CA6B00107EFD /* PBXContainerItemProxy */ = {
+		E10560981D7804890050D8A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */;
+			containerPortal = E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E1CD99F61CB29B2D00580FDC;
 			remoteInfo = LFLTrunkLib;
 		};
-		E1AFB6721D76CA6B00107EFD /* PBXContainerItemProxy */ = {
+		E105609A1D7804890050D8A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */;
+			containerPortal = E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E1CD9A291CB2A7A500580FDC;
 			remoteInfo = LFLTrunkBundle;
 		};
-		E1AFB6781D76CA6E00107EFD /* PBXContainerItemProxy */ = {
+		E10560A01D78048F0050D8A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */;
+			containerPortal = E105609C1D78048F0050D8A8 /* LFLToolsLib.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E1096C9A1CB610D300484BDB;
 			remoteInfo = LFLToolsLib;
 		};
-		E1AFB6901D76CAFD00107EFD /* PBXContainerItemProxy */ = {
+		E10560A21D7804940050D8A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */;
+			containerPortal = E105609C1D78048F0050D8A8 /* LFLToolsLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E1096C991CB610D300484BDB;
 			remoteInfo = LFLToolsLib;
 		};
-		E1AFB6921D76CAFD00107EFD /* PBXContainerItemProxy */ = {
+		E10560A41D7804940050D8A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */;
+			containerPortal = E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E1CD99F51CB29B2D00580FDC;
 			remoteInfo = LFLTrunkLib;
@@ -58,12 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLTrunkLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLTrunkLib/LFLTrunkLib.xcodeproj; sourceTree = "<group>"; };
+		E105609C1D78048F0050D8A8 /* LFLToolsLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLToolsLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLToolsLib/LFLToolsLib.xcodeproj; sourceTree = "<group>"; };
 		E10707051CC89B1300D716D6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLToolsLib.a; path = "../Build/Products/Debug-iphonesimulator/libLFLToolsLib.a"; sourceTree = "<group>"; };
-		E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLFLTrunkLib.a; path = "../Build/Products/Debug-iphonesimulator/libLFLTrunkLib.a"; sourceTree = "<group>"; };
 		E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = LFLTrunkBundle.bundle; path = "/Users/baidu/GitHub/LLiOS/Build/Products/Debug-iphonesimulator/LFLTrunkBundle.bundle"; sourceTree = "<absolute>"; };
-		E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLTrunkLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLTrunkLib/LFLTrunkLib.xcodeproj; sourceTree = "<group>"; };
-		E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLToolsLib.xcodeproj; path = LFLAppShell/FrameWork/../../../LFLToolsLib/LFLToolsLib.xcodeproj; sourceTree = "<group>"; };
 		E1CD99C61CB292F200580FDC /* LFLAppShell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFLAppShell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CD99CA1CB292F200580FDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1CD99CC1CB292F200580FDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,8 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14F5C5C1D77F7AA006BB37F /* libLFLToolsLib.a in Frameworks */,
-				E14F5C5D1D77F7AA006BB37F /* libLFLTrunkLib.a in Frameworks */,
+				E10560A81D7804A30050D8A8 /* libLFLToolsLib.a in Frameworks */,
+				E10560A91D7804A30050D8A8 /* libLFLTrunkLib.a in Frameworks */,
 				E10707061CC89B1300D716D6 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,19 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E1AFB66C1D76CA6B00107EFD /* Products */ = {
+		E10560941D7804890050D8A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1AFB6711D76CA6B00107EFD /* libLFLTrunkLib.a */,
-				E1AFB6731D76CA6B00107EFD /* LFLTrunkBundle.bundle */,
+				E10560991D7804890050D8A8 /* libLFLTrunkLib.a */,
+				E105609B1D7804890050D8A8 /* LFLTrunkBundle.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E1AFB6751D76CA6E00107EFD /* Products */ = {
+		E105609D1D78048F0050D8A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1AFB6791D76CA6E00107EFD /* libLFLToolsLib.a */,
+				E10560A11D78048F0050D8A8 /* libLFLToolsLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,9 +109,6 @@
 		E1CD99BD1CB292F200580FDC = {
 			isa = PBXGroup;
 			children = (
-				E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */,
-				E14F5C5A1D77F7AA006BB37F /* libLFLToolsLib.a */,
-				E14F5C5B1D77F7AA006BB37F /* libLFLTrunkLib.a */,
 				E1CD99C81CB292F200580FDC /* LFLAppShell */,
 				E1CD9A041CB29BB100580FDC /* FrameWork */,
 				E1CD99C71CB292F200580FDC /* Products */,
@@ -156,8 +151,9 @@
 		E1CD9A041CB29BB100580FDC /* FrameWork */ = {
 			isa = PBXGroup;
 			children = (
-				E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */,
-				E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */,
+				E105609C1D78048F0050D8A8 /* LFLToolsLib.xcodeproj */,
+				E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */,
+				E14F5C5E1D77F7B4006BB37F /* LFLTrunkBundle.bundle */,
 				E10707051CC89B1300D716D6 /* libc++.tbd */,
 			);
 			name = FrameWork;
@@ -178,8 +174,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				E1AFB6911D76CAFD00107EFD /* PBXTargetDependency */,
-				E1AFB6931D76CAFD00107EFD /* PBXTargetDependency */,
+				E10560A31D7804940050D8A8 /* PBXTargetDependency */,
+				E10560A51D7804940050D8A8 /* PBXTargetDependency */,
 			);
 			name = LFLAppShell;
 			productName = LFLAppShell;
@@ -214,12 +210,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E1AFB6751D76CA6E00107EFD /* Products */;
-					ProjectRef = E1AFB6741D76CA6E00107EFD /* LFLToolsLib.xcodeproj */;
+					ProductGroup = E105609D1D78048F0050D8A8 /* Products */;
+					ProjectRef = E105609C1D78048F0050D8A8 /* LFLToolsLib.xcodeproj */;
 				},
 				{
-					ProductGroup = E1AFB66C1D76CA6B00107EFD /* Products */;
-					ProjectRef = E1AFB66B1D76CA6B00107EFD /* LFLTrunkLib.xcodeproj */;
+					ProductGroup = E10560941D7804890050D8A8 /* Products */;
+					ProjectRef = E10560931D7804890050D8A8 /* LFLTrunkLib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -230,25 +226,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E1AFB6711D76CA6B00107EFD /* libLFLTrunkLib.a */ = {
+		E10560991D7804890050D8A8 /* libLFLTrunkLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libLFLTrunkLib.a;
-			remoteRef = E1AFB6701D76CA6B00107EFD /* PBXContainerItemProxy */;
+			remoteRef = E10560981D7804890050D8A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E1AFB6731D76CA6B00107EFD /* LFLTrunkBundle.bundle */ = {
+		E105609B1D7804890050D8A8 /* LFLTrunkBundle.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = LFLTrunkBundle.bundle;
-			remoteRef = E1AFB6721D76CA6B00107EFD /* PBXContainerItemProxy */;
+			remoteRef = E105609A1D7804890050D8A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E1AFB6791D76CA6E00107EFD /* libLFLToolsLib.a */ = {
+		E10560A11D78048F0050D8A8 /* libLFLToolsLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libLFLToolsLib.a;
-			remoteRef = E1AFB6781D76CA6E00107EFD /* PBXContainerItemProxy */;
+			remoteRef = E10560A01D78048F0050D8A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -258,7 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14F5C5F1D77F7B4006BB37F /* LFLTrunkBundle.bundle in Resources */,
+				E10560AA1D7804EB0050D8A8 /* LFLTrunkBundle.bundle in Resources */,
 				E1CD99D91CB292F200580FDC /* LaunchScreen.storyboard in Resources */,
 				E1CD99D61CB292F200580FDC /* Assets.xcassets in Resources */,
 				E1CD99D41CB292F200580FDC /* Main.storyboard in Resources */,
@@ -281,15 +277,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E1AFB6911D76CAFD00107EFD /* PBXTargetDependency */ = {
+		E10560A31D7804940050D8A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LFLToolsLib;
-			targetProxy = E1AFB6901D76CAFD00107EFD /* PBXContainerItemProxy */;
+			targetProxy = E10560A21D7804940050D8A8 /* PBXContainerItemProxy */;
 		};
-		E1AFB6931D76CAFD00107EFD /* PBXTargetDependency */ = {
+		E10560A51D7804940050D8A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LFLTrunkLib;
-			targetProxy = E1AFB6921D76CAFD00107EFD /* PBXContainerItemProxy */;
+			targetProxy = E10560A41D7804940050D8A8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
