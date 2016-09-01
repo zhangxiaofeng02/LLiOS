@@ -10,4 +10,11 @@
 
 @interface LFLChetBaseViewCell : UITableViewCell
 
+@property (weak, nonatomic, readonly) IBOutlet TTTAttributedLabel *contentLabel;
+@property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *contentLabelWidth;
+@property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *contentLabelHeight;
+@property (weak, nonatomic, readonly) IBOutlet UIImageView *bubbleImageView;
+
+- (void)setMessage:(NSString *)message;
+- (CGFloat)sizeForText:(NSString *)message;
 @end
