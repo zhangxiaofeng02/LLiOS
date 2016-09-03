@@ -15,4 +15,5 @@
 @interface LFLChatUserInputView : LFLBaseView
 
 @property (nonatomic, weak) id<LFLChatUserInputViewDelegate> delegate;
+@property (weak, nonatomic, readonly) IBOutlet UITextView *userEditTextField;
 @end
