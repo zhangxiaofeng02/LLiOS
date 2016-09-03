@@ -163,7 +163,7 @@
 		E14F5C571D77F79E006BB37F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB21D77F79E006BB37F /* UIImageView+HighlightedWebCache.m */; };
 		E14F5C581D77F79E006BB37F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB41D77F79E006BB37F /* UIImageView+WebCache.m */; };
 		E14F5C591D77F79E006BB37F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */; };
-		E1CB3DF81D7816FA000EC45C /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CB3DF71D7816FA000EC45C /* TTTAttributedLabel.m */; };
+		E17B2BE21D7B2B1F00733C65 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */; };
 		E1FAB0231D799E1700E5DCBF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC21D799E1600E5DCBF /* MagicalImportFunctions.m */; };
 		E1FAB0241D799E1700E5DCBF /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC41D799E1600E5DCBF /* NSAttributeDescription+MagicalDataImport.m */; };
 		E1FAB0251D799E1700E5DCBF /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC61D799E1600E5DCBF /* NSEntityDescription+MagicalDataImport.m */; };
@@ -548,8 +548,8 @@
 		E14F5BB41D77F79E006BB37F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E14F5BB51D77F79E006BB37F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		E1CB3DF61D7816FA000EC45C /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
-		E1CB3DF71D7816FA000EC45C /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		E17B2BE01D7B2B1F00733C65 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		E1FAAFC11D799E1600E5DCBF /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		E1FAAFC21D799E1600E5DCBF /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		E1FAAFC31D799E1600E5DCBF /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -724,7 +724,7 @@
 		E1096CB01CB6146800484BDB /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
-				E1CB3DF51D7816FA000EC45C /* TTTAttributedLabel */,
+				E17B2BDF1D7B2B1F00733C65 /* TTTAttributedLabel */,
 				E14F5A4D1D77F79E006BB37F /* AFNetworking */,
 				E14F5A731D77F79E006BB37F /* JSONModel */,
 				E14F5A901D77F79E006BB37F /* MagicalRecord */,
@@ -1177,11 +1177,11 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		E1CB3DF51D7816FA000EC45C /* TTTAttributedLabel */ = {
+		E17B2BDF1D7B2B1F00733C65 /* TTTAttributedLabel */ = {
 			isa = PBXGroup;
 			children = (
-				E1CB3DF61D7816FA000EC45C /* TTTAttributedLabel.h */,
-				E1CB3DF71D7816FA000EC45C /* TTTAttributedLabel.m */,
+				E17B2BE01D7B2B1F00733C65 /* TTTAttributedLabel.h */,
+				E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */,
 			);
 			path = TTTAttributedLabel;
 			sourceTree = "<group>";
@@ -1439,7 +1439,6 @@
 				E14F5BCA1D77F79E006BB37F /* JSONModelError.m in Sources */,
 				E14F5C191D77F79E006BB37F /* RACKVOChannel.m in Sources */,
 				E14F5C3B1D77F79E006BB37F /* UICollectionReusableView+RACSignalSupport.m in Sources */,
-				E1CB3DF81D7816FA000EC45C /* TTTAttributedLabel.m in Sources */,
 				E14F5C2A1D77F79E006BB37F /* RACStream.m in Sources */,
 				E14F5C321D77F79E006BB37F /* RACTuple.m in Sources */,
 				E1FAB04B1D799E1700E5DCBF /* ManuallyMigratingMagicalRecordStack.m in Sources */,
@@ -1563,6 +1562,7 @@
 				E14F5BCF1D77F79E006BB37F /* JSONKeyMapper.m in Sources */,
 				E1FAB03A1D799E1700E5DCBF /* NSArray+MagicalRecord.m in Sources */,
 				E14F5BCE1D77F79E006BB37F /* JSONModel+networking.m in Sources */,
+				E17B2BE21D7B2B1F00733C65 /* TTTAttributedLabel.m in Sources */,
 				E14F5C4E1D77F79E006BB37F /* SDWebImageCompat.m in Sources */,
 				E1FAB0361D799E1700E5DCBF /* NSPersistentStoreCoordinator+MagicalAutoMigrations.m in Sources */,
 				E14F5C291D77F79E006BB37F /* RACSignalSequence.m in Sources */,

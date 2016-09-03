@@ -80,7 +80,7 @@ static CGFloat kInPutBarHeight = 50;
         height = height + [message.cell_height integerValue];
     }
     if (self.messageTableView.contentOffset.y == 0) {
-        if (height + 60* reslut.count > ScreenHeight- 64- kInPutBarHeight) {
+        if (height > ScreenHeight- 64- kInPutBarHeight) {
             [self messageTableViewScrollAnimation:NO];
         }
     }
@@ -118,10 +118,10 @@ static CGFloat kInPutBarHeight = 50;
 - (void)keyboardWillBeHidden:(id)noti {
     self.messageTableViewToBottomLength.constant = kInPutBarHeight;
     
-    [UIView animateWithDuration:0.15 animations:^{
-        [self.view layoutIfNeeded];
+//    [UIView animateWithDuration:0.15 animations:^{
+//        [self.view layoutIfNeeded];
         self.keyBoardShow = NO;
-    }];
+//    }];
 }
 
 - (void)closeKeyBoard {
@@ -293,7 +293,7 @@ static CGFloat kInPutBarHeight = 50;
 
 - (void)messageTableViewScrollToBottomAnimation:(BOOL)animated {
     CGFloat height = self.messageTableView.contentSize.height;
-    if (height < ScreenHeight - 64 - kInPutBarHeight) {
+    if (height < ScreenHeight - 64 - kInPutBarHeight - self.messageTableViewToBottomLength.constant) {
         return;
     }
     [self messageTableViewScrollAnimation:animated];
@@ -334,19 +334,22 @@ static CGFloat kInPutBarHeight = 50;
 
 #pragma mark - NSFetchedResultsDelegate
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
-    LFLLog(@"1");
-}
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    LFLLog(@"2");
-}
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    LFLLog(@"3");
-}
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
+//    LFLLog(@"1");
+//}
+//
+//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+//    LFLLog(@"2");
+//}
+//
+//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+//    LFLLog(@"3");
+//}
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if (controller != self.messageFetcher) {
+        return;
+    }
     [self refreshMessageTableView];
 }
 
