@@ -36,4 +36,5 @@
 - (CGFloat)sizeForText:(NSString *)message {
     return [super sizeForText:message];
 }
+
 @end

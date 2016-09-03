@@ -18,7 +18,7 @@
 
 static CGFloat kInPutBarHeight = 50;
 
-@interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate>
+@interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 @property (strong, nonatomic) LFLChatRightMessageViewCell *rightMessageCell;
@@ -28,6 +28,8 @@ static CGFloat kInPutBarHeight = 50;
 @property (strong, nonatomic) LFLFetcher *fetcher;
 @property (strong, nonatomic) NSFetchedResultsController *messageFetcher;
 @property (assign, nonatomic) NSInteger keyBoardHeight;
+@property (assign, nonatomic) BOOL keyBoardShow;
+@property (strong, nonatomic) LFLChatUserInputView *userInputView;
 @end
 
 @implementation LFLChatViewController
@@ -54,6 +56,7 @@ static CGFloat kInPutBarHeight = 50;
     self.messageFetcher.delegate = self;
 
     [self setUpRigthBarButton];
+    
 }
 
 - (void)setUpRigthBarButton {
@@ -109,6 +112,7 @@ static CGFloat kInPutBarHeight = 50;
     self.keyBoardHeight = height;
     self.messageTableViewToBottomLength.constant = height + kInPutBarHeight;
     [self messageTableViewScrollToBottomAnimation:NO];
+    self.keyBoardShow = YES;
 }
 
 - (void)keyboardWillBeHidden:(id)noti {
@@ -116,6 +120,7 @@ static CGFloat kInPutBarHeight = 50;
     
     [UIView animateWithDuration:0.15 animations:^{
         [self.view layoutIfNeeded];
+        self.keyBoardShow = NO;
     }];
 }
 
@@ -126,6 +131,7 @@ static CGFloat kInPutBarHeight = 50;
 #pragma mark - 底部输入栏
 - (void)addUserInputView {
     LFLChatUserInputView *inputView = [LFLChatUserInputView defaultView];
+    self.userInputView = inputView;
     inputView.delegate = self;
     [self.view addSubview:inputView];
     [inputView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -181,6 +187,7 @@ static CGFloat kInPutBarHeight = 50;
     } else if (type == LFLChatMessageRightType) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];        
     }
+    cell.delegate = self;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     NSString *txt = message.content;
     [cell setMessage:txt];
@@ -346,4 +353,32 @@ static CGFloat kInPutBarHeight = 50;
 //- (nullable NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
 //    return @""
 //}
+
+#pragma mark LFLChetBaseViewCellDelegate
+
+- (void)cellLongPress:(LFLChetBaseViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer {
+    CGPoint location = [recognizer locationInView:self.view];
+    if (!self.keyBoardShow) {
+        [cell becomeFirstResponder];
+    }
+    UIMenuItem *itCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(handleCopyCell:)];
+    UIMenuItem *itDelete = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(handleDeleteCell:)];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuItems:[NSArray arrayWithObjects:itCopy, itDelete,  nil]];
+    CGRect rect = [cell convertRect:cell.bubbleImageView.frame toView:self.view];
+    [menu setTargetRect:rect inView:self.view];
+    [menu setMenuVisible:YES animated:YES];
+}
+
+- (void)copy:(id)sender {
+    
+}
+
+- (void)delete:(id)sender {
+    
+}
+
+- (void)select:(nullable id)sender {
+    
+}
 @end

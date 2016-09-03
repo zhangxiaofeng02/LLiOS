@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class LFLChetBaseViewCell;
+
+@protocol LFLChetBaseViewCellDelegate <NSObject>
+
+- (void)cellLongPress:(LFLChetBaseViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer;
+@end
+
 @interface LFLChetBaseViewCell : UITableViewCell
 
 @property (weak, nonatomic, readonly) IBOutlet TTTAttributedLabel *contentLabel;
@@ -15,6 +22,11 @@
 @property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *contentLabelHeight;
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *bubbleImageView;
 
+@property (weak, nonatomic) id<LFLChetBaseViewCellDelegate> delegate;
+
 - (void)setMessage:(NSString *)message;
+
 - (CGFloat)sizeForText:(NSString *)message;
+
+- (void)showMenuView:(UIView *)parentView;
 @end

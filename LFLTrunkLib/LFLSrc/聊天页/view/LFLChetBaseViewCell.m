@@ -22,6 +22,8 @@
     [super awakeFromNib];
     self.contentLabel.font = [UIFont systemFontOfSize:15];
     self.contentLabel.lineSpacing = 2.0;
+    UILongPressGestureRecognizer * longPressGesture =[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+    [self addGestureRecognizer:longPressGesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -52,6 +54,18 @@
         weakSelf.contentLabelHeight.constant = height;
         return mutableAttributedString;
     }];
+}
+
+- (void)cellLongPress:(UIGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if ([self.delegate respondsToSelector:@selector(cellLongPress:recognizer:)]) {
+            [self.delegate cellLongPress:self recognizer:recognizer];
+        }
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
 }
 
 @end

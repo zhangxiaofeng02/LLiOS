@@ -9,7 +9,7 @@
 #import "LFLChatUserInputView.h"
 
 @interface LFLChatUserInputView() <UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *userEditTextField;
+@property (weak, nonatomic, readwrite) IBOutlet UITextView *userEditTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDividLineHeightCons;
 
 @end
