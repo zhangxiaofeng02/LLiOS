@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="481" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_head_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUx-Uj-Rqz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ll_head_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUx-Uj-Rqz">
                         <rect key="frame" x="11" y="0.0" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="McE-IK-p5J"/>
@@ -22,15 +22,15 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hKi-hc-H4r">
-                        <rect key="frame" x="54" y="2" width="85" height="41"/>
+                        <rect key="frame" x="55" y="0.0" width="145" height="42"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUf-rH-5zI" customClass="TTTAttributedLabel">
-                        <rect key="frame" x="69" y="12" width="60" height="21"/>
+                        <rect key="frame" x="69" y="11" width="120" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="1rf-WC-XwG"/>
-                            <constraint firstAttribute="height" constant="21" id="fvv-Nc-mBN"/>
+                            <constraint firstAttribute="width" constant="120" id="1rf-WC-XwG"/>
+                            <constraint firstAttribute="height" constant="20" id="fvv-Nc-mBN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,13 +39,13 @@
                 <constraints>
                     <constraint firstItem="jUx-Uj-Rqz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1BG-as-3WD"/>
                     <constraint firstItem="VUf-rH-5zI" firstAttribute="leading" secondItem="jUx-Uj-Rqz" secondAttribute="trailing" constant="18" id="2bm-hq-DmB"/>
-                    <constraint firstItem="VUf-rH-5zI" firstAttribute="leading" secondItem="hKi-hc-H4r" secondAttribute="leading" constant="15" id="44f-Vf-jnT"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VUf-rH-5zI" secondAttribute="trailing" priority="250" constant="65" id="KJF-kI-aLH"/>
+                    <constraint firstItem="VUf-rH-5zI" firstAttribute="leading" secondItem="hKi-hc-H4r" secondAttribute="leading" constant="14" id="44f-Vf-jnT"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VUf-rH-5zI" secondAttribute="trailing" priority="250" constant="110" id="KJF-kI-aLH"/>
                     <constraint firstItem="jUx-Uj-Rqz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="Mje-yp-oTq"/>
-                    <constraint firstItem="hKi-hc-H4r" firstAttribute="trailing" secondItem="VUf-rH-5zI" secondAttribute="trailing" constant="10" id="PqH-hO-Bfl"/>
-                    <constraint firstItem="VUf-rH-5zI" firstAttribute="top" secondItem="jUx-Uj-Rqz" secondAttribute="top" constant="12" id="WJI-Lh-6K3"/>
-                    <constraint firstItem="hKi-hc-H4r" firstAttribute="bottom" secondItem="VUf-rH-5zI" secondAttribute="bottom" constant="10" id="blm-aS-sdj"/>
-                    <constraint firstItem="VUf-rH-5zI" firstAttribute="top" secondItem="hKi-hc-H4r" secondAttribute="top" constant="10" id="oV2-Lr-fwa"/>
+                    <constraint firstItem="hKi-hc-H4r" firstAttribute="trailing" secondItem="VUf-rH-5zI" secondAttribute="trailing" constant="11" id="PqH-hO-Bfl"/>
+                    <constraint firstItem="VUf-rH-5zI" firstAttribute="top" secondItem="jUx-Uj-Rqz" secondAttribute="top" constant="11" id="WJI-Lh-6K3"/>
+                    <constraint firstItem="hKi-hc-H4r" firstAttribute="bottom" secondItem="VUf-rH-5zI" secondAttribute="bottom" constant="11" id="blm-aS-sdj"/>
+                    <constraint firstItem="VUf-rH-5zI" firstAttribute="top" secondItem="hKi-hc-H4r" secondAttribute="top" constant="11" id="oV2-Lr-fwa"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -55,10 +55,10 @@
                 <outlet property="contentLabelWidth" destination="1rf-WC-XwG" id="9Xs-ba-5bj"/>
                 <outlet property="leftUserHeadImageView" destination="jUx-Uj-Rqz" id="A5l-A6-nIu"/>
             </connections>
-            <point key="canvasLocation" x="-719.5" y="370"/>
+            <point key="canvasLocation" x="-1118.5" y="364"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="user_head_icon.png" width="40" height="40"/>
+        <image name="ll_head_icon.png" width="40" height="40"/>
     </resources>
 </document>

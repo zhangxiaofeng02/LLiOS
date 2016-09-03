@@ -10,6 +10,7 @@
 
 @interface LFLChatUserInputView() <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *userEditTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDividLineHeightCons;
 
 @end
 
@@ -19,6 +20,11 @@
     [super awakeFromNib];
     self.userEditTextField.delegate = self;
     self.userEditTextField.returnKeyType = UIReturnKeySend;
+    self.userEditTextField.layer.borderWidth = 2;
+    self.userEditTextField.layer.borderColor = Color(213, 213, 213, 1).CGColor;
+    self.userEditTextField.layer.cornerRadius = 5.0f;
+    [self.userEditTextField setFont:[UIFont systemFontOfSize:15]];
+    self.topDividLineHeightCons.constant = 1/ScreenScale;
 }
 
 #pragma mark UITextFieldDelegate
@@ -36,5 +42,8 @@
         return NO;
     }
     return YES;
+}
+- (void)textViewDidChange:(UITextView *)textView {
+    
 }
 @end

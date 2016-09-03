@@ -16,7 +16,7 @@
 #import "NSManagedObject+MagicalRecord.h"
 #import "LFLChatMessage.h"
 
-static CGFloat kInPutBarHeight = 45.0;
+static CGFloat kInPutBarHeight = 50;
 
 @interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate>
 
@@ -38,7 +38,8 @@ static CGFloat kInPutBarHeight = 45.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.view setBackgroundColor:Color(230, 230, 230, 1)];
+    self.title = @"廖呆呆";
     self.fetcher = [[LFLFetcherManager shareInstance] fetcherWithObject:self];
     
     [self registerCell];
@@ -51,6 +52,20 @@ static CGFloat kInPutBarHeight = 45.0;
     [self addUserInputView];
     
     self.messageFetcher.delegate = self;
+
+    [self setUpRigthBarButton];
+}
+
+- (void)setUpRigthBarButton {
+    UIButton *rightBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15, 13)];
+    [rightBarButton addTarget:self action:@selector(rightBarAction:) forControlEvents:UIControlEventTouchUpInside];
+    [rightBarButton setImage:[LFLTrunkBundle imageName:@"right_bar_icon"] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButton];
+    self.navigationItem.rightBarButtonItems = @[rightItem];
+}
+
+- (void)rightBarAction:(id)sender {
+    [LFLFetcher deleteAllObjectWithEntityClass:[self provideClass] completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,14 +108,14 @@ static CGFloat kInPutBarHeight = 45.0;
     int height = keyboardRect.size.height;
     self.keyBoardHeight = height;
     self.messageTableViewToBottomLength.constant = height + kInPutBarHeight;
-    [self messageTableViewScrollAnimation:NO];
+    [self messageTableViewScrollToBottomAnimation:NO];
 }
 
 - (void)keyboardWillBeHidden:(id)noti {
     self.messageTableViewToBottomLength.constant = kInPutBarHeight;
     
     [UIView animateWithDuration:0.15 animations:^{
-        [self.messageTableView layoutIfNeeded];
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -127,6 +142,19 @@ static CGFloat kInPutBarHeight = 45.0;
 }
 
 #pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0f;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    [view setBackgroundColor:Color(230, 230, 230, 1)];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    NSInteger count = self.messageFetcher.numberOfSections;
@@ -166,7 +194,7 @@ static CGFloat kInPutBarHeight = 45.0;
     LFLChatMessage *message = result[row];
     NSInteger height = [message.cell_height integerValue];
     if (height >0 ) {
-        return height + 60;
+        return height;
     }
     NSInteger type = [message.type integerValue];
     NSString *txt = message.content;
@@ -175,9 +203,11 @@ static CGFloat kInPutBarHeight = 45.0;
     } else if (type == LFLChatMessageRightType) {
         height = [self.leftMessageCell sizeForText:txt];
     }
+//    height <= 25 ? height = 60 : (height += 10*2 + 3 + 20); // cell宽度
+    height = height + 10*2 + 3 + 22;
     [message setValue:@(height) forKey:@"cell_height"];
     [LFLFetcher updateObjectPropertyWith:message];
-    return height + 60;
+    return height;
 }
 
 #pragma mark getter && setter

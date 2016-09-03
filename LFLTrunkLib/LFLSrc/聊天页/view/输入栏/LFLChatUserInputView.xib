@@ -8,29 +8,84 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="SqC-Vw-1k0" customClass="LFLChatUserInputView">
-            <rect key="frame" x="0.0" y="0.0" width="584" height="46"/>
+            <rect key="frame" x="0.0" y="0.0" width="399" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IM-Lhr">
+                    <rect key="frame" x="0.0" y="0.0" width="584" height="1"/>
+                    <color key="backgroundColor" red="0.76470588235294112" green="0.80392156862745101" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Syw-lj-V29"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottombar_left_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="LjZ-BK-pad">
+                    <rect key="frame" x="8" y="11" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="LCi-33-EK7"/>
+                        <constraint firstAttribute="height" constant="29" id="MID-3x-NU4"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottombar_right_add_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="0kG-g5-DuJ">
+                    <rect key="frame" x="362" y="11" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="C9m-x9-Wyl"/>
+                        <constraint firstAttribute="height" constant="29" id="bfJ-2c-MVw"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottombar_right_emojy_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="CNg-Ui-l05">
+                    <rect key="frame" x="329" y="11" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="H5K-EI-B7E"/>
+                        <constraint firstAttribute="height" constant="29" id="RPu-0X-RBa"/>
+                    </constraints>
+                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TID-t7-Sbh">
-                    <rect key="frame" x="8" y="8" width="568" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="43" y="6" width="280" height="38"/>
+                    <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="TID-t7-Sbh" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" constant="8" id="7lp-yk-Np2"/>
-                <constraint firstAttribute="bottom" secondItem="TID-t7-Sbh" secondAttribute="bottom" constant="8" id="B45-HA-Yre"/>
-                <constraint firstAttribute="trailing" secondItem="TID-t7-Sbh" secondAttribute="trailing" constant="8" id="OgL-SL-kU7"/>
-                <constraint firstItem="TID-t7-Sbh" firstAttribute="top" secondItem="SqC-Vw-1k0" secondAttribute="top" constant="8" id="h3Q-ZG-xjh"/>
+                <constraint firstItem="LjZ-BK-pad" firstAttribute="top" secondItem="gnY-IM-Lhr" secondAttribute="bottom" constant="7" id="35V-KY-3Ka"/>
+                <constraint firstItem="gnY-IM-Lhr" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" id="5h4-lD-OeA"/>
+                <constraint firstItem="TID-t7-Sbh" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" constant="60" id="7lp-yk-Np2"/>
+                <constraint firstItem="CNg-Ui-l05" firstAttribute="leading" secondItem="TID-t7-Sbh" secondAttribute="trailing" constant="6" id="8rQ-BK-5Dj"/>
+                <constraint firstAttribute="bottom" secondItem="TID-t7-Sbh" secondAttribute="bottom" constant="6" id="B45-HA-Yre"/>
+                <constraint firstItem="gnY-IM-Lhr" firstAttribute="top" secondItem="SqC-Vw-1k0" secondAttribute="top" id="H0V-JV-7Kr"/>
+                <constraint firstItem="CNg-Ui-l05" firstAttribute="centerY" secondItem="0kG-g5-DuJ" secondAttribute="centerY" id="Lct-nR-gk4"/>
+                <constraint firstAttribute="trailing" secondItem="TID-t7-Sbh" secondAttribute="trailing" constant="150" id="OgL-SL-kU7"/>
+                <constraint firstAttribute="trailing" secondItem="gnY-IM-Lhr" secondAttribute="trailing" id="Rbj-Lp-9fj"/>
+                <constraint firstItem="LjZ-BK-pad" firstAttribute="centerY" secondItem="TID-t7-Sbh" secondAttribute="centerY" id="UPy-Kr-Oye"/>
+                <constraint firstItem="LjZ-BK-pad" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" constant="8" id="Udi-wH-nyA"/>
+                <constraint firstItem="0kG-g5-DuJ" firstAttribute="leading" secondItem="CNg-Ui-l05" secondAttribute="trailing" constant="4" id="cWC-X8-nYK"/>
+                <constraint firstItem="TID-t7-Sbh" firstAttribute="top" secondItem="SqC-Vw-1k0" secondAttribute="top" constant="6" id="h3Q-ZG-xjh"/>
+                <constraint firstAttribute="bottom" secondItem="LjZ-BK-pad" secondAttribute="bottom" constant="7" id="k8q-v1-EKY"/>
+                <constraint firstItem="0kG-g5-DuJ" firstAttribute="centerY" secondItem="TID-t7-Sbh" secondAttribute="centerY" id="p92-uB-SV4"/>
+                <constraint firstItem="TID-t7-Sbh" firstAttribute="leading" secondItem="LjZ-BK-pad" secondAttribute="trailing" constant="6" id="pTD-LK-QNs"/>
+                <constraint firstAttribute="trailing" secondItem="0kG-g5-DuJ" secondAttribute="trailing" constant="8" id="wJx-jo-2g2"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="35V-KY-3Ka"/>
+                    <exclude reference="k8q-v1-EKY"/>
+                    <exclude reference="7lp-yk-Np2"/>
+                    <exclude reference="OgL-SL-kU7"/>
+                </mask>
+            </variation>
             <connections>
+                <outlet property="topDividLineHeightCons" destination="Syw-lj-V29" id="Oyz-Ac-c4k"/>
                 <outlet property="userEditTextField" destination="TID-t7-Sbh" id="ykh-We-I12"/>
             </connections>
-            <point key="canvasLocation" x="379" y="333"/>
+            <point key="canvasLocation" x="-251.5" y="460"/>
         </view>
     </objects>
+    <resources>
+        <image name="bottombar_left_btn.png" width="40" height="40"/>
+        <image name="bottombar_right_add_btn.png" width="40" height="40"/>
+        <image name="bottombar_right_emojy_btn.png" width="40" height="40"/>
+    </resources>
 </document>
