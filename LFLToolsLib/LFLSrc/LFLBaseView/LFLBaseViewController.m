@@ -13,6 +13,7 @@
 @end
 
 @implementation LFLBaseViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

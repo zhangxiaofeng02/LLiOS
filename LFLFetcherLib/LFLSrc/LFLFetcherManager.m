@@ -51,25 +51,31 @@ static NSString *kTrunkBundleName = @"LFLTrunkBundle";
 
 - (void)coreDataStepUp {
     NSString *bundleName = kTrunkBundleName;
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:bundleName withExtension:@"bundle"]];
     
-    //托管对象模型
-    NSManagedObjectModel *mode = [NSManagedObjectModel MR_newModelNamed:@"Model.momd" inBundle:bundle];
-    [NSManagedObjectModel MR_setDefaultManagedObjectModel:mode];
-    
-    NSString *storeFileName = [NSString stringWithFormat:@"%@.sqlite",bundleName];
-    NSURL *storeUrl = [NSPersistentStore MR_urlForStoreName:storeFileName];
-    
-    //创建持久化存储协调器，托管对象上下文
-    [MagicalRecord setupCoreDataStackWithStoreAtURL:storeUrl];
-    NSPersistentStoreCoordinator * coordinator = [NSPersistentStoreCoordinator MR_defaultStoreCoordinator];
-    if (coordinator.persistentStores.count>0) {
-        debugAssert(@"新版本API找不到这个处理方法，但是感觉不会走这里，留作观察");
+    if (!_coreDataStack) {
+        SQLiteMagicalRecordStack *stack = nil;
+        while (TRUE) {
+            NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:bundleName withExtension:@"bundle"]];
+            NSURL *modelURL = [bundle URLForResource:@"Model" withExtension:@"momd"];
+            NSManagedObjectModel *model = [NSManagedObjectModel MR_managedObjectModelAtURL:modelURL];
+            NSString *storeFileName = [NSString stringWithFormat:@"%@.sqlite",bundleName];
+            NSURL *storeFilePath = [NSPersistentStore MR_fileURLForStoreName:storeFileName];
+            stack = [SQLiteMagicalRecordStack stackWithStoreAtURL:storeFilePath model:model];
+            if (![stack.coordinator persistentStores].count > 0) {
+                NSURL *storeFilePath = [stack storeURL];
+                [NSPersistentStore MR_removePersistentStoreFilesAtURL:storeFilePath];
+                continue;
+            }
+            debugAssert([stack context]);
+            if ([stack context]) {
+                break;
+            }
+        }
+        _coreDataStack = stack;
+        _context = _coreDataStack.context;
+        
+        [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelError];
     }
-    debugAssert([NSManagedObjectContext MR_defaultContext]);
-    _context = [NSManagedObjectContext MR_defaultContext];
-    _coordinator = [NSPersistentStoreCoordinator MR_defaultStoreCoordinator];
-    [MagicalRecord setLoggingLevel:MagicalRecordLoggingLevelOff];
 }
 
 - (LFLFetcher *)fetcherWithObject:(id)object {

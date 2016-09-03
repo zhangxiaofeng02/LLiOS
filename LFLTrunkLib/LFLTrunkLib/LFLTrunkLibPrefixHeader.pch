@@ -26,5 +26,6 @@
     #import "LFLFetcherLib.h"
     //ReactiveCocoa
     #import <ReactiveCocoa.h>
-    
+    //baseView
+    #import "LFLBaseView.h"
 #endif

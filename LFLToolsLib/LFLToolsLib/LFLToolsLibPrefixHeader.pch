@@ -24,4 +24,6 @@
     #import "LFLBaseTableViewController.h"
     //global
     #import "LFLGlobal.h"
+
+    #import "MagicalRecord.h"
 #endif

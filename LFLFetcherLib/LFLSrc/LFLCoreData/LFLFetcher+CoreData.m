@@ -74,7 +74,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
         } else {
             [fetchers removeAllObjects];
         }
-        fetchers[key] = key;
+        fetchers[key] = fetcher;
     }
     return fetcher;
 }
@@ -105,8 +105,8 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
 
 + (void)deleteAllObjectWithEntityClass:(Class)entityClass completion:(void(^)(void))completion {
     LFLFetcherManager *manager = [LFLFetcherManager shareInstance];
-    NSPersistentStoreCoordinator *coordinator = manager.coordinator;
-    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_contextWithStoreCoordinator:coordinator];
+    NSPersistentStoreCoordinator *coordinator = [[manager coreDataStack] coordinator];
+    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_privateQueueContextWithStoreCoordinator:coordinator];
     __weak NSManagedObjectContext *mainContext = [manager context];
     
     [mainContext performBlockAndWait:^{
@@ -124,7 +124,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
         
         dispatch_sync(dispatch_get_main_queue(), ^{
            [mainContext performBlockAndWait:^{
-               [mainContext MR_stopObservingContext:privateContext];
+               [mainContext MR_stopObservingContextDidSave:privateContext];
            }];
             if (completion) {
                 completion();
@@ -135,10 +135,9 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
 
 + (NSManagedObject *)addObject:(Class)objectClass withPropertys:(NSDictionary*)propertys {
     LFLFetcherManager *manager = [LFLFetcherManager shareInstance];
-    NSPersistentStoreCoordinator *coordinator = [manager coordinator];
+    NSPersistentStoreCoordinator *coordinator = [[manager coreDataStack] coordinator];
     __weak NSManagedObjectContext *mainContext = [manager context];
-    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_contextWithStoreCoordinator:coordinator];
-    
+    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_privateQueueContextWithStoreCoordinator:coordinator];
     [mainContext performBlockAndWait:^{
         [mainContext MR_observeContextOnMainThread:privateContext];
     }];
@@ -153,7 +152,10 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
             }];
             [privateContext MR_saveToPersistentStoreAndWait];
         }
-        [mainContext MR_stopObservingContext:privateContext];
+        
+        [mainContext performBlock:^{
+            [mainContext MR_stopObservingContextDidSave:privateContext];
+        }];
     }];
     NSManagedObject *newObjectInMainCtx = [mainContext objectWithID:newObject.objectID];
     debugAssert(newObjectInMainCtx);
@@ -162,9 +164,9 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
 
 + (BOOL)deleteObjectWithPredicate:(NSPredicate *)predicate entityClass:(Class)entityClass {
     LFLFetcherManager *manager = [LFLFetcherManager shareInstance];
-    NSPersistentStoreCoordinator *coordinator = [manager coordinator];
+    NSPersistentStoreCoordinator *coordinator = [[manager coreDataStack] coordinator];
     __weak NSManagedObjectContext *mainContext = [manager context];
-    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_contextWithStoreCoordinator:coordinator];
+    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_privateQueueContextWithStoreCoordinator:coordinator];
     
     [mainContext performBlockAndWait:^{
         [mainContext MR_observeContextOnMainThread:privateContext];
@@ -173,7 +175,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
     __block NSArray *objects = nil;
     [privateContext performBlockAndWait:^{
         debugAssert([NSThread isMainThread]);
-        objects = [entityClass MR_findAllWithPredicate:predicate];
+        objects = [entityClass MR_findAllWithPredicate:predicate inContext:privateContext];
         [objects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj) {
                 [privateContext deleteObject:obj];
@@ -184,7 +186,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
             [privateContext MR_saveToPersistentStoreAndWait];
         }
         [mainContext performBlockAndWait:^{
-            [mainContext MR_stopObservingContext:privateContext];
+            [mainContext MR_stopObservingContextDidSave:privateContext];
         }];
     }];
     success = objects.count > 0;
@@ -207,8 +209,8 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
         return NO;
     }
     LFLFetcherManager *manager = [LFLFetcherManager shareInstance];
-    NSPersistentStoreCoordinator *coordinator = [manager coordinator];
-    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_contextWithStoreCoordinator:coordinator];
+    NSPersistentStoreCoordinator *coordinator = [[manager coreDataStack] coordinator];
+    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_privateQueueContextWithStoreCoordinator:coordinator];
     __weak NSManagedObjectContext *mainContext = [manager context];
     [mainContext performBlockAndWait:^{
         [mainContext MR_observeContextOnMainThread:privateContext];
@@ -229,7 +231,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
             }
         }
         [mainContext performBlockAndWait:^{
-            [mainContext MR_stopObservingContext:privateContext];
+            [mainContext MR_stopObservingContextDidSave:privateContext];
         }];
     }];
     return success;
@@ -241,8 +243,8 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
     }
     LFLFetcherManager *manager = [LFLFetcherManager shareInstance];
     __weak NSManagedObjectContext *mainContext = [manager context];
-    NSPersistentStoreCoordinator *coordinator = [manager coordinator];
-    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_contextWithStoreCoordinator:coordinator];
+    NSPersistentStoreCoordinator *coordinator = [[manager coreDataStack] coordinator];
+    NSManagedObjectContext *privateContext = [NSManagedObjectContext MR_privateQueueContextWithStoreCoordinator:coordinator];
     
     [mainContext performBlockAndWait:^{
         [mainContext MR_observeContextOnMainThread:privateContext];
@@ -267,7 +269,7 @@ static const void *fetcherDictionaryKey = &fetcherDictionaryKey;
         }
         
         [mainContext performBlockAndWait:^{
-            [mainContext MR_stopObservingContext:privateContext];
+            [mainContext MR_stopObservingContextDidSave:privateContext];
         }];
     }];
     return success;

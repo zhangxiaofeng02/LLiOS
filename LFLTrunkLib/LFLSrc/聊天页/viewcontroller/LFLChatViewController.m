@@ -9,109 +9,175 @@
 #import "LFLChatViewController.h"
 #import "LFLChatRightMessageViewCell.h"
 #import "LFLChatLeftMessageViewCell.h"
+#import "LFLChetBaseViewCell.h"
+#import "LFLChatUserInputView.h"
+#import "MagicalRecord.h"
+#import "LFLFetcher+CoreData.h"
+#import "NSManagedObject+MagicalRecord.h"
+#import "LFLChatMessage.h"
 
-@interface LFLChatViewController () <UITableViewDelegate,UITableViewDataSource>
+static CGFloat kInPutBarHeight = 45.0;
+
+@interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
-@property (strong, nonatomic) NSMutableArray *dataArr;
 @property (strong, nonatomic) LFLChatRightMessageViewCell *rightMessageCell;
 @property (strong, nonatomic) LFLChatLeftMessageViewCell *leftMessageCell;
 @property (strong, nonatomic) NSMutableArray *heightArr;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTableViewToBottomLength;
+@property (strong, nonatomic) LFLFetcher *fetcher;
+@property (strong, nonatomic) NSFetchedResultsController *messageFetcher;
+@property (assign, nonatomic) NSInteger keyBoardHeight;
 @end
 
 @implementation LFLChatViewController
 
+- (void)dealloc {
+    [[LFLFetcherManager shareInstance] removeFetcherWithObjects:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
-    [self.messageTableView LFLRegisterNibWithClass:[LFLChatLeftMessageViewCell class] bundle:@"LFLTrunkBundle"];
-    self.dataArr = @[@"这是一条测试语句",
-                     @"这是一条测是一条测试是一条测试试语句",
-                     @"这是一是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试条测试语句",
-                     @"这是一条条测试是一条测试是一条测试是一条测试是一测试语句",
-                     @"这是一条测试语句",
-                     @"这是试语句",
-                     @"这是一条测是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试是一条测试试语句",
-                     @"这是一条测条测试条测试条测试条测试条测试条测试条测试试语句",
-                     @"这是一条测试条测试条测试条测试条测试语句",
-                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语句",
-                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语试语句",
-                     @"这是一条测一条测一条测一条测一条测试语句",
-                     @"这是一条测试语句",
-                     @"这是一条测条测试条测试条测试条测试条测试条测试条测试试语句",
-                     @"这是一条测试条测试条测试条测试条测试语句",
-                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语一条测试语句",
-                     @"这是一条测试语一条测试语一条测试语一条测试语一条测试语试语句",
-                     @"这是一条测一条测一条测一条测一条测试语句",
-                     @"这是一条测试语句"];
-
+    
+    self.fetcher = [[LFLFetcherManager shareInstance] fetcherWithObject:self];
+    
+    [self registerCell];
+    [self addNotification];
     
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
     self.messageTableView.separatorStyle = NO;
+    
+    [self addUserInputView];
+    
+    self.messageFetcher.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSArray *reslut = [self.messageFetcher allObjectsInSection:0];
+    NSInteger height = 0;
+    for (int i =0 ; i<reslut.count; i++) {
+        LFLChatMessage *message = reslut[i];
+        height = height + [message.cell_height integerValue];
+    }
+    if (self.messageTableView.contentOffset.y == 0) {
+        if (height + 60* reslut.count > ScreenHeight- 64- kInPutBarHeight) {
+            [self messageTableViewScrollAnimation:NO];
+        }
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+#pragma mark - 注册cell
+
+- (void)registerCell {
+    [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
+    [self.messageTableView LFLRegisterNibWithClass:[LFLChatLeftMessageViewCell class] bundle:@"LFLTrunkBundle"];
+}
+
+#pragma mark - 添加监听
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark - 键盘弹出收起事件
+- (void)keyboardWasShown:(id)noti {
+    NSDictionary *userInfo = [noti userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    int height = keyboardRect.size.height;
+    self.keyBoardHeight = height;
+    self.messageTableViewToBottomLength.constant = height + kInPutBarHeight;
+    [self messageTableViewScrollAnimation:NO];
+}
+
+- (void)keyboardWillBeHidden:(id)noti {
+    self.messageTableViewToBottomLength.constant = kInPutBarHeight;
+    
+    [UIView animateWithDuration:0.15 animations:^{
+        [self.messageTableView layoutIfNeeded];
+    }];
+}
+
+- (void)closeKeyBoard {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
+#pragma mark - 底部输入栏
+- (void)addUserInputView {
+    LFLChatUserInputView *inputView = [LFLChatUserInputView defaultView];
+    inputView.delegate = self;
+    [self.view addSubview:inputView];
+    [inputView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSMutableArray *conts = @[].mutableCopy;
+    NSDictionary *views = NSDictionaryOfVariableBindings(self.view,inputView);
+    [conts addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-0-[inputView]-0-|"] options:0 metrics:nil views:views]];
+    [conts addObject:[NSLayoutConstraint constraintWithItem:inputView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.messageTableView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+    [conts addObject:[NSLayoutConstraint constraintWithItem:inputView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:kInPutBarHeight]];
+    [self.view addConstraints:conts];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 #pragma mark UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    NSInteger count = self.messageFetcher.numberOfSections;
+//    return count;
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArr.count;
+//    NSInteger count = [self.messageFetcher numberOfRowsInSection:section];
+//    return count;
+        NSInteger count = [self.messageFetcher numberOfRowsInSection:0];
+        return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    LFLChatRightMessageViewCell *cell = nil;
-//    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];
-//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-//    [cell setMessage:self.dataArr[[indexPath row]]];
-//    return cell;
-    LFLChatLeftMessageViewCell *cell = nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell" forIndexPath:indexPath];
+    NSInteger row = [indexPath row];
+    LFLChetBaseViewCell *cell = nil;
+//    NSArray *result = [self.messageFetcher allObjectsInSection:row];
+    NSArray *result = [self.messageFetcher allObjectsInSection:0];
+    LFLChatMessage *message = result[row];
+    NSInteger type = [message.type integerValue];
+    if (type == LFLChatMessageLeftType) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell" forIndexPath:indexPath];        
+    } else if (type == LFLChatMessageRightType) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];        
+    }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setMessage:self.dataArr[[indexPath row]]];
+    NSString *txt = message.content;
+    [cell setMessage:txt];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSInteger row = [indexPath row];
-//    NSString *message = self.dataArr[row];
-//    if (!self.heightArr) {
-//        self.heightArr = @[].mutableCopy;
-//    }
-//    CGFloat height = 0;
-//    if (self.heightArr.count > row +1) {
-//        height = [self.heightArr[row] floatValue];
-//        if (height > 0) {
-//            return height + 60;
-//        }
-//    }
-//    height = [self.rightMessageCell sizeForText:message];
-//    [self.heightArr addObject:@(height)];
-//    return  height + 60;
     NSInteger row = [indexPath row];
-    NSString *message = self.dataArr[row];
-    if (!self.heightArr) {
-        self.heightArr = @[].mutableCopy;
+//    NSArray *result = [self.messageFetcher allObjectsInSection:row];
+    NSArray *result = [self.messageFetcher allObjectsInSection:0];
+    LFLChatMessage *message = result[row];
+    NSInteger height = [message.cell_height integerValue];
+    if (height >0 ) {
+        return height + 60;
     }
-    CGFloat height = 0;
-    if (self.heightArr.count > row +1) {
-        height = [self.heightArr[row] floatValue];
-        if (height > 0) {
-            return height + 60;
-        }
+    NSInteger type = [message.type integerValue];
+    NSString *txt = message.content;
+    if (type == LFLChatMessageLeftType) {
+        height = [self.leftMessageCell sizeForText:txt];
+    } else if (type == LFLChatMessageRightType) {
+        height = [self.leftMessageCell sizeForText:txt];
     }
-    height = [self.leftMessageCell sizeForText:message];
-    [self.heightArr addObject:@(height)];
-    return  height + 60;
+    [message setValue:@(height) forKey:@"cell_height"];
+    [LFLFetcher updateObjectPropertyWith:message];
+    return height + 60;
 }
 
 #pragma mark getter && setter
@@ -133,4 +199,121 @@
     }
     return _leftMessageCell;
 }
+
+- (NSFetchedResultsController *)messageFetcher {
+    return [self.fetcher fetcherWith:[self provideClass] sortedBy:@"time" ascending:YES withPredicate:nil groupBy:nil];
+}
+
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self closeKeyBoard];
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    
+}
+
+- (BOOL)messageTableViewScrollToBottom {
+    CGPoint contentOffsetPoint = self.messageTableView.contentOffset;
+    CGRect frame = self.messageTableView.frame;
+    if (contentOffsetPoint.y == self.messageTableView.contentSize.height - frame.size.height || self.messageTableView.contentSize.height < frame.size.height) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)messageTableViewScrollToTop {
+    CGFloat y = self.messageTableView.contentOffset.y;
+    if (y <= -64.0f) {
+        return YES;
+    }
+    return NO;
+}
+
+#pragma mark LFLChatUserInputViewDelegate
+
+- (void)sendMessage:(NSString *)message {
+    [self saveMessageToCoreData:message];
+    if (self.messageTableView.contentSize.height > ScreenHeight - 64 - self.messageTableViewToBottomLength.constant) {
+        [self messageTableViewScrollAnimation:YES];
+    }
+}
+
+#pragma mark 滚动到最底部
+
+- (void)messageTableViewScrollToBottomAnimation:(BOOL)animated {
+    CGFloat height = self.messageTableView.contentSize.height;
+    if (height < ScreenHeight - 64 - kInPutBarHeight) {
+        return;
+    }
+    [self messageTableViewScrollAnimation:animated];
+}
+
+- (void)messageTableViewScrollAnimation:(BOOL)animated {
+    WeakSelf;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        StrongSelf;
+        [strongSelf.messageTableView setContentOffset:CGPointMake(0, strongSelf.messageTableView.contentSize.height - strongSelf.messageTableView.bounds.size.height) animated:animated];
+    });
+}
+
+#pragma mark - CoreData
+
+- (void)saveMessageToCoreData:(NSString *)message {
+    Class entityClass = [self provideClass];
+    NSInteger type = 0;
+    if ([message containsString:@"110"]) {
+        type = 1;
+    }
+    [LFLFetcher addObject:entityClass withPropertys:@{@"content":message,
+                                                      @"time":[NSDate new],
+                                                      @"cell_height":@(0),
+                                                      @"type":@(type)}];
+}
+
+- (Class)provideClass {
+    return NSClassFromString(@"LFLChatMessage");
+}
+
+#pragma mark - 刷新聊天页面
+
+- (void)refreshMessageTableView {
+    [self.messageTableView reloadData];
+    [self messageTableViewScrollToBottomAnimation:YES];
+}
+
+#pragma mark - NSFetchedResultsDelegate
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
+    LFLLog(@"1");
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    LFLLog(@"2");
+}
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    LFLLog(@"3");
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self refreshMessageTableView];
+}
+
+//- (nullable NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
+//    return @""
+//}
 @end

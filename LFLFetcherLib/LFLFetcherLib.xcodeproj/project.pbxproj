@@ -19,6 +19,7 @@
 		E1332A311CBCC76B00ECA544 /* LFLFetcher+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1332A301CBCC76B00ECA544 /* LFLFetcher+CoreData.m */; };
 		E1332A471CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = E1332A461CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m */; };
 		E13EF2EF1CC21FD600D9C7D5 /* LFLUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E13EF2EE1CC21FD600D9C7D5 /* LFLUserInfo.m */; };
+		E1437A4E1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1437A4D1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.m */; };
 		E17AF7D91CBB495A0077FF38 /* LFLURLMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7D81CBB495A0077FF38 /* LFLURLMaker.m */; };
 		E17AF7E81CBB4B830077FF38 /* LFLBaseJsonPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7E71CBB4B830077FF38 /* LFLBaseJsonPraser.m */; };
 		E17AF7EB1CBB4B930077FF38 /* LFLJsonPraserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7EA1CBB4B930077FF38 /* LFLJsonPraserManager.m */; };
@@ -64,6 +65,8 @@
 		E1332A461CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+LFLExtend.m"; sourceTree = "<group>"; };
 		E13EF2ED1CC21FD600D9C7D5 /* LFLUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserInfo.h; sourceTree = "<group>"; };
 		E13EF2EE1CC21FD600D9C7D5 /* LFLUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLUserInfo.m; sourceTree = "<group>"; };
+		E1437A4C1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+LFLExtension.h"; sourceTree = "<group>"; };
+		E1437A4D1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+LFLExtension.m"; sourceTree = "<group>"; };
 		E17AF7D71CBB495A0077FF38 /* LFLURLMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLURLMaker.h; sourceTree = "<group>"; };
 		E17AF7D81CBB495A0077FF38 /* LFLURLMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLURLMaker.m; sourceTree = "<group>"; };
 		E17AF7E61CBB4B830077FF38 /* LFLBaseJsonPraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseJsonPraser.h; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 		E1332A2E1CBCC6EE00ECA544 /* LFLCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E1437A4B1D795D7F00EDE0C3 /* NSFetcherResultsController+Category */,
 				E13EF2EC1CC21FA800D9C7D5 /* NSManagedObject */,
 				E1332A441CBCF58800ECA544 /* NSManagedObject+Category */,
 				E1332A2F1CBCC76B00ECA544 /* LFLFetcher+CoreData.h */,
@@ -187,6 +191,15 @@
 				E13EF2EE1CC21FD600D9C7D5 /* LFLUserInfo.m */,
 			);
 			path = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		E1437A4B1D795D7F00EDE0C3 /* NSFetcherResultsController+Category */ = {
+			isa = PBXGroup;
+			children = (
+				E1437A4C1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.h */,
+				E1437A4D1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.m */,
+			);
+			path = "NSFetcherResultsController+Category";
 			sourceTree = "<group>";
 		};
 		E17AF7D61CBB495A0077FF38 /* LFLURLFactory */ = {
@@ -279,6 +292,7 @@
 				E13EF2EF1CC21FD600D9C7D5 /* LFLUserInfo.m in Sources */,
 				E10CADD61CBA1ABE00A089DD /* LFLFetcher.m in Sources */,
 				E10706E61CC87CD300D716D6 /* LFLBaseRequest.m in Sources */,
+				E1437A4E1D795DA600EDE0C3 /* NSFetchedResultsController+LFLExtension.m in Sources */,
 				E1332A471CBCF59D00ECA544 /* NSManagedObject+LFLExtend.m in Sources */,
 				E10629141CB7618300239297 /* LFLFetcherLib.m in Sources */,
 				E10707101CC89E9500D716D6 /* LFLBaseModel.m in Sources */,
