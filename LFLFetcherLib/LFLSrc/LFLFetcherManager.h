@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "LFLFetcher.h"
+#import "SQLiteMagicalRecordStack.h"
 
 @interface LFLFetcherManager : NSObject
 
+@property (nonatomic, strong, readonly) SQLiteMagicalRecordStack *coreDataStack;
 @property (nonatomic, strong, readonly) NSManagedObjectContext *context;
-@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *coordinator;
 
 + (instancetype)shareInstance;
 

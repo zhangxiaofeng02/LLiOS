@@ -18,6 +18,8 @@
 //数据库
 #import "LFLFetcher+CoreData.h"
 #import "NSManagedObject+LFLExtend.h"
+#import "NSFetchedResultsController+LFLExtension.h"
+
 //NSManagerObject
 #import "LFLUserInfo.h"
 //MVVM

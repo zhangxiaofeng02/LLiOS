@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initChildControllers];
     [[LFLFetcherManager shareInstance] initCoreData];
+    [self initChildControllers];
     self.fetcher = [[LFLFetcherManager shareInstance] fetcherWithObject:self];
 }
 
