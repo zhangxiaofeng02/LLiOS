@@ -20,7 +20,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.contentLabel.font = [UIFont systemFontOfSize:14];
+    self.contentLabel.font = [UIFont systemFontOfSize:15];
     self.contentLabel.lineSpacing = 2.0;
 }
 
@@ -44,7 +44,7 @@
     WeakSelf;
     [self.contentLabel setText:message afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
         CGSize size = [TTTAttributedLabel sizeThatFitsAttributedString:mutableAttributedString
-                                                       withConstraints:CGSizeMake(ScreenWidth-65-60, MAXFLOAT)
+                                                       withConstraints:CGSizeMake(ScreenWidth-110-60, MAXFLOAT)
                                                 limitedToNumberOfLines:0];
         height = size.height;
         width = size.width;

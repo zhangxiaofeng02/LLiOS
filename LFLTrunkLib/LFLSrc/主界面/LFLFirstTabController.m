@@ -41,6 +41,8 @@
     LFLChatViewController *chat = [[LFLChatViewController alloc] initWithNibName:@"LFLChatViewController" bundle:[LFLTrunkBundle resourceBundle]];
     self.hidesBottomBarWhenPushed = YES;
     [self.tabNavigationController pushViewController:chat animated:YES];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"微信" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
