@@ -25,6 +25,7 @@
 		E185E3651D76FADF00DA26C8 /* user_head_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */; };
 		E185E3681D76FBD400DA26C8 /* user_chat_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */; };
 		E185E3691D76FBD400DA26C8 /* user_chat_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */; };
+		E1A78AA51D7C45FA000D9CE6 /* LFLChatTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AA41D7C45FA000D9CE6 /* LFLChatTextView.m */; };
 		E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */; };
 		E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AC1D76CE4700107EFD /* LFLUserCenterModel.m */; };
 		E1AFB6BB1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AF1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m */; };
@@ -129,6 +130,8 @@
 		E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_head_icon@3x.png"; sourceTree = "<group>"; };
 		E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@2x.png"; sourceTree = "<group>"; };
 		E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@3x.png"; sourceTree = "<group>"; };
+		E1A78AA31D7C45FA000D9CE6 /* LFLChatTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatTextView.h; sourceTree = "<group>"; };
+		E1A78AA41D7C45FA000D9CE6 /* LFLChatTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatTextView.m; sourceTree = "<group>"; };
 		E1AFB6A81D76CE4700107EFD /* LFLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterViewController.h; sourceTree = "<group>"; };
 		E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLUserCenterViewController.m; sourceTree = "<group>"; };
 		E1AFB6AB1D76CE4700107EFD /* LFLUserCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterModel.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				E162276D1D78462E0021DDF5 /* LFLChatUserInputView.h */,
 				E162276E1D78462E0021DDF5 /* LFLChatUserInputView.m */,
 				E16227701D7846510021DDF5 /* LFLChatUserInputView.xib */,
+				E1A78AA31D7C45FA000D9CE6 /* LFLChatTextView.h */,
+				E1A78AA41D7C45FA000D9CE6 /* LFLChatTextView.m */,
 			);
 			path = "输入栏";
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				E1AFB6BB1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m in Sources */,
 				E162276F1D78462E0021DDF5 /* LFLChatUserInputView.m in Sources */,
 				E1CD9A3B1CB2B4EA00580FDC /* LFLTrunkBundle.m in Sources */,
+				E1A78AA51D7C45FA000D9CE6 /* LFLChatTextView.m in Sources */,
 				E162275B1D7834940021DDF5 /* LFLChatLeftMessageViewCell.m in Sources */,
 				E1437A1E1D794C8500EDE0C3 /* LFLChatMessage.m in Sources */,
 				E10560AF1D7807600050D8A8 /* LFLChatRightMessageViewCell.m in Sources */,

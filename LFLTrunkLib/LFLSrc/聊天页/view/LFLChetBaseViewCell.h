@@ -13,6 +13,7 @@
 @protocol LFLChetBaseViewCellDelegate <NSObject>
 
 - (void)cellLongPress:(LFLChetBaseViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer;
+- (void)deleteMessage:(LFLChetBaseViewCell *)cell;
 @end
 
 @interface LFLChetBaseViewCell : UITableViewCell
