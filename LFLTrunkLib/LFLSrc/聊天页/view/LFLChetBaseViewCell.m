@@ -22,6 +22,7 @@
     [super awakeFromNib];
     self.contentLabel.font = [UIFont systemFontOfSize:15];
     self.contentLabel.lineSpacing = 2.0;
+    self.contentLabel.numberOfLines = 100;
     UILongPressGestureRecognizer * longPressGesture =[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
     [self addGestureRecognizer:longPressGesture];
 }
@@ -68,4 +69,21 @@
     return YES;
 }
 
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    if ( (action == @selector(handleCopyCell:)) || (action == @selector(handleDeleteCell:)))
+        return YES;
+    
+    return NO;
+}
+
+- (void)handleCopyCell:(id)sender {
+    [[UIPasteboard generalPasteboard] setPersistent:YES];
+    [[UIPasteboard generalPasteboard] setValue:self.contentLabel.text forPasteboardType:[UIPasteboardTypeListString objectAtIndex:0]];
+}
+
+- (void)handleDeleteCell:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(deleteMessage:)]) {
+        [self.delegate deleteMessage:self];
+    }
+}
 @end

@@ -9,7 +9,7 @@
 #import "LFLChatUserInputView.h"
 
 @interface LFLChatUserInputView() <UITextViewDelegate>
-@property (weak, nonatomic, readwrite) IBOutlet UITextView *userEditTextField;
+@property (weak, nonatomic, readwrite) IBOutlet LFLChatTextView *userEditTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDividLineHeightCons;
 
 @end
@@ -43,7 +43,12 @@
     }
     return YES;
 }
+
 - (void)textViewDidChange:(UITextView *)textView {
     
+}
+
+- (void)setInputViewNextResponser:(id<NSObject>)responser {
+    [self.userEditTextField setInputViewNextResponser:responser];
 }
 @end

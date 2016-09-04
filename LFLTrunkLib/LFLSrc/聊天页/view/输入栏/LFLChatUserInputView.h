@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LFLChatTextView.h"
+
 @protocol LFLChatUserInputViewDelegate <NSObject>
 
 - (void)sendMessage:(NSString *)message;
@@ -15,5 +17,7 @@
 @interface LFLChatUserInputView : LFLBaseView
 
 @property (nonatomic, weak) id<LFLChatUserInputViewDelegate> delegate;
-@property (weak, nonatomic, readonly) IBOutlet UITextView *userEditTextField;
+@property (weak, nonatomic, readonly) IBOutlet LFLChatTextView *userEditTextField;
+
+- (void)setInputViewNextResponser:(id<NSObject>)responser;
 @end

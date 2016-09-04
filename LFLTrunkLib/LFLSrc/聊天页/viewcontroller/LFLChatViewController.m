@@ -30,12 +30,18 @@ static CGFloat kInPutBarHeight = 50;
 @property (assign, nonatomic) NSInteger keyBoardHeight;
 @property (assign, nonatomic) BOOL keyBoardShow;
 @property (strong, nonatomic) LFLChatUserInputView *userInputView;
+@property (strong, nonatomic) LFLChetBaseViewCell *currentSelectedCell;
 @end
 
 @implementation LFLChatViewController
 
 - (void)dealloc {
     [[LFLFetcherManager shareInstance] removeFetcherWithObjects:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)loadView {
+    [super loadView];
 }
 
 - (void)viewDidLoad {
@@ -101,6 +107,8 @@ static CGFloat kInPutBarHeight = 50;
 - (void)addNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerShow:) name:UIMenuControllerDidShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerHidden:) name:UIMenuControllerDidHideMenuNotification object:nil];
 }
 
 #pragma mark - 键盘弹出收起事件
@@ -360,7 +368,9 @@ static CGFloat kInPutBarHeight = 50;
 #pragma mark LFLChetBaseViewCellDelegate
 
 - (void)cellLongPress:(LFLChetBaseViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer {
+    self.currentSelectedCell = cell;
     CGPoint location = [recognizer locationInView:self.view];
+    [self.userInputView setInputViewNextResponser:cell];
     if (!self.keyBoardShow) {
         [cell becomeFirstResponder];
     }
@@ -373,15 +383,16 @@ static CGFloat kInPutBarHeight = 50;
     [menu setMenuVisible:YES animated:YES];
 }
 
-- (void)copy:(id)sender {
+- (void)deleteMessage:(LFLChetBaseViewCell *)cell {
     
 }
 
-- (void)delete:(id)sender {
+#pragma mark menuController
+- (void)menuControllerShow:(id)sender {
     
 }
 
-- (void)select:(nullable id)sender {
-    
+- (void)menuControllerHidden:(id)sender {
+    [self.userInputView setInputViewNextResponser:nil];
 }
 @end

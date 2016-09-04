@@ -11,8 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="399" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IM-Lhr">
-                    <rect key="frame" x="0.0" y="0.0" width="584" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IM-Lhr">
+                    <rect key="frame" x="0.0" y="0.0" width="399" height="1"/>
                     <color key="backgroundColor" red="0.76470588235294112" green="0.80392156862745101" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Syw-lj-V29"/>
@@ -39,7 +39,7 @@
                         <constraint firstAttribute="height" constant="29" id="RPu-0X-RBa"/>
                     </constraints>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TID-t7-Sbh">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TID-t7-Sbh" customClass="LFLChatTextView">
                     <rect key="frame" x="43" y="6" width="280" height="38"/>
                     <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
