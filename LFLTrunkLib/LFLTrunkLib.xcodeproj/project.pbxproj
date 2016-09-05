@@ -31,6 +31,7 @@
 		E1A78AD11D7D1DFB000D9CE6 /* LFLChatRightMessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A78ACA1D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.xib */; };
 		E1A78AD41D7D1E31000D9CE6 /* LFLChatViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AD31D7D1E31000D9CE6 /* LFLChatViewController+CoreData.m */; };
 		E1A78AD71D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AD61D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m */; };
+		E1A78AE31D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */; };
 		E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */; };
 		E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AC1D76CE4700107EFD /* LFLUserCenterModel.m */; };
 		E1AFB6BB1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AF1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m */; };
@@ -147,6 +148,8 @@
 		E1A78AD31D7D1E31000D9CE6 /* LFLChatViewController+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFLChatViewController+CoreData.m"; sourceTree = "<group>"; };
 		E1A78AD51D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFLChatViewController+UserInput.h"; sourceTree = "<group>"; };
 		E1A78AD61D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFLChatViewController+UserInput.m"; sourceTree = "<group>"; };
+		E1A78AE11D7D44B4000D9CE6 /* LFLChatMessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatMessageHeaderView.h; sourceTree = "<group>"; };
+		E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatMessageHeaderView.m; sourceTree = "<group>"; };
 		E1AFB6A81D76CE4700107EFD /* LFLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterViewController.h; sourceTree = "<group>"; };
 		E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLUserCenterViewController.m; sourceTree = "<group>"; };
 		E1AFB6AB1D76CE4700107EFD /* LFLUserCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterModel.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 				E1A78ACA1D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.xib */,
 				E1A78ACB1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.h */,
 				E1A78ACC1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.m */,
+				E1A78AE11D7D44B4000D9CE6 /* LFLChatMessageHeaderView.h */,
+				E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */,
 			);
 			path = "气泡消息";
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				E1CD99FC1CB29B2D00580FDC /* LFLTrunkLib.m in Sources */,
 				E1A78ACF1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.m in Sources */,
 				E1A78ABD1D7D1CF9000D9CE6 /* LFLBaseViewController.m in Sources */,
+				E1A78AE31D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m in Sources */,
 				E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */,
 				E1A78ACE1D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.m in Sources */,
 				E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */,

@@ -10,12 +10,9 @@
 #import "LFLChatRightMessageViewCell.h"
 #import "LFLChatLeftMessageViewCell.h"
 #import "LFLChetBaseViewCell.h"
-#import "MagicalRecord.h"
-#import "LFLFetcher+CoreData.h"
-#import "NSManagedObject+MagicalRecord.h"
-#import "LFLChatMessage.h"
 #import "LFLChatViewController+CoreData.h"
 #import "LFLChatViewController+UserInput.h"
+#import "LFLChatMessageHeaderView.h"
 
 @interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate>
 
@@ -65,6 +62,12 @@
 
     [self setUpRigthBarButton];
     
+    [self addTestView];
+    
+}
+
+- (void)addTestView {
+
 }
 
 - (void)setUpRigthBarButton {
@@ -81,10 +84,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSArray *reslut = [self.messageFetcher allObjectsInSection:0];
+    NSInteger *number = self.messageFetcher.numberOfSections;
+    NSMutableArray *result = @[].mutableCopy;
+    for (int i = 0; i<number; i++) {
+        NSArray *section = [self.messageFetcher allObjectsInSection:i];
+        [result addObjectsFromArray:section];
+    }
+    
     NSInteger height = 0;
-    for (int i =0 ; i<reslut.count; i++) {
-        LFLChatMessage *message = reslut[i];
+    for (int i =0 ; i<result.count; i++) {
+        LFLChatMessage *message = result[i];
         height = height + [message.cell_height integerValue];
     }
     if (self.messageTableView.contentOffset.y == 0) {
@@ -103,6 +112,7 @@
 - (void)registerCell {
     [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
     [self.messageTableView LFLRegisterNibWithClass:[LFLChatLeftMessageViewCell class] bundle:@"LFLTrunkBundle"];
+    [self.messageTableView registerClass:[LFLChatMessageHeaderView class] forHeaderFooterViewReuseIdentifier:@"LFLChatMessageHeaderView"];
 }
 
 #pragma mark - 添加监听
@@ -142,12 +152,24 @@
 
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0f;
+    return 30;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] init];
-    [view setBackgroundColor:Color(230, 230, 230, 1)];
+    LFLChatMessageHeaderView *view =(LFLChatMessageHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"LFLChatMessageHeaderView"];
+    LFLChatMessage *message = [self.messageFetcher objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    if (message) {
+        NSDate *date = message.time;
+        NSDateFormatter *formatter;
+        if (section == 0) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy年MM月dd日 HH:mm"];
+        } else {
+            formatter = [NSDate formatMessageGroupDate:message.time];
+        }
+        NSString *dateStr = [formatter stringFromDate:[NSDate DPDLocalDateFromDate:[NSDate dateWithTimeIntervalSince1970:[message.time LFLDateToTimeInerval]]]];
+        [view setTitle:dateStr];
+    }
     return view;
 }
 
@@ -156,23 +178,21 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    NSInteger count = self.messageFetcher.numberOfSections;
-//    return count;
-    return 1;
+    NSInteger count = self.messageFetcher.numberOfSections;
+    return count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSInteger count = [self.messageFetcher numberOfRowsInSection:section];
-//    return count;
-        NSInteger count = [self.messageFetcher numberOfRowsInSection:0];
-        return count;
+    NSInteger count = [self.messageFetcher numberOfRowsInSection:section];
+    return count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
     LFLChetBaseViewCell *cell = nil;
-//    NSArray *result = [self.messageFetcher allObjectsInSection:row];
-    NSArray *result = [self.messageFetcher allObjectsInSection:0];
+    NSArray *result = [self.messageFetcher allObjectsInSection:section];
     LFLChatMessage *message = result[row];
     NSInteger type = [message.type integerValue];
     if (type == LFLChatMessageLeftType) {
@@ -189,11 +209,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = [indexPath row];
-//    NSArray *result = [self.messageFetcher allObjectsInSection:row];
-    NSArray *result = [self.messageFetcher allObjectsInSection:0];
+    NSInteger section = [indexPath section];
+    NSArray *result = [self.messageFetcher allObjectsInSection:section];
     LFLChatMessage *message = result[row];
     NSInteger height = [message.cell_height integerValue];
-    if (height >0 ) {
+    if (message && height >0 ) {
         return height;
     }
     NSInteger type = [message.type integerValue];
@@ -203,7 +223,7 @@
     } else if (type == LFLChatMessageRightType) {
         height = [self.leftMessageCell sizeForText:txt];
     }
-    height = height + 10*2 + 3 + 22;
+    height = height + 10*2 + 3 + 14;
     [message setValue:@(height) forKey:@"cell_height"];
     [LFLFetcher updateObjectPropertyWith:message];
     [self messageTableViewScrollToBottomAnimation:YES];
@@ -231,7 +251,7 @@
 }
 
 - (NSFetchedResultsController *)messageFetcher {
-    return [self.fetcher fetcherWith:[self provideClass] sortedBy:@"time" ascending:YES withPredicate:nil groupBy:nil];
+    return [self.fetcher fetcherWith:[self provideClass] sortedBy:@"msgNo" ascending:YES withPredicate:nil groupBy:@"groupKey"];
 }
 
 #pragma mark UIScrollViewDelegate
@@ -277,6 +297,7 @@
 
 - (void)messageTableViewScrollToBottomAnimation:(BOOL)animated {
     CGFloat height = self.messageTableView.contentSize.height;
+    CGFloat test = ScreenHeight - 64 - kInPutBarHeight - self.messageTableViewToBottomLength.constant;
     if (height < ScreenHeight - 64 - kInPutBarHeight - self.messageTableViewToBottomLength.constant) {
         return;
     }
@@ -317,7 +338,7 @@
 
 - (void)deleteMessage:(LFLChetBaseViewCell *)cell {
     NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
-    LFLChatMessage *message = [self.messageFetcher allObjectsInSection:0][[indexPath row]];
+    LFLChatMessage *message = [self.messageFetcher allObjectsInSection:[indexPath section]][[indexPath row]];
     [LFLFetcher deleteObjects:@[message]];
 }
 

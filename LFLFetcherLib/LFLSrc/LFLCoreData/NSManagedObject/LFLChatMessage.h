@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger,LFLChatMessageType) {
 @property (nullable, nonatomic, retain) NSDate *time;
 @property (nullable, nonatomic, retain) NSNumber *type;
 @property (nullable, nonatomic, retain) NSNumber *cell_height;
-
+@property (nullable, nonatomic, retain) NSNumber *msgNo;
+@property (nullable, nonatomic, retain) NSNumber *groupKey;
 @end
 

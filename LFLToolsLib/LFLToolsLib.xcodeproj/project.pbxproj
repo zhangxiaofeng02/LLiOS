@@ -160,6 +160,7 @@
 		E14F5C581D77F79E006BB37F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB41D77F79E006BB37F /* UIImageView+WebCache.m */; };
 		E14F5C591D77F79E006BB37F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */; };
 		E17B2BE21D7B2B1F00733C65 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */; };
+		E1A78AE01D7D3D04000D9CE6 /* NSDate+LFLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78ADF1D7D3D04000D9CE6 /* NSDate+LFLExtension.m */; };
 		E1FAB0231D799E1700E5DCBF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC21D799E1600E5DCBF /* MagicalImportFunctions.m */; };
 		E1FAB0241D799E1700E5DCBF /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC41D799E1600E5DCBF /* NSAttributeDescription+MagicalDataImport.m */; };
 		E1FAB0251D799E1700E5DCBF /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC61D799E1600E5DCBF /* NSEntityDescription+MagicalDataImport.m */; };
@@ -538,6 +539,8 @@
 		E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		E17B2BE01D7B2B1F00733C65 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		E1A78ADE1D7D3D04000D9CE6 /* NSDate+LFLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LFLExtension.h"; sourceTree = "<group>"; };
+		E1A78ADF1D7D3D04000D9CE6 /* NSDate+LFLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LFLExtension.m"; sourceTree = "<group>"; };
 		E1FAAFC11D799E1600E5DCBF /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		E1FAAFC21D799E1600E5DCBF /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		E1FAAFC31D799E1600E5DCBF /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -743,6 +746,8 @@
 			children = (
 				E1096D031CB6446F00484BDB /* UITableView+LFLRegister.h */,
 				E1096D041CB6446F00484BDB /* UITableView+LFLRegister.m */,
+				E1A78ADE1D7D3D04000D9CE6 /* NSDate+LFLExtension.h */,
+				E1A78ADF1D7D3D04000D9CE6 /* NSDate+LFLExtension.m */,
 			);
 			path = Categroy;
 			sourceTree = "<group>";
@@ -1445,6 +1450,7 @@
 				E14F5C231D77F79E006BB37F /* RACScopedDisposable.m in Sources */,
 				E14F5BBF1D77F79E006BB37F /* AFImageDownloader.m in Sources */,
 				E14F5BD01D77F79E006BB37F /* JSONValueTransformer.m in Sources */,
+				E1A78AE01D7D3D04000D9CE6 /* NSDate+LFLExtension.m in Sources */,
 				E14F5C1A1D77F79E006BB37F /* RACKVOProxy.m in Sources */,
 				E1FAB0371D799E1700E5DCBF /* NSPersistentStoreCoordinator+MagicalInMemoryStoreAdditions.m in Sources */,
 				E10706FC1CC8851800D716D6 /* Easy_Runtime.mm in Sources */,

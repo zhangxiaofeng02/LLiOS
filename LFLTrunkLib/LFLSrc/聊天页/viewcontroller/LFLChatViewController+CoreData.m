@@ -7,21 +7,47 @@
 //
 
 #import "LFLChatViewController+CoreData.h"
+#import "LFLChatMessage.h"
+#import "MagicalRecord.h"
+#import "LFLFetcher+CoreData.h"
+#import "NSManagedObject+MagicalRecord.h"
 
 @implementation LFLChatViewController (CoreData)
 
 #pragma mark - CoreData
 
 - (void)saveMessageToCoreData:(NSString *)message {
-    Class entityClass = [self provideClass];
     NSInteger type = 0;
     if ([message containsString:@"110"]) {
         type = 1;
     }
-    [LFLFetcher addObject:entityClass withPropertys:@{@"content":message,
-                                                      @"time":[NSDate new],
-                                                      @"cell_height":@(0),
-                                                      @"type":@(type)}];
+    LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"msgNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
+    NSInteger msgNo = -1;
+    NSInteger groupKey = -1;
+    if (!object) { //第一次发消息
+        msgNo = 0;
+        groupKey = 0;
+    } else {
+        msgNo = [object.msgNo integerValue] + 1;
+        NSDate *msgDate = object.time;
+        if ([[NSDate new] messageNeedToGroupCompareTime:msgDate]) {
+            groupKey = [object.groupKey integerValue] + 1;            
+        } else {
+            groupKey = [object.groupKey integerValue];
+        }
+    }
+    if (msgNo <0 || groupKey <0) {
+        debugAssert(0);
+        return;
+    }
+    NSString *text = object.content;
+    NSDictionary *property = @{@"content":message,
+                               @"time":[NSDate new],
+                               @"cell_height":@(0),
+                               @"type":@(type),
+                               @"msgNo":@(msgNo),
+                               @"groupKey":@(groupKey)};
+    [LFLFetcher addObject:[self provideClass] withPropertys:property];
 }
 
 - (Class)provideClass {
@@ -53,7 +79,7 @@
     if (LFL_SYSTEM_VERSION_LESS_THAN(@"9.0")) {
         switch (type) {
             case NSFetchedResultsChangeInsert:
-                [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+                [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
                 break;
                 
             case NSFetchedResultsChangeDelete:
@@ -82,7 +108,7 @@
         } }else {
             switch (type) {
                 case NSFetchedResultsChangeInsert:
-                    [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+                    [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
                     break;
                     
                 case NSFetchedResultsChangeDelete:
@@ -110,12 +136,12 @@
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                     withRowAnimation:UITableViewRowAnimationTop];
+                     withRowAnimation:UITableViewRowAnimationBottom];
             break;
             
         case NSFetchedResultsChangeDelete:
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-                     withRowAnimation:UITableViewRowAnimationBottom];
+                     withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeUpdate:
