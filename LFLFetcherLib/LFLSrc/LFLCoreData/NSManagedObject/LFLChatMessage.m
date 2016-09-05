@@ -14,5 +14,6 @@
 @dynamic time;
 @dynamic type;
 @dynamic cell_height;
-
+@dynamic msgNo;
+@dynamic groupKey;
 @end

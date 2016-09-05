@@ -14,7 +14,7 @@
         <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LFLChatMessage" positionX="-54" positionY="18" width="128" height="135"/>
+        <element name="LFLChatMessage" positionX="-407" positionY="-16" width="128" height="133"/>
         <element name="LFLUserInfo" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

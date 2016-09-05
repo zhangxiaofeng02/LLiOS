@@ -22,6 +22,18 @@
 
 #pragma mark - 底部输入栏
 - (void)addUserInputView {
+    //毛玻璃效果 后期维护
+//    UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//    UIVisualEffectView * effe = [[UIVisualEffectView alloc]initWithEffect:blur];
+//    [self.view addSubview:effe];
+//    [effe setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    NSMutableArray *blurConts = @[].mutableCopy;
+//    NSDictionary *blurViews = NSDictionaryOfVariableBindings(self.view,effe);
+//    [blurConts addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-0-[effe]-0-|"] options:0 metrics:nil views:blurViews]];
+//    [blurConts addObject:[NSLayoutConstraint constraintWithItem:effe attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.messageTableView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+//    [blurConts addObject:[NSLayoutConstraint constraintWithItem:effe attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:kInPutBarHeight]];
+//    [self.view addConstraints:blurConts];
+    
     LFLChatUserInputView *inputView = [LFLChatUserInputView defaultView];
     self.userInputView = inputView;
     inputView.delegate = self;
@@ -34,4 +46,5 @@
     [conts addObject:[NSLayoutConstraint constraintWithItem:inputView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:kInPutBarHeight]];
     [self.view addConstraints:conts];
 }
+
 @end

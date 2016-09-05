@@ -20,7 +20,7 @@
     [super awakeFromNib];
     self.userEditTextField.delegate = self;
     self.userEditTextField.returnKeyType = UIReturnKeySend;
-    self.userEditTextField.layer.borderWidth = 2;
+    self.userEditTextField.layer.borderWidth = 1;
     self.userEditTextField.layer.borderColor = Color(213, 213, 213, 1).CGColor;
     self.userEditTextField.layer.cornerRadius = 5.0f;
     [self.userEditTextField setFont:[UIFont systemFontOfSize:15]];
