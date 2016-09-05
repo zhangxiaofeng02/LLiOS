@@ -11,13 +11,18 @@
 		E162276A1D7838930021DDF5 /* left_head_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16227681D7838930021DDF5 /* left_head_icon@2x.png */; };
 		E162276B1D7838930021DDF5 /* left_head_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16227691D7838930021DDF5 /* left_head_icon@3x.png */; };
 		E162276F1D78462E0021DDF5 /* LFLChatUserInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E162276E1D78462E0021DDF5 /* LFLChatUserInputView.m */; };
-		E16227711D7846510021DDF5 /* LFLChatUserInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16227701D7846510021DDF5 /* LFLChatUserInputView.xib */; };
 		E185E3411D76E64100DA26C8 /* LFLChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E185E33F1D76E64100DA26C8 /* LFLChatViewController.m */; };
 		E185E3421D76E64800DA26C8 /* LFLChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E185E3401D76E64100DA26C8 /* LFLChatViewController.xib */; };
 		E185E3641D76FADF00DA26C8 /* user_head_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3621D76FADF00DA26C8 /* user_head_icon@2x.png */; };
 		E185E3651D76FADF00DA26C8 /* user_head_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */; };
 		E185E3681D76FBD400DA26C8 /* user_chat_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */; };
 		E185E3691D76FBD400DA26C8 /* user_chat_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */; };
+		E19921651D7D93F800186613 /* LFLChatVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E19921641D7D93F800186613 /* LFLChatVoiceView.m */; };
+		E19921671D7D942300186613 /* LFLChatVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19921661D7D942300186613 /* LFLChatVoiceView.xib */; };
+		E199216C1D7D9E0600186613 /* voice_cancle_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19921681D7D9E0600186613 /* voice_cancle_img@2x.png */; };
+		E199216D1D7D9E0600186613 /* voice_cancle_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19921691D7D9E0600186613 /* voice_cancle_img@3x.png */; };
+		E199216E1D7D9E0600186613 /* voice_speaking_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199216A1D7D9E0600186613 /* voice_speaking_img@2x.png */; };
+		E199216F1D7D9E0600186613 /* voice_speaking_img@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199216B1D7D9E0600186613 /* voice_speaking_img@3x.png */; };
 		E1A78AA51D7C45FA000D9CE6 /* LFLChatTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AA41D7C45FA000D9CE6 /* LFLChatTextView.m */; };
 		E1A78ABA1D7D1CF9000D9CE6 /* LFLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AB31D7D1CF9000D9CE6 /* LFLBaseNavigationController.m */; };
 		E1A78ABB1D7D1CF9000D9CE6 /* LFLBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AB51D7D1CF9000D9CE6 /* LFLBaseTableView.m */; };
@@ -32,6 +37,9 @@
 		E1A78AD41D7D1E31000D9CE6 /* LFLChatViewController+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AD31D7D1E31000D9CE6 /* LFLChatViewController+CoreData.m */; };
 		E1A78AD71D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AD61D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m */; };
 		E1A78AE31D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */; };
+		E1A78AE81D7D68F5000D9CE6 /* voice_input_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A78AE61D7D68F5000D9CE6 /* voice_input_btn@2x.png */; };
+		E1A78AE91D7D68F5000D9CE6 /* voice_input_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A78AE71D7D68F5000D9CE6 /* voice_input_btn@3x.png */; };
+		E1A78AEE1D7D6C5B000D9CE6 /* LFLChatUserInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16227701D7846510021DDF5 /* LFLChatUserInputView.xib */; };
 		E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */; };
 		E1AFB6BA1D76CE4700107EFD /* LFLUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AC1D76CE4700107EFD /* LFLUserCenterModel.m */; };
 		E1AFB6BB1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AFB6AF1D76CE4700107EFD /* LFLUserCenterCustomTableViewCell.m */; };
@@ -124,6 +132,13 @@
 		E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_head_icon@3x.png"; sourceTree = "<group>"; };
 		E185E3661D76FBD400DA26C8 /* user_chat_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@2x.png"; sourceTree = "<group>"; };
 		E185E3671D76FBD400DA26C8 /* user_chat_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_chat_bubble@3x.png"; sourceTree = "<group>"; };
+		E19921631D7D93F800186613 /* LFLChatVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatVoiceView.h; sourceTree = "<group>"; };
+		E19921641D7D93F800186613 /* LFLChatVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatVoiceView.m; sourceTree = "<group>"; };
+		E19921661D7D942300186613 /* LFLChatVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFLChatVoiceView.xib; sourceTree = "<group>"; };
+		E19921681D7D9E0600186613 /* voice_cancle_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_cancle_img@2x.png"; sourceTree = "<group>"; };
+		E19921691D7D9E0600186613 /* voice_cancle_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_cancle_img@3x.png"; sourceTree = "<group>"; };
+		E199216A1D7D9E0600186613 /* voice_speaking_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_speaking_img@2x.png"; sourceTree = "<group>"; };
+		E199216B1D7D9E0600186613 /* voice_speaking_img@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_speaking_img@3x.png"; sourceTree = "<group>"; };
 		E1A78AA31D7C45FA000D9CE6 /* LFLChatTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatTextView.h; sourceTree = "<group>"; };
 		E1A78AA41D7C45FA000D9CE6 /* LFLChatTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatTextView.m; sourceTree = "<group>"; };
 		E1A78AB21D7D1CF9000D9CE6 /* LFLBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseNavigationController.h; sourceTree = "<group>"; };
@@ -150,6 +165,8 @@
 		E1A78AD61D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFLChatViewController+UserInput.m"; sourceTree = "<group>"; };
 		E1A78AE11D7D44B4000D9CE6 /* LFLChatMessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatMessageHeaderView.h; sourceTree = "<group>"; };
 		E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatMessageHeaderView.m; sourceTree = "<group>"; };
+		E1A78AE61D7D68F5000D9CE6 /* voice_input_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_input_btn@2x.png"; sourceTree = "<group>"; };
+		E1A78AE71D7D68F5000D9CE6 /* voice_input_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_input_btn@3x.png"; sourceTree = "<group>"; };
 		E1AFB6A81D76CE4700107EFD /* LFLUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterViewController.h; sourceTree = "<group>"; };
 		E1AFB6A91D76CE4700107EFD /* LFLUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLUserCenterViewController.m; sourceTree = "<group>"; };
 		E1AFB6AB1D76CE4700107EFD /* LFLUserCenterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLUserCenterModel.h; sourceTree = "<group>"; };
@@ -251,6 +268,10 @@
 		E185E3611D76FADF00DA26C8 /* 聊天模块 */ = {
 			isa = PBXGroup;
 			children = (
+				E19921681D7D9E0600186613 /* voice_cancle_img@2x.png */,
+				E19921691D7D9E0600186613 /* voice_cancle_img@3x.png */,
+				E199216A1D7D9E0600186613 /* voice_speaking_img@2x.png */,
+				E199216B1D7D9E0600186613 /* voice_speaking_img@3x.png */,
 				E1FAB0641D7ACC8A00E5DCBF /* ll_head_icon@3x.png */,
 				E1FAB0621D7ACBDC00E5DCBF /* right_head_icon@3x.png */,
 				E1FAB05E1D7AC87100E5DCBF /* bottombar_right_add_btn@2x.png */,
@@ -259,6 +280,8 @@
 				E1FAB0571D7AC76300E5DCBF /* bottombar_left_btn@3x.png */,
 				E1FAB0581D7AC76300E5DCBF /* bottombar_right_emojy_btn@2x.png */,
 				E1FAB0591D7AC76300E5DCBF /* bottombar_right_emojy_btn@3x.png */,
+				E1A78AE61D7D68F5000D9CE6 /* voice_input_btn@2x.png */,
+				E1A78AE71D7D68F5000D9CE6 /* voice_input_btn@3x.png */,
 				E1FAB04E1D7AC38300E5DCBF /* right_bar_icon@2x.png */,
 				E1FAB04F1D7AC38300E5DCBF /* right_bar_icon@3x.png */,
 				E16227681D7838930021DDF5 /* left_head_icon@2x.png */,
@@ -269,6 +292,16 @@
 				E185E3631D76FADF00DA26C8 /* user_head_icon@3x.png */,
 			);
 			path = "聊天模块";
+			sourceTree = "<group>";
+		};
+		E19921621D7D93DA00186613 /* 语音 */ = {
+			isa = PBXGroup;
+			children = (
+				E19921631D7D93F800186613 /* LFLChatVoiceView.h */,
+				E19921641D7D93F800186613 /* LFLChatVoiceView.m */,
+				E19921661D7D942300186613 /* LFLChatVoiceView.xib */,
+			);
+			path = "语音";
 			sourceTree = "<group>";
 		};
 		E1A78AB11D7D1CF9000D9CE6 /* LFLBaseView */ = {
@@ -291,14 +324,14 @@
 		E1A78AC41D7D1DEF000D9CE6 /* 气泡消息 */ = {
 			isa = PBXGroup;
 			children = (
+				E1A78ACB1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.h */,
+				E1A78ACC1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.m */,
 				E1A78AC51D7D1DEF000D9CE6 /* LFLChatLeftMessageViewCell.h */,
 				E1A78AC61D7D1DEF000D9CE6 /* LFLChatLeftMessageViewCell.m */,
 				E1A78AC71D7D1DEF000D9CE6 /* LFLChatLeftMessageViewCell.xib */,
 				E1A78AC81D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.h */,
 				E1A78AC91D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.m */,
 				E1A78ACA1D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.xib */,
-				E1A78ACB1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.h */,
-				E1A78ACC1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.m */,
 				E1A78AE11D7D44B4000D9CE6 /* LFLChatMessageHeaderView.h */,
 				E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */,
 			);
@@ -426,6 +459,7 @@
 		E1AFB6FB1D76D31000107EFD /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E19921621D7D93DA00186613 /* 语音 */,
 				E1A78AC41D7D1DEF000D9CE6 /* 气泡消息 */,
 				E162276C1D7845FE0021DDF5 /* 输入栏 */,
 			);
@@ -612,6 +646,7 @@
 			files = (
 				E1AFB6D41D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo_select@3x.png in Resources */,
 				E185E3651D76FADF00DA26C8 /* user_head_icon@3x.png in Resources */,
+				E19921671D7D942300186613 /* LFLChatVoiceView.xib in Resources */,
 				E162276A1D7838930021DDF5 /* left_head_icon@2x.png in Resources */,
 				E1FAB0501D7AC38300E5DCBF /* right_bar_icon@2x.png in Resources */,
 				E1FAB0651D7ACC8A00E5DCBF /* ll_head_icon@3x.png in Resources */,
@@ -621,30 +656,36 @@
 				E1AFB6E41D76CEFC00107EFD /* lfl_user_center_go_icon@2x.png in Resources */,
 				E185E3641D76FADF00DA26C8 /* user_head_icon@2x.png in Resources */,
 				E1AFB6DA1D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai@3x.png in Resources */,
+				E199216C1D7D9E0600186613 /* voice_cancle_img@2x.png in Resources */,
 				E1AFB6E01D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao_select@3x.png in Resources */,
 				E185E3681D76FBD400DA26C8 /* user_chat_bubble@2x.png in Resources */,
 				E1AFB6D21D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo@3x.png in Resources */,
 				E1A78AD11D7D1DFB000D9CE6 /* LFLChatRightMessageViewCell.xib in Resources */,
 				E1AFB6BF1D76CE5400107EFD /* LFLUserCenterCustomTableViewCell.xib in Resources */,
+				E199216F1D7D9E0600186613 /* voice_speaking_img@3x.png in Resources */,
 				E1AFB6DF1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao_select@2x.png in Resources */,
-				E16227711D7846510021DDF5 /* LFLChatUserInputView.xib in Resources */,
 				E1AFB6D61D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian@3x.png in Resources */,
 				E185E3691D76FBD400DA26C8 /* user_chat_bubble@3x.png in Resources */,
 				E1AFB6DC1D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai_select@3x.png in Resources */,
 				E1FAB0631D7ACBDC00E5DCBF /* right_head_icon@3x.png in Resources */,
 				E162276B1D7838930021DDF5 /* left_head_icon@3x.png in Resources */,
+				E199216D1D7D9E0600186613 /* voice_cancle_img@3x.png in Resources */,
 				E1AFB6D51D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian@2x.png in Resources */,
 				E1AFB6E51D76CEFC00107EFD /* lfl_user_center_go_icon@3x.png in Resources */,
 				E1FAB05D1D7AC76300E5DCBF /* bottombar_right_emojy_btn@3x.png in Resources */,
+				E1A78AE91D7D68F5000D9CE6 /* voice_input_btn@3x.png in Resources */,
 				E1FAB0601D7AC87100E5DCBF /* bottombar_right_add_btn@2x.png in Resources */,
 				E1A78AD01D7D1DF8000D9CE6 /* LFLChatLeftMessageViewCell.xib in Resources */,
+				E1A78AEE1D7D6C5B000D9CE6 /* LFLChatUserInputView.xib in Resources */,
 				E1FAB0511D7AC38300E5DCBF /* right_bar_icon@3x.png in Resources */,
 				E1AFB6D31D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo_select@2x.png in Resources */,
 				E1FAB05B1D7AC76300E5DCBF /* bottombar_left_btn@3x.png in Resources */,
+				E199216E1D7D9E0600186613 /* voice_speaking_img@2x.png in Resources */,
 				E1FAB0611D7AC87100E5DCBF /* bottombar_right_add_btn@3x.png in Resources */,
 				E1FAB05C1D7AC76300E5DCBF /* bottombar_right_emojy_btn@2x.png in Resources */,
 				E1AFB6DE1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao@3x.png in Resources */,
 				E1AFB6D91D76CEDB00107EFD /* dpd_navigation_bottom_tab_waimai@2x.png in Resources */,
+				E1A78AE81D7D68F5000D9CE6 /* voice_input_btn@2x.png in Resources */,
 				E1AFB6D11D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo@2x.png in Resources */,
 				E1AFB6D81D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian_select@3x.png in Resources */,
 				E1AFB6D71D76CEDB00107EFD /* dpd_navigation_bottom_tab_tuijian_select@2x.png in Resources */,
@@ -676,6 +717,7 @@
 				E162276F1D78462E0021DDF5 /* LFLChatUserInputView.m in Sources */,
 				E1CD9A3B1CB2B4EA00580FDC /* LFLTrunkBundle.m in Sources */,
 				E1A78AD71D7D1EC9000D9CE6 /* LFLChatViewController+UserInput.m in Sources */,
+				E19921651D7D93F800186613 /* LFLChatVoiceView.m in Sources */,
 				E1A78AA51D7C45FA000D9CE6 /* LFLChatTextView.m in Sources */,
 				E1A78ABC1D7D1CF9000D9CE6 /* LFLBaseTableViewController.m in Sources */,
 				E1A78ACD1D7D1DEF000D9CE6 /* LFLChatLeftMessageViewCell.m in Sources */,

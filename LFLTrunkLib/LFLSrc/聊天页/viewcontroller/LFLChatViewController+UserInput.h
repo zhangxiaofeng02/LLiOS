@@ -12,4 +12,7 @@
 
 - (void)sendMessage:(NSString *)message;
 - (void)addUserInputView;
+- (void)setAudioSession;
+- (NSURL *)getSavePath;
+- (NSDictionary *)getAudioSetting;
 @end

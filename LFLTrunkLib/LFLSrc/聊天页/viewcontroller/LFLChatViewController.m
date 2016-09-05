@@ -45,6 +45,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //侧滑导致的button点击延迟
+    self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan = NO;
     [self.view setBackgroundColor:Color(230, 230, 230, 1)];
     self.title = @"廖呆呆";
     self.fetcher = [[LFLFetcherManager shareInstance] fetcherWithObject:self];
@@ -62,12 +64,7 @@
 
     [self setUpRigthBarButton];
     
-    [self addTestView];
-    
-}
-
-- (void)addTestView {
-
+    [self setAudioSession];
 }
 
 - (void)setUpRigthBarButton {
@@ -157,6 +154,10 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     LFLChatMessageHeaderView *view =(LFLChatMessageHeaderView *)[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"LFLChatMessageHeaderView"];
+    WeakSelf;
+    view.onClick = ^ {
+        [weakSelf closeKeyBoard];
+    };
     LFLChatMessage *message = [self.messageFetcher objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     if (message) {
         NSDate *date = message.time;
@@ -252,6 +253,40 @@
 
 - (NSFetchedResultsController *)messageFetcher {
     return [self.fetcher fetcherWith:[self provideClass] sortedBy:@"msgNo" ascending:YES withPredicate:nil groupBy:@"groupKey"];
+}
+
+- (AVAudioRecorder *)audioRecorder {
+    if (!_audioRecorder) {
+        //创建录音文件保存路径
+        NSURL *url = [self getSavePath];
+        //创建录音格式设置
+        NSDictionary *setting = [self getAudioSetting];
+        //创建录音机
+        NSError *error=nil;
+        _audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:setting error:&error];
+        _audioRecorder.delegate = self;
+        _audioRecorder.meteringEnabled = YES;//如果要监控声波则必须设置为YES
+        if (error) {
+            NSLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+        }
+    }
+    return _audioRecorder;
+}
+
+- (AVAudioPlayer *)audioPlayer {
+    if (!_audioPlayer) {
+        NSURL *url = [self getSavePath];
+        NSError *error = nil;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        _audioPlayer.numberOfLoops = 0;
+        [_audioPlayer prepareToPlay];
+        if (error) {
+            NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+        }
+    }
+    return _audioPlayer;
 }
 
 #pragma mark UIScrollViewDelegate

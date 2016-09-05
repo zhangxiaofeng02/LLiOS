@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void(^HeaderViewOnClick)();
 
 @interface LFLChatMessageHeaderView : UITableViewHeaderFooterView
 
+@property (nonatomic, copy) HeaderViewOnClick onClick;
 - (void)setTitle:(NSString *)title;
 @end
