@@ -20,38 +20,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LFLTrunkLib/LFLSrc/&#x804a;&#x5929;&#x9875;/view/&#x8f93;&#x5165;&#x680f;/LFLChatTextView.m"
-            timestampString = "494685668.403375"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-nextResponder"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LFLTrunkLib/LFLSrc/&#x804a;&#x5929;&#x9875;/view/&#x8f93;&#x5165;&#x680f;/LFLChatTextView.m"
-            timestampString = "494685669.410349"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-canPerformAction:withSender:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LFLTrunkLib/LFLSrc/&#x804a;&#x5929;&#x9875;/view/&#x8f93;&#x5165;&#x680f;/LFLChatTextView.m"
             timestampString = "494685670.129945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

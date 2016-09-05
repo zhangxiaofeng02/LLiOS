@@ -22,6 +22,8 @@
 
 //NSManagerObject
 #import "LFLUserInfo.h"
+#import "LFLChatMessage.h"
+
 //MVVM
 #import "LFLBaseAction.h"
 #import "LFLBaseRequest.h"

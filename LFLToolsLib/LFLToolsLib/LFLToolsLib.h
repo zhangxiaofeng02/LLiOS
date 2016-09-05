@@ -10,14 +10,6 @@
 
 //global
 #import "LFLGlobal.h"
-//base
-#import "LFLBaseViewController.h"
-#import "LFLBaseNavigationController.h"
-#import "LFLBaseTableView.h"
-#import "LFLBaseTableViewController.h"
-
-//category
-#import "UITableView+LFLRegister.h"
 
 //easy model
 #import "EasyTransModel.h"

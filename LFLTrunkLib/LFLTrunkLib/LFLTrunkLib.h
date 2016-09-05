@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LFLTrunkBundle.h"
 #import "LFLMainTabBarController.h"
+#import "LFLBaseNavigationController.h"
 
 @interface LFLTrunkLib : NSObject
 @end

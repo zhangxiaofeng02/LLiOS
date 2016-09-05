@@ -10,27 +10,29 @@
 #import "LFLChatRightMessageViewCell.h"
 #import "LFLChatLeftMessageViewCell.h"
 #import "LFLChetBaseViewCell.h"
-#import "LFLChatUserInputView.h"
 #import "MagicalRecord.h"
 #import "LFLFetcher+CoreData.h"
 #import "NSManagedObject+MagicalRecord.h"
 #import "LFLChatMessage.h"
-
-static CGFloat kInPutBarHeight = 50;
+#import "LFLChatViewController+CoreData.h"
+#import "LFLChatViewController+UserInput.h"
 
 @interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *messageTableView;
+@property (weak, nonatomic, readwrite) IBOutlet UITableView *messageTableView;
+//消息cell
+@property (strong, nonatomic) LFLChetBaseViewCell *currentSelectedCell;
 @property (strong, nonatomic) LFLChatRightMessageViewCell *rightMessageCell;
 @property (strong, nonatomic) LFLChatLeftMessageViewCell *leftMessageCell;
-@property (strong, nonatomic) NSMutableArray *heightArr;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageTableViewToBottomLength;
+//消息列表约束
+@property (weak, nonatomic, readwrite) IBOutlet NSLayoutConstraint *messageTableViewToBottomLength;
+//数据操作
 @property (strong, nonatomic) LFLFetcher *fetcher;
-@property (strong, nonatomic) NSFetchedResultsController *messageFetcher;
+//键盘高度
 @property (assign, nonatomic) NSInteger keyBoardHeight;
+//键盘是否正在显示
 @property (assign, nonatomic) BOOL keyBoardShow;
-@property (strong, nonatomic) LFLChatUserInputView *userInputView;
-@property (strong, nonatomic) LFLChetBaseViewCell *currentSelectedCell;
+
 @end
 
 @implementation LFLChatViewController
@@ -125,31 +127,14 @@ static CGFloat kInPutBarHeight = 50;
 
 - (void)keyboardWillBeHidden:(id)noti {
     self.messageTableViewToBottomLength.constant = kInPutBarHeight;
-    
-//    [UIView animateWithDuration:0.15 animations:^{
-//        [self.view layoutIfNeeded];
-        self.keyBoardShow = NO;
-//    }];
+    self.keyBoardShow = NO;
 }
 
 - (void)closeKeyBoard {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
-#pragma mark - 底部输入栏
-- (void)addUserInputView {
-    LFLChatUserInputView *inputView = [LFLChatUserInputView defaultView];
-    self.userInputView = inputView;
-    inputView.delegate = self;
-    [self.view addSubview:inputView];
-    [inputView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSMutableArray *conts = @[].mutableCopy;
-    NSDictionary *views = NSDictionaryOfVariableBindings(self.view,inputView);
-    [conts addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-0-[inputView]-0-|"] options:0 metrics:nil views:views]];
-    [conts addObject:[NSLayoutConstraint constraintWithItem:inputView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.messageTableView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
-    [conts addObject:[NSLayoutConstraint constraintWithItem:inputView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:kInPutBarHeight]];
-    [self.view addConstraints:conts];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -218,10 +203,10 @@ static CGFloat kInPutBarHeight = 50;
     } else if (type == LFLChatMessageRightType) {
         height = [self.leftMessageCell sizeForText:txt];
     }
-//    height <= 25 ? height = 60 : (height += 10*2 + 3 + 20); // cell宽度
     height = height + 10*2 + 3 + 22;
     [message setValue:@(height) forKey:@"cell_height"];
     [LFLFetcher updateObjectPropertyWith:message];
+    [self messageTableViewScrollToBottomAnimation:YES];
     return height;
 }
 
@@ -271,6 +256,8 @@ static CGFloat kInPutBarHeight = 50;
     
 }
 
+#pragma mark 滚动
+
 - (BOOL)messageTableViewScrollToBottom {
     CGPoint contentOffsetPoint = self.messageTableView.contentOffset;
     CGRect frame = self.messageTableView.frame;
@@ -288,17 +275,6 @@ static CGFloat kInPutBarHeight = 50;
     return NO;
 }
 
-#pragma mark LFLChatUserInputViewDelegate
-
-- (void)sendMessage:(NSString *)message {
-    [self saveMessageToCoreData:message];
-    if (self.messageTableView.contentSize.height > ScreenHeight - 64 - self.messageTableViewToBottomLength.constant) {
-        [self messageTableViewScrollAnimation:YES];
-    }
-}
-
-#pragma mark 滚动到最底部
-
 - (void)messageTableViewScrollToBottomAnimation:(BOOL)animated {
     CGFloat height = self.messageTableView.contentSize.height;
     if (height < ScreenHeight - 64 - kInPutBarHeight - self.messageTableViewToBottomLength.constant) {
@@ -315,55 +291,11 @@ static CGFloat kInPutBarHeight = 50;
     });
 }
 
-#pragma mark - CoreData
-
-- (void)saveMessageToCoreData:(NSString *)message {
-    Class entityClass = [self provideClass];
-    NSInteger type = 0;
-    if ([message containsString:@"110"]) {
-        type = 1;
-    }
-    [LFLFetcher addObject:entityClass withPropertys:@{@"content":message,
-                                                      @"time":[NSDate new],
-                                                      @"cell_height":@(0),
-                                                      @"type":@(type)}];
-}
-
-- (Class)provideClass {
-    return NSClassFromString(@"LFLChatMessage");
-}
-
 #pragma mark - 刷新聊天页面
 
 - (void)refreshMessageTableView {
     [self.messageTableView reloadData];
-    [self messageTableViewScrollToBottomAnimation:YES];
 }
-
-#pragma mark - NSFetchedResultsDelegate
-
-//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
-//    LFLLog(@"1");
-//}
-//
-//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-//    LFLLog(@"2");
-//}
-//
-//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-//    LFLLog(@"3");
-//}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    if (controller != self.messageFetcher) {
-        return;
-    }
-    [self refreshMessageTableView];
-}
-
-//- (nullable NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
-//    return @""
-//}
 
 #pragma mark LFLChetBaseViewCellDelegate
 
@@ -384,10 +316,17 @@ static CGFloat kInPutBarHeight = 50;
 }
 
 - (void)deleteMessage:(LFLChetBaseViewCell *)cell {
-    
+    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
+    LFLChatMessage *message = [self.messageFetcher allObjectsInSection:0][[indexPath row]];
+    [LFLFetcher deleteObjects:@[message]];
+}
+
+- (void)cellTapAction:(LFLChetBaseViewCell *)cell {
+    [self closeKeyBoard];
 }
 
 #pragma mark menuController
+
 - (void)menuControllerShow:(id)sender {
     
 }
@@ -395,4 +334,5 @@ static CGFloat kInPutBarHeight = 50;
 - (void)menuControllerHidden:(id)sender {
     [self.userInputView setInputViewNextResponser:nil];
 }
+
 @end

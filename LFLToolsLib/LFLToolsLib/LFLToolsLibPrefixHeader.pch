@@ -17,11 +17,6 @@
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
-    //base
-    #import "LFLBaseViewController.h"
-    #import "LFLBaseNavigationController.h"
-    #import "LFLBaseTableView.h"
-    #import "LFLBaseTableViewController.h"
     //global
     #import "LFLGlobal.h"
 

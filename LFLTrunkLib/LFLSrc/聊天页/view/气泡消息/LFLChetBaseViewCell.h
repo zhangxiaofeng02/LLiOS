@@ -14,6 +14,7 @@
 
 - (void)cellLongPress:(LFLChetBaseViewCell *)cell recognizer:(UIGestureRecognizer *)recognizer;
 - (void)deleteMessage:(LFLChetBaseViewCell *)cell;
+- (void)cellTapAction:(LFLChetBaseViewCell *)cell;
 @end
 
 @interface LFLChetBaseViewCell : UITableViewCell
