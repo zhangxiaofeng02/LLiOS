@@ -60,6 +60,9 @@
         _titleLabel = label;
         self.layer.shouldRasterize = YES;
         self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -69,5 +72,11 @@
     CGSize size =[title sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     _widthContraint.constant = size.width + 4;
     _heightContraint.constant = size.height + 2;
+}
+
+- (void)tapAction:(id)action {
+    if (self.onClick) {
+        self.onClick();
+    }
 }
 @end

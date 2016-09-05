@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,6 +25,13 @@
                         <constraint firstAttribute="height" constant="29" id="MID-3x-NU4"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEX-ie-AcU">
+                    <rect key="frame" x="8" y="11" width="29" height="29"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="changeToVoiceOnClick:" destination="SqC-Vw-1k0" eventType="touchUpInside" id="LuV-Ri-CXw"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottombar_right_add_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="0kG-g5-DuJ">
                     <rect key="frame" x="362" y="11" width="29" height="29"/>
                     <constraints>
@@ -32,6 +39,13 @@
                         <constraint firstAttribute="height" constant="29" id="bfJ-2c-MVw"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-jR-yuW">
+                    <rect key="frame" x="362" y="11" width="29" height="29"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="inputBarMoreActionOnClick:" destination="SqC-Vw-1k0" eventType="touchUpInside" id="cYj-yH-Imb"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottombar_right_emojy_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="CNg-Ui-l05">
                     <rect key="frame" x="329" y="11" width="29" height="29"/>
                     <constraints>
@@ -45,42 +59,60 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrU-b3-Yu0">
+                    <rect key="frame" x="43" y="6" width="280" height="38"/>
+                    <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="按住说话">
+                        <color key="titleColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="voiceButtonDragInside:" destination="SqC-Vw-1k0" eventType="touchDragInside" id="GMF-NE-QnK"/>
+                        <action selector="voiceButtonDragOutSide:" destination="SqC-Vw-1k0" eventType="touchDragOutside" id="hk6-SY-X1L"/>
+                        <action selector="voiceButtonTouchDown:" destination="SqC-Vw-1k0" eventType="touchDown" id="k9c-SV-QxH"/>
+                        <action selector="voiceButtonTouchUpInSide:" destination="SqC-Vw-1k0" eventType="touchUpInside" id="9NV-ih-2Wz"/>
+                        <action selector="voiceButtonTouchUpOutSide:" destination="SqC-Vw-1k0" eventType="touchUpOutside" id="rDt-5Q-Yza"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.80000000000000004" green="0.80392156862745101" blue="0.82352941176470584" alpha="0.0" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="LjZ-BK-pad" firstAttribute="top" secondItem="gnY-IM-Lhr" secondAttribute="bottom" constant="7" id="35V-KY-3Ka"/>
+                <constraint firstItem="ABz-jR-yuW" firstAttribute="bottom" secondItem="0kG-g5-DuJ" secondAttribute="bottom" id="2f4-4G-1NT"/>
+                <constraint firstItem="QrU-b3-Yu0" firstAttribute="bottom" secondItem="TID-t7-Sbh" secondAttribute="bottom" id="3LG-hh-pRu"/>
                 <constraint firstItem="gnY-IM-Lhr" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" id="5h4-lD-OeA"/>
-                <constraint firstItem="TID-t7-Sbh" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" constant="60" id="7lp-yk-Np2"/>
+                <constraint firstItem="CEX-ie-AcU" firstAttribute="bottom" secondItem="LjZ-BK-pad" secondAttribute="bottom" id="7Ob-9a-Tvb"/>
                 <constraint firstItem="CNg-Ui-l05" firstAttribute="leading" secondItem="TID-t7-Sbh" secondAttribute="trailing" constant="6" id="8rQ-BK-5Dj"/>
                 <constraint firstAttribute="bottom" secondItem="TID-t7-Sbh" secondAttribute="bottom" constant="6" id="B45-HA-Yre"/>
                 <constraint firstItem="gnY-IM-Lhr" firstAttribute="top" secondItem="SqC-Vw-1k0" secondAttribute="top" id="H0V-JV-7Kr"/>
+                <constraint firstItem="ABz-jR-yuW" firstAttribute="trailing" secondItem="0kG-g5-DuJ" secondAttribute="trailing" id="Ie3-4t-uDq"/>
                 <constraint firstItem="CNg-Ui-l05" firstAttribute="centerY" secondItem="0kG-g5-DuJ" secondAttribute="centerY" id="Lct-nR-gk4"/>
-                <constraint firstAttribute="trailing" secondItem="TID-t7-Sbh" secondAttribute="trailing" constant="150" id="OgL-SL-kU7"/>
+                <constraint firstItem="CEX-ie-AcU" firstAttribute="top" secondItem="LjZ-BK-pad" secondAttribute="top" id="Mrd-ht-Tnf"/>
+                <constraint firstItem="QrU-b3-Yu0" firstAttribute="trailing" secondItem="TID-t7-Sbh" secondAttribute="trailing" id="NwO-76-UKK"/>
                 <constraint firstAttribute="trailing" secondItem="gnY-IM-Lhr" secondAttribute="trailing" id="Rbj-Lp-9fj"/>
                 <constraint firstItem="LjZ-BK-pad" firstAttribute="centerY" secondItem="TID-t7-Sbh" secondAttribute="centerY" id="UPy-Kr-Oye"/>
                 <constraint firstItem="LjZ-BK-pad" firstAttribute="leading" secondItem="SqC-Vw-1k0" secondAttribute="leading" constant="8" id="Udi-wH-nyA"/>
+                <constraint firstItem="QrU-b3-Yu0" firstAttribute="top" secondItem="TID-t7-Sbh" secondAttribute="top" id="VE8-IT-hpf"/>
+                <constraint firstItem="QrU-b3-Yu0" firstAttribute="leading" secondItem="TID-t7-Sbh" secondAttribute="leading" id="XC4-0C-7ve"/>
                 <constraint firstItem="0kG-g5-DuJ" firstAttribute="leading" secondItem="CNg-Ui-l05" secondAttribute="trailing" constant="4" id="cWC-X8-nYK"/>
                 <constraint firstItem="TID-t7-Sbh" firstAttribute="top" secondItem="SqC-Vw-1k0" secondAttribute="top" constant="6" id="h3Q-ZG-xjh"/>
-                <constraint firstAttribute="bottom" secondItem="LjZ-BK-pad" secondAttribute="bottom" constant="7" id="k8q-v1-EKY"/>
+                <constraint firstItem="ABz-jR-yuW" firstAttribute="top" secondItem="0kG-g5-DuJ" secondAttribute="top" id="hkO-Uv-IKY"/>
+                <constraint firstItem="CEX-ie-AcU" firstAttribute="trailing" secondItem="LjZ-BK-pad" secondAttribute="trailing" id="nTH-l7-dJ6"/>
+                <constraint firstItem="ABz-jR-yuW" firstAttribute="leading" secondItem="0kG-g5-DuJ" secondAttribute="leading" id="nee-cz-hdS"/>
+                <constraint firstItem="CEX-ie-AcU" firstAttribute="leading" secondItem="LjZ-BK-pad" secondAttribute="leading" id="p91-Hq-zeV"/>
                 <constraint firstItem="0kG-g5-DuJ" firstAttribute="centerY" secondItem="TID-t7-Sbh" secondAttribute="centerY" id="p92-uB-SV4"/>
                 <constraint firstItem="TID-t7-Sbh" firstAttribute="leading" secondItem="LjZ-BK-pad" secondAttribute="trailing" constant="6" id="pTD-LK-QNs"/>
                 <constraint firstAttribute="trailing" secondItem="0kG-g5-DuJ" secondAttribute="trailing" constant="8" id="wJx-jo-2g2"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="35V-KY-3Ka"/>
-                    <exclude reference="k8q-v1-EKY"/>
-                    <exclude reference="7lp-yk-Np2"/>
-                    <exclude reference="OgL-SL-kU7"/>
-                </mask>
-            </variation>
             <connections>
+                <outlet property="changeVoiceButton" destination="CEX-ie-AcU" id="GRV-Ua-sbZ"/>
+                <outlet property="changeVoiceImageView" destination="LjZ-BK-pad" id="ugk-DJ-74k"/>
+                <outlet property="inputBarMoreActionButton" destination="ABz-jR-yuW" id="BO5-Tv-ahC"/>
                 <outlet property="topDividLineHeightCons" destination="Syw-lj-V29" id="Oyz-Ac-c4k"/>
                 <outlet property="userEditTextField" destination="TID-t7-Sbh" id="ykh-We-I12"/>
+                <outlet property="voiceButton" destination="QrU-b3-Yu0" id="bzw-2i-7oJ"/>
             </connections>
-            <point key="canvasLocation" x="-251.5" y="460"/>
+            <point key="canvasLocation" x="-2035.5" y="472"/>
         </view>
     </objects>
     <resources>

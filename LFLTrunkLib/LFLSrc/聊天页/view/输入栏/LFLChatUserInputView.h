@@ -12,6 +12,12 @@
 @protocol LFLChatUserInputViewDelegate <NSObject>
 
 - (void)sendMessage:(NSString *)message;
+- (void)voiceButtonDragOutSide;
+- (void)voiceButtonTouchUpOutSide;
+- (void)voiceButtonTouchUpInSide;
+- (void)voiceButtonTouchDown;
+- (void)voiceButtonDragInside;
+- (void)inputBarMoreActionOnClick;
 @end
 
 @interface LFLChatUserInputView : LFLBaseView
