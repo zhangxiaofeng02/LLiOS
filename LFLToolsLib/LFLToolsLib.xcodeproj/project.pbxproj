@@ -23,10 +23,6 @@
 		E1096CBF1CB615C300484BDB /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CB91CB615C300484BDB /* TPKeyboardAvoidingScrollView.m */; };
 		E1096CC01CB615C300484BDB /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CBB1CB615C300484BDB /* TPKeyboardAvoidingTableView.m */; };
 		E1096CDA1CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CD91CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		E1096CE71CB62ADA00484BDB /* LFLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CE01CB62AD900484BDB /* LFLBaseNavigationController.m */; };
-		E1096CE81CB62ADA00484BDB /* LFLBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CE21CB62AD900484BDB /* LFLBaseTableView.m */; };
-		E1096CE91CB62ADA00484BDB /* LFLBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CE41CB62AD900484BDB /* LFLBaseTableViewController.m */; };
-		E1096CEA1CB62ADA00484BDB /* LFLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CE61CB62ADA00484BDB /* LFLBaseViewController.m */; };
 		E1096D051CB6446F00484BDB /* UITableView+LFLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096D041CB6446F00484BDB /* UITableView+LFLRegister.m */; };
 		E14F5BB71D77F79E006BB37F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5A501D77F79E006BB37F /* AFHTTPSessionManager.m */; };
 		E14F5BB81D77F79E006BB37F /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5A531D77F79E006BB37F /* AFNetworkReachabilityManager.m */; };
@@ -257,14 +253,6 @@
 		E1096CBB1CB615C300484BDB /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		E1096CD81CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		E1096CD91CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		E1096CDF1CB62AD900484BDB /* LFLBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseNavigationController.h; sourceTree = "<group>"; };
-		E1096CE01CB62AD900484BDB /* LFLBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLBaseNavigationController.m; sourceTree = "<group>"; };
-		E1096CE11CB62AD900484BDB /* LFLBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseTableView.h; sourceTree = "<group>"; };
-		E1096CE21CB62AD900484BDB /* LFLBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLBaseTableView.m; sourceTree = "<group>"; };
-		E1096CE31CB62AD900484BDB /* LFLBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseTableViewController.h; sourceTree = "<group>"; };
-		E1096CE41CB62AD900484BDB /* LFLBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLBaseTableViewController.m; sourceTree = "<group>"; };
-		E1096CE51CB62AD900484BDB /* LFLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLBaseViewController.h; sourceTree = "<group>"; };
-		E1096CE61CB62ADA00484BDB /* LFLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLBaseViewController.m; sourceTree = "<group>"; };
 		E1096D031CB6446F00484BDB /* UITableView+LFLRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LFLRegister.h"; sourceTree = "<group>"; };
 		E1096D041CB6446F00484BDB /* UITableView+LFLRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LFLRegister.m"; sourceTree = "<group>"; };
 		E14F5A4F1D77F79E006BB37F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -714,7 +702,6 @@
 			isa = PBXGroup;
 			children = (
 				E1096D021CB6444000484BDB /* Categroy */,
-				E1096CDE1CB62AD900484BDB /* LFLBaseView */,
 				E1096CB21CB6153300484BDB /* LFLGlobal.h */,
 				E1096CB31CB6153300484BDB /* LFLGlobal.m */,
 			);
@@ -749,21 +736,6 @@
 				E1096CD91CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboard;
-			sourceTree = "<group>";
-		};
-		E1096CDE1CB62AD900484BDB /* LFLBaseView */ = {
-			isa = PBXGroup;
-			children = (
-				E1096CDF1CB62AD900484BDB /* LFLBaseNavigationController.h */,
-				E1096CE01CB62AD900484BDB /* LFLBaseNavigationController.m */,
-				E1096CE51CB62AD900484BDB /* LFLBaseViewController.h */,
-				E1096CE61CB62ADA00484BDB /* LFLBaseViewController.m */,
-				E1096CE31CB62AD900484BDB /* LFLBaseTableViewController.h */,
-				E1096CE41CB62AD900484BDB /* LFLBaseTableViewController.m */,
-				E1096CE11CB62AD900484BDB /* LFLBaseTableView.h */,
-				E1096CE21CB62AD900484BDB /* LFLBaseTableView.m */,
-			);
-			path = LFLBaseView;
 			sourceTree = "<group>";
 		};
 		E1096D021CB6444000484BDB /* Categroy */ = {
@@ -1429,7 +1401,6 @@
 				E14F5C051D77F79E006BB37F /* NSUserDefaults+RACSupport.m in Sources */,
 				E1096CA01CB610D300484BDB /* LFLToolsLib.m in Sources */,
 				E14F5BCB1D77F79E006BB37F /* NSArray+JSONModel.m in Sources */,
-				E1096CE81CB62ADA00484BDB /* LFLBaseTableView.m in Sources */,
 				E14F5C4B1D77F79E006BB37F /* README.md in Sources */,
 				E14F5C311D77F79E006BB37F /* RACTestScheduler.m in Sources */,
 				E14F5C071D77F79E006BB37F /* RACBehaviorSubject.m in Sources */,
@@ -1455,7 +1426,6 @@
 				E14F5C0C1D77F79E006BB37F /* RACCompoundDisposableProvider.d in Sources */,
 				E1FAB0261D799E1700E5DCBF /* NSNumber+MagicalDataImport.m in Sources */,
 				E14F5C551D77F79E006BB37F /* UIImage+GIF.m in Sources */,
-				E1096CEA1CB62ADA00484BDB /* LFLBaseViewController.m in Sources */,
 				E1FAB0271D799E1700E5DCBF /* NSObject+MagicalDataImport.m in Sources */,
 				E10706FD1CC8851800D716D6 /* NSArray+EasyExtend.mm in Sources */,
 				E1FAB03C1D799E1700E5DCBF /* NSError+MagicalRecordErrorHandling.m in Sources */,
@@ -1470,7 +1440,6 @@
 				E14F5C4C1D77F79E006BB37F /* NSData+ImageContentType.m in Sources */,
 				E14F5C251D77F79E006BB37F /* RACSerialDisposable.m in Sources */,
 				E14F5BCC1D77F79E006BB37F /* JSONAPI.m in Sources */,
-				E1096CE71CB62ADA00484BDB /* LFLBaseNavigationController.m in Sources */,
 				E14F5BF51D77F79E006BB37F /* NSFileHandle+RACSupport.m in Sources */,
 				E1FAB0391D799E1700E5DCBF /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				E14F5C231D77F79E006BB37F /* RACScopedDisposable.m in Sources */,
@@ -1536,7 +1505,6 @@
 				E14F5C491D77F79E006BB37F /* UITextView+RACSignalSupport.m in Sources */,
 				E1FAB0291D799E1700E5DCBF /* NSString+MagicalDataImport.m in Sources */,
 				E14F5BBE1D77F79E006BB37F /* AFAutoPurgingImageCache.m in Sources */,
-				E1096CE91CB62ADA00484BDB /* LFLBaseTableViewController.m in Sources */,
 				E10707001CC8851800D716D6 /* NSObject+EasyJSON.mm in Sources */,
 				E14F5BFA1D77F79E006BB37F /* NSObject+RACDescription.m in Sources */,
 				E14F5BF61D77F79E006BB37F /* NSIndexSet+RACSequenceAdditions.m in Sources */,

@@ -28,5 +28,12 @@
     #import <ReactiveCocoa.h>
     //baseView
     #import "LFLBaseView.h"
-    
+    //base
+    #import "LFLBaseViewController.h"
+    #import "LFLBaseNavigationController.h"
+    #import "LFLBaseTableView.h"
+    #import "LFLBaseTableViewController.h"
+
+    //category
+    #import "UITableView+LFLRegister.h"
 #endif

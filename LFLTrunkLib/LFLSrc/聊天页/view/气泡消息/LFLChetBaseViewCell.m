@@ -23,8 +23,10 @@
     self.contentLabel.font = [UIFont systemFontOfSize:15];
     self.contentLabel.lineSpacing = 2.0;
     self.contentLabel.numberOfLines = 100;
-    UILongPressGestureRecognizer * longPressGesture =[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(cellLongPress:)];
     [self addGestureRecognizer:longPressGesture];
+    UITapGestureRecognizer *tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cellTapAction:)];
+    [self addGestureRecognizer:tapPressGesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -62,6 +64,12 @@
         if ([self.delegate respondsToSelector:@selector(cellLongPress:recognizer:)]) {
             [self.delegate cellLongPress:self recognizer:recognizer];
         }
+    }
+}
+
+- (void)cellTapAction:(UIGestureRecognizer *)recognizer {
+    if ([self.delegate respondsToSelector:@selector(cellTapAction:)]) {
+        [self.delegate cellTapAction:self];
     }
 }
 

@@ -24,6 +24,7 @@
 		E17AF7E81CBB4B830077FF38 /* LFLBaseJsonPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7E71CBB4B830077FF38 /* LFLBaseJsonPraser.m */; };
 		E17AF7EB1CBB4B930077FF38 /* LFLJsonPraserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7EA1CBB4B930077FF38 /* LFLJsonPraserManager.m */; };
 		E17AF7EF1CBB6BE70077FF38 /* LFLCommonPraser.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AF7EE1CBB6BE70077FF38 /* LFLCommonPraser.m */; };
+		E1A78AC31D7D1DA5000D9CE6 /* LFLChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78AC21D7D1DA5000D9CE6 /* LFLChatMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +76,8 @@
 		E17AF7EA1CBB4B930077FF38 /* LFLJsonPraserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLJsonPraserManager.m; sourceTree = "<group>"; };
 		E17AF7ED1CBB6BE70077FF38 /* LFLCommonPraser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLCommonPraser.h; sourceTree = "<group>"; };
 		E17AF7EE1CBB6BE70077FF38 /* LFLCommonPraser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLCommonPraser.m; sourceTree = "<group>"; };
+		E1A78AC11D7D1DA5000D9CE6 /* LFLChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatMessage.h; sourceTree = "<group>"; };
+		E1A78AC21D7D1DA5000D9CE6 /* LFLChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,8 @@
 		E13EF2EC1CC21FA800D9C7D5 /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
+				E1A78AC11D7D1DA5000D9CE6 /* LFLChatMessage.h */,
+				E1A78AC21D7D1DA5000D9CE6 /* LFLChatMessage.m */,
 				E13EF2ED1CC21FD600D9C7D5 /* LFLUserInfo.h */,
 				E13EF2EE1CC21FD600D9C7D5 /* LFLUserInfo.m */,
 			);
@@ -288,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1A78AC31D7D1DA5000D9CE6 /* LFLChatMessage.m in Sources */,
 				E17AF7EF1CBB6BE70077FF38 /* LFLCommonPraser.m in Sources */,
 				E13EF2EF1CC21FD600D9C7D5 /* LFLUserInfo.m in Sources */,
 				E10CADD61CBA1ABE00A089DD /* LFLFetcher.m in Sources */,
