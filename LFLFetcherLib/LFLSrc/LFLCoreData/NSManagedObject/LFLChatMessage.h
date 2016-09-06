@@ -12,15 +12,20 @@
 typedef NS_ENUM(NSInteger,LFLChatMessageType) {
     LFLChatMessageLeftType,
     LFLChatMessageRightType,
+    LFLChatVoiceMessageLeftType,
+    LFLChatVoiceMessageRightType
 };
 
 @interface LFLChatMessage : NSManagedObject
 
-@property (nullable, nonatomic, retain) NSString *content;
-@property (nullable, nonatomic, retain) NSDate *time;
-@property (nullable, nonatomic, retain) NSNumber *type;
-@property (nullable, nonatomic, retain) NSNumber *cell_height;
-@property (nullable, nonatomic, retain) NSNumber *msgNo;
-@property (nullable, nonatomic, retain) NSNumber *groupKey;
+@property (nonatomic, retain) NSString *content;
+@property (nonatomic, retain) NSDate *time;
+@property (nonatomic, retain) NSNumber *type;
+@property (nonatomic, retain) NSNumber *cell_height;
+@property (nonatomic, retain) NSNumber *msgNo;
+@property (nonatomic, retain) NSNumber *groupKey;
+@property (nonatomic, retain) NSNumber *voiceNo;
+@property (nonatomic, retain) NSString *voiceUrl;
+@property (nonatomic, retain) NSNumber *voiceLength;
 @end
 

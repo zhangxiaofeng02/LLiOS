@@ -19,14 +19,20 @@ static CGFloat kInPutBarHeight = 50;
 @property (strong, nonatomic) NSFetchedResultsController *messageFetcher;
 @property (assign, nonatomic) BOOL beginUpdates;
 //消息列表约束
-@property (weak, nonatomic,readonly) IBOutlet NSLayoutConstraint *messageTableViewToBottomLength;
+@property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *messageTableViewToBottomLength;
 //输入栏
 @property (strong, nonatomic) LFLChatUserInputView *userInputView;
 @property (strong, nonatomic) UIView *maskView;
 @property (strong, nonatomic) LFLChatVoiceView *voiceView;
 //录音
-@property (nonatomic,strong) AVAudioRecorder *audioRecorder;//音频录音机
-@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//音频播放器，用于播放录音文件
+@property (nonatomic, strong) AVAudioRecorder *audioRecorder;//音频录音机
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;//音频播放器，用于播放录音文件
+//正在录音的文件路径
+@property (nonatomic, strong) NSString *currentAudioPath;
+//正在录音的文件编号
+@property (nonatomic, assign) NSInteger currentAudioNo;
+//需要播放的录音路径
+//@property (nonatomic, strong) NSString *currentPlayAudioPath;
 
 - (void)messageTableViewScrollAnimation:(BOOL)animated;
 @end

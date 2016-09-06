@@ -16,4 +16,7 @@
 @dynamic cell_height;
 @dynamic msgNo;
 @dynamic groupKey;
+@dynamic voiceNo;
+@dynamic voiceUrl;
+@dynamic voiceLength;
 @end

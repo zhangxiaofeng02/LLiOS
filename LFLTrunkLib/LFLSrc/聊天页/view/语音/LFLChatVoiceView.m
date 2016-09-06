@@ -35,4 +35,10 @@
     [self.tipsLabel setBackgroundColor:[UIColor clearColor]];
     [self.tipsLabel setText:@"手指上滑，取消发送"];
 }
+
+- (void)showTimeShortText {
+    [self.voiceStateImageView setImage:[LFLTrunkBundle imageName:@"voice_speaking_img"]];
+    [self.tipsLabel setBackgroundColor:[UIColor clearColor]];
+    [self.tipsLabel setText:@"说话时间太短"];
+}
 @end

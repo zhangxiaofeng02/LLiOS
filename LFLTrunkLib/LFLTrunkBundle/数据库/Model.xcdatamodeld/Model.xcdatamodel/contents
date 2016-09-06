@@ -7,6 +7,9 @@
         <attribute name="msgNo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="voiceLength" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="voiceNo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="voiceUrl" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LFLUserInfo" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -14,7 +17,7 @@
         <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LFLChatMessage" positionX="-54" positionY="18" width="128" height="135"/>
+        <element name="LFLChatMessage" positionX="-54" positionY="18" width="128" height="180"/>
         <element name="LFLUserInfo" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

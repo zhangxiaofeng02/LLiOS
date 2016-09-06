@@ -11,6 +11,7 @@
 #import "MagicalRecord.h"
 #import "LFLFetcher+CoreData.h"
 #import "NSManagedObject+MagicalRecord.h"
+#import "LFLChatViewController+UserInput.h"
 
 @implementation LFLChatViewController (CoreData)
 
@@ -21,6 +22,49 @@
     if ([message containsString:@"110"]) {
         type = 1;
     }
+    NSDictionary *noDic = [self getMessageNoAndGroupKey];
+    if (!noDic) {
+        return;
+    }
+    NSDictionary *property = @{@"content":message,
+                               @"time":[NSDate new],
+                               @"cell_height":@(0),
+                               @"type":@(type),
+                               @"msgNo":noDic[@"msgNo"],
+                               @"groupKey":noDic[@"groupKey"]};
+    [LFLFetcher addObject:[self provideClass] withPropertys:property];
+}
+
+- (void)saveVoiceMessageToCoreData:(NSString *)voiceUrl timeLong:(NSTimeInterval)length {
+    NSInteger type = 3;
+    NSDictionary *noDic = [self getMessageNoAndGroupKey];
+    if (!noDic) {
+        return;
+    }
+    NSInteger voiceNo = [self getVoiceMessageNo];
+    NSDictionary *property = @{@"time":[NSDate new],
+                               @"cell_height":@(0),
+                               @"type":@(type),
+                               @"msgNo":noDic[@"msgNo"],
+                               @"groupKey":noDic[@"groupKey"],
+                               @"voiceNo":@(voiceNo),
+                               @"voiceUrl":voiceUrl,
+                               @"voiceLength":@(length)};
+    [LFLFetcher addObject:[self provideClass] withPropertys:property];
+}
+
+- (NSInteger)getVoiceMessageNo {
+    LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"voiceNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
+    NSInteger voiceNo = -1;
+    if (!object) {
+        voiceNo = 1;
+    } else {
+        voiceNo = [object.voiceNo integerValue] + 1;
+    }
+    return voiceNo;
+}
+
+- (NSDictionary *)getMessageNoAndGroupKey {
     LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"msgNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
     NSInteger msgNo = -1;
     NSInteger groupKey = -1;
@@ -31,23 +75,16 @@
         msgNo = [object.msgNo integerValue] + 1;
         NSDate *msgDate = object.time;
         if ([[NSDate new] messageNeedToGroupCompareTime:msgDate]) {
-            groupKey = [object.groupKey integerValue] + 1;            
+            groupKey = [object.groupKey integerValue] + 1;
         } else {
             groupKey = [object.groupKey integerValue];
         }
     }
     if (msgNo <0 || groupKey <0) {
         debugAssert(0);
-        return;
+        return nil;
     }
-    NSString *text = object.content;
-    NSDictionary *property = @{@"content":message,
-                               @"time":[NSDate new],
-                               @"cell_height":@(0),
-                               @"type":@(type),
-                               @"msgNo":@(msgNo),
-                               @"groupKey":@(groupKey)};
-    [LFLFetcher addObject:[self provideClass] withPropertys:property];
+    return @{@"msgNo":@(msgNo),@"groupKey":@(groupKey)};
 }
 
 - (Class)provideClass {

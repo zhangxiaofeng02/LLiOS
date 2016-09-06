@@ -11,8 +11,13 @@
 @interface LFLChatViewController (UserInput)
 
 - (void)sendMessage:(NSString *)message;
+
 - (void)addUserInputView;
+
 - (void)setAudioSession;
-- (NSURL *)getSavePath;
+
+- (NSURL *)getVoiceSavePath;
+
 - (NSDictionary *)getAudioSetting;
+
 @end

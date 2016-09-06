@@ -12,4 +12,5 @@
 
 - (void)showCancleText;
 - (void)showNormalText;
+- (void)showTimeShortText;
 @end

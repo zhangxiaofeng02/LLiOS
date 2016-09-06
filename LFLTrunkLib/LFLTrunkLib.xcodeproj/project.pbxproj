@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E10560AB1D7804F90050D8A8 /* libLFLFetcherLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E105608C1D7804590050D8A8 /* libLFLFetcherLib.a */; };
+		E1157C141D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157C121D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.m */; };
+		E1157C151D7E8CEC00D7BDDB /* LFLChatRightVoiceMessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157C131D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.xib */; };
+		E1157C1A1D7E944D00D7BDDB /* LFLTrunkBundle.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = E1CD9A291CB2A7A500580FDC /* LFLTrunkBundle.bundle */; };
 		E162276A1D7838930021DDF5 /* left_head_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16227681D7838930021DDF5 /* left_head_icon@2x.png */; };
 		E162276B1D7838930021DDF5 /* left_head_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16227691D7838930021DDF5 /* left_head_icon@3x.png */; };
 		E162276F1D78462E0021DDF5 /* LFLChatUserInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E162276E1D78462E0021DDF5 /* LFLChatUserInputView.m */; };
@@ -106,6 +109,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E1157C181D7E936100D7BDDB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Users/baidu/GitHub/LLiOS/LFLAppShell;
+			dstSubfolderSpec = 0;
+			files = (
+				E1157C1A1D7E944D00D7BDDB /* LFLTrunkBundle.bundle in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1CD99F41CB29B2D00580FDC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +133,9 @@
 
 /* Begin PBXFileReference section */
 		E10560871D7804580050D8A8 /* LFLFetcherLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LFLFetcherLib.xcodeproj; path = LFLFrameWorks/../../LFLFetcherLib/LFLFetcherLib.xcodeproj; sourceTree = "<group>"; };
+		E1157C111D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatRightVoiceMessageViewCell.h; sourceTree = "<group>"; };
+		E1157C121D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLChatRightVoiceMessageViewCell.m; sourceTree = "<group>"; };
+		E1157C131D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LFLChatRightVoiceMessageViewCell.xib; sourceTree = "<group>"; };
 		E16227681D7838930021DDF5 /* left_head_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_head_icon@2x.png"; sourceTree = "<group>"; };
 		E16227691D7838930021DDF5 /* left_head_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_head_icon@3x.png"; sourceTree = "<group>"; };
 		E162276D1D78462E0021DDF5 /* LFLChatUserInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLChatUserInputView.h; sourceTree = "<group>"; };
@@ -334,6 +350,9 @@
 				E1A78ACA1D7D1DEF000D9CE6 /* LFLChatRightMessageViewCell.xib */,
 				E1A78AE11D7D44B4000D9CE6 /* LFLChatMessageHeaderView.h */,
 				E1A78AE21D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m */,
+				E1157C111D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.h */,
+				E1157C121D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.m */,
+				E1157C131D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.xib */,
 			);
 			path = "气泡消息";
 			sourceTree = "<group>";
@@ -559,6 +578,7 @@
 				E1CD99F21CB29B2D00580FDC /* Sources */,
 				E1CD99F31CB29B2D00580FDC /* Frameworks */,
 				E1CD99F41CB29B2D00580FDC /* CopyFiles */,
+				E1157C181D7E936100D7BDDB /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -681,6 +701,7 @@
 				E1AFB6D31D76CEDB00107EFD /* dpd_navigation_bottom_tab_shenghuo_select@2x.png in Resources */,
 				E1FAB05B1D7AC76300E5DCBF /* bottombar_left_btn@3x.png in Resources */,
 				E199216E1D7D9E0600186613 /* voice_speaking_img@2x.png in Resources */,
+				E1157C151D7E8CEC00D7BDDB /* LFLChatRightVoiceMessageViewCell.xib in Resources */,
 				E1FAB0611D7AC87100E5DCBF /* bottombar_right_add_btn@3x.png in Resources */,
 				E1FAB05C1D7AC76300E5DCBF /* bottombar_right_emojy_btn@2x.png in Resources */,
 				E1AFB6DE1D76CEDB00107EFD /* dpd_navigation_bottom_tab_xiangdao@3x.png in Resources */,
@@ -703,6 +724,7 @@
 				E185E3411D76E64100DA26C8 /* LFLChatViewController.m in Sources */,
 				E1CD99FC1CB29B2D00580FDC /* LFLTrunkLib.m in Sources */,
 				E1A78ACF1D7D1DEF000D9CE6 /* LFLChetBaseViewCell.m in Sources */,
+				E1157C141D7E8C1E00D7BDDB /* LFLChatRightVoiceMessageViewCell.m in Sources */,
 				E1A78ABD1D7D1CF9000D9CE6 /* LFLBaseViewController.m in Sources */,
 				E1A78AE31D7D44B4000D9CE6 /* LFLChatMessageHeaderView.m in Sources */,
 				E1AFB6B91D76CE4700107EFD /* LFLUserCenterViewController.m in Sources */,

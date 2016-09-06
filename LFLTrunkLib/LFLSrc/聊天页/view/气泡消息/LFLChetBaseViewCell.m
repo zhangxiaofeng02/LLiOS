@@ -14,6 +14,7 @@
 @property (weak, nonatomic, readwrite) IBOutlet NSLayoutConstraint *contentLabelWidth;
 @property (weak, nonatomic, readwrite) IBOutlet NSLayoutConstraint *contentLabelHeight;
 @property (weak, nonatomic, readwrite) IBOutlet UIImageView *bubbleImageView;
+@property (weak, nonatomic, readwrite) IBOutlet UIButton *voicePlayButton;
 @end
 
 @implementation LFLChetBaseViewCell
@@ -93,5 +94,15 @@
     if ([self.delegate respondsToSelector:@selector(deleteMessage:)]) {
         [self.delegate deleteMessage:self];
     }
+}
+
+- (IBAction)voiceButtonOnClick:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(cellTapAction:)]) {
+        [self.delegate cellTapAction:self];
+    }
+}
+
+- (void)setVoiceCellWidth:(NSInteger)width {
+    //override
 }
 @end

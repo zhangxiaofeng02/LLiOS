@@ -13,6 +13,7 @@
 #import "LFLChatViewController+CoreData.h"
 #import "LFLChatViewController+UserInput.h"
 #import "LFLChatMessageHeaderView.h"
+#import "LFLChatRightVoiceMessageViewCell.h"
 
 @interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate>
 
@@ -63,8 +64,6 @@
     self.messageFetcher.delegate = self;
 
     [self setUpRigthBarButton];
-    
-    [self setAudioSession];
 }
 
 - (void)setUpRigthBarButton {
@@ -109,10 +108,12 @@
 - (void)registerCell {
     [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightMessageViewCell class] bundle:@"LFLTrunkBundle"];
     [self.messageTableView LFLRegisterNibWithClass:[LFLChatLeftMessageViewCell class] bundle:@"LFLTrunkBundle"];
+    [self.messageTableView LFLRegisterNibWithClass:[LFLChatRightVoiceMessageViewCell class] bundle:@"LFLTrunkBundle"];
     [self.messageTableView registerClass:[LFLChatMessageHeaderView class] forHeaderFooterViewReuseIdentifier:@"LFLChatMessageHeaderView"];
 }
 
 #pragma mark - 添加监听
+
 - (void)addNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
@@ -121,6 +122,7 @@
 }
 
 #pragma mark - 键盘弹出收起事件
+
 - (void)keyboardWasShown:(id)noti {
     NSDictionary *userInfo = [noti userInfo];
     NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
@@ -148,8 +150,9 @@
 }
 
 #pragma mark UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return 33;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -197,14 +200,24 @@
     LFLChatMessage *message = result[row];
     NSInteger type = [message.type integerValue];
     if (type == LFLChatMessageLeftType) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell" forIndexPath:indexPath];        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatLeftMessageViewCell" forIndexPath:indexPath];
+        NSString *txt = message.content;
+        [cell setMessage:txt];
     } else if (type == LFLChatMessageRightType) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightMessageViewCell" forIndexPath:indexPath];
+        NSString *txt = message.content;
+        [cell setMessage:txt];
+    } else if (type == LFLChatVoiceMessageLeftType) {
+        
+    } else if (type == LFLChatVoiceMessageRightType) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightVoiceMessageViewCell" forIndexPath:indexPath];
+        NSInteger width = [message.voiceLength integerValue];
+        [cell setVoiceCellWidth:width];
     }
+    
     cell.delegate = self;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    NSString *txt = message.content;
-    [cell setMessage:txt];
+
     return cell;
 }
 
@@ -213,18 +226,23 @@
     NSInteger section = [indexPath section];
     NSArray *result = [self.messageFetcher allObjectsInSection:section];
     LFLChatMessage *message = result[row];
+    NSInteger type = [message.type integerValue];
     NSInteger height = [message.cell_height integerValue];
     if (message && height >0 ) {
         return height;
     }
-    NSInteger type = [message.type integerValue];
+    
     NSString *txt = message.content;
     if (type == LFLChatMessageLeftType) {
         height = [self.leftMessageCell sizeForText:txt];
     } else if (type == LFLChatMessageRightType) {
         height = [self.leftMessageCell sizeForText:txt];
+    } else if (type == LFLChatVoiceMessageLeftType) {
+        height = 17;
+    } else if (type == LFLChatVoiceMessageRightType) {
+        height = 17;
     }
-    height = height + 10*2 + 3 + 14;
+    height = height + 10*2 + 3 + 18;
     [message setValue:@(height) forKey:@"cell_height"];
     [LFLFetcher updateObjectPropertyWith:message];
     [self messageTableViewScrollToBottomAnimation:YES];
@@ -257,11 +275,10 @@
 
 - (AVAudioRecorder *)audioRecorder {
     if (!_audioRecorder) {
-        //创建录音文件保存路径
-        NSURL *url = [self getSavePath];
-        //创建录音格式设置
+        NSURL *url = [self getVoiceSavePath];
+        LFLLog(@"保存的文件路径%@",url);
+        self.currentAudioPath = [url absoluteString];
         NSDictionary *setting = [self getAudioSetting];
-        //创建录音机
         NSError *error=nil;
         _audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:setting error:&error];
         _audioRecorder.delegate = self;
@@ -272,21 +289,6 @@
         }
     }
     return _audioRecorder;
-}
-
-- (AVAudioPlayer *)audioPlayer {
-    if (!_audioPlayer) {
-        NSURL *url = [self getSavePath];
-        NSError *error = nil;
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        _audioPlayer.numberOfLoops = 0;
-        [_audioPlayer prepareToPlay];
-        if (error) {
-            NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
-            return nil;
-        }
-    }
-    return _audioPlayer;
 }
 
 #pragma mark UIScrollViewDelegate
@@ -378,7 +380,51 @@
 }
 
 - (void)cellTapAction:(LFLChetBaseViewCell *)cell {
-    [self closeKeyBoard];
+    NSInteger type = cell.messageType;
+    switch (type) {
+        case LFLChatMessageLeftType: {
+            [self closeKeyBoard];
+        }
+            break;
+        case LFLChatMessageRightType: {
+            [self closeKeyBoard];
+        }
+            break;
+        case LFLChatVoiceMessageLeftType: {
+            [self playAudioInCell:cell];
+        }
+            break;
+        case LFLChatVoiceMessageRightType: {
+            [self playAudioInCell:cell];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)playAudioInCell:(LFLChetBaseViewCell *)cell {
+    NSIndexPath *indexPath = [self.messageTableView indexPathForCell:cell];
+    LFLChatMessage *message = [self.messageFetcher allObjectsInSection:[indexPath section]][[indexPath row]];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setActive:YES error:nil];
+    
+    if ([self.audioPlayer isPlaying]) {
+        [self.audioPlayer stop];
+    }
+    NSURL *url = [NSURL URLWithString:message.voiceUrl];
+    NSError *error = nil;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.audioPlayer.numberOfLoops = 0;
+    [self.audioPlayer prepareToPlay];
+    if (error) {
+        NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+        return;
+    }
+    [self.audioPlayer play];
 }
 
 #pragma mark menuController
