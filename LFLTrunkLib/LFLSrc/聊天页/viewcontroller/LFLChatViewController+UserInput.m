@@ -5,11 +5,9 @@
 //  Created by 啸峰 on 16/9/5.
 //  Copyright © 2016年 张啸峰. All rights reserved.
 //
-#import "LFLChatViewController.h"
 #import "LFLChatViewController+UserInput.h"
 #import "LFLChatViewController+CoreData.h"
 #import "LFLChatVoiceView.h"
-#define kRecordAudioFile @"myRecord.caf"
 
 @implementation LFLChatViewController (UserInput)
 
@@ -31,12 +29,31 @@
     [self.voiceView removeFromSuperview];
     [self.maskView removeFromSuperview];
     [self stopRecordVoice];
+    self.currentAudioPath = nil;
+    self.currentAudioNo = 0;
+    self.audioRecorder = nil;
 }
 
 - (void)voiceButtonTouchUpInSide {
-    [self.voiceView removeFromSuperview];
-    [self.maskView removeFromSuperview];
-    [self stopRecordVoice];
+    NSTimeInterval timeLength = [self stopRecordVoice];
+    if (timeLength < 1.2) {
+        [self.voiceView showTimeShortText];
+        WeakSelf;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            StrongSelf;
+            [strongSelf.voiceView removeFromSuperview];
+            [strongSelf.maskView removeFromSuperview];
+        });
+    } else {
+        [self.voiceView removeFromSuperview];
+        [self.maskView removeFromSuperview];
+        if ([LFLFileManager voicFileExists:[NSString stringWithFormat:@"voice%@.caf",@(self.currentAudioNo)]]) { //录音文件已经存在
+            [self saveVoiceMessageToCoreData:self.currentAudioPath timeLong:timeLength];
+        }
+    }
+    self.currentAudioPath = nil;
+    self.currentAudioNo = 0;
+    self.audioRecorder = nil;
 }
 
 - (void)voiceButtonTouchDown {
@@ -50,7 +67,7 @@
 }
 
 - (void)inputBarMoreActionOnClick {
-    [self playRadio];
+    
 }
 
 #pragma mark - 底部输入栏
@@ -104,36 +121,38 @@
 
 #pragma mark 录音具体操作
 
+//音频设置
 - (void)setAudioSession {
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [audioSession setActive:YES error:nil];
 }
 
+//开始录音
 - (void)startRecordVoice {
+    [self setAudioSession];
     if (![self.audioRecorder isRecording]) {
         [self.audioRecorder record];
     }
 }
 
+//暂停录音
 - (void)pauseRecordVoice {
     if ([self.audioRecorder isRecording]) {
         [self.audioRecorder pause];
     }
 }
 
+//恢复录音
 - (void)recorverRecordVoice {
     
 }
 
-- (void)stopRecordVoice {
+//停止录音
+- (NSTimeInterval)stopRecordVoice {
+    NSTimeInterval timeLength = self.audioRecorder.currentTime;
     [self.audioRecorder stop];
-}
-
-- (void)playRadio {
-    if (![self.audioPlayer isPlaying]) {
-        [self.audioPlayer play];
-    }
+    return timeLength;
 }
 
 - (NSDictionary *)getAudioSetting {
@@ -146,12 +165,23 @@
     return dicM;
 }
 
-- (NSURL *)getSavePath {
-    NSString *urlStr = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    urlStr = [urlStr stringByAppendingPathComponent:kRecordAudioFile];
-    NSLog(@"file path:%@",urlStr);
+- (NSURL *)getVoiceSavePath {
+    NSString *urlStr = [LFLFileManager soundFilesPath];
+    if (!self.currentAudioNo) {
+        self.currentAudioNo = [self getVoiceMaxNo];
+    }
+    urlStr = [urlStr stringByAppendingPathComponent:[NSString stringWithFormat:@"voice%@.caf",@(self.currentAudioNo)]];
     NSURL *url = [NSURL fileURLWithPath:urlStr];
     return url;
 }
 
+- (NSInteger)getVoiceMaxNo {
+    NSInteger maxNo = [[LFLFetcher maxIndexObject:@"voiceNo" entityClass:[self provideClass]] integerValue];
+    if (!maxNo) {
+        maxNo = 1;
+    } else {
+        maxNo++;
+    }
+    return maxNo;
+}
 @end

@@ -41,7 +41,6 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-jR-yuW">
                     <rect key="frame" x="362" y="11" width="29" height="29"/>
-                    <state key="normal" title="Button"/>
                     <connections>
                         <action selector="inputBarMoreActionOnClick:" destination="SqC-Vw-1k0" eventType="touchUpInside" id="cYj-yH-Imb"/>
                     </connections>

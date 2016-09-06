@@ -20,5 +20,7 @@
 //CateGory
 #import "NSDate+LFLExtension.h"
 
+//FileManager
+#import "LFLFileManager.h"
 @interface LFLToolsLib : NSObject
 @end

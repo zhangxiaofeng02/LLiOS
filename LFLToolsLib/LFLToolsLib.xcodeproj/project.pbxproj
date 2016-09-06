@@ -160,6 +160,7 @@
 		E14F5C581D77F79E006BB37F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB41D77F79E006BB37F /* UIImageView+WebCache.m */; };
 		E14F5C591D77F79E006BB37F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */; };
 		E17B2BE21D7B2B1F00733C65 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */; };
+		E19921881D7DB04D00186613 /* LFLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E19921871D7DB04D00186613 /* LFLFileManager.m */; };
 		E1A78AE01D7D3D04000D9CE6 /* NSDate+LFLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A78ADF1D7D3D04000D9CE6 /* NSDate+LFLExtension.m */; };
 		E1FAB0231D799E1700E5DCBF /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC21D799E1600E5DCBF /* MagicalImportFunctions.m */; };
 		E1FAB0241D799E1700E5DCBF /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAAFC41D799E1600E5DCBF /* NSAttributeDescription+MagicalDataImport.m */; };
@@ -539,6 +540,8 @@
 		E14F5BB61D77F79E006BB37F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		E17B2BE01D7B2B1F00733C65 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		E17B2BE11D7B2B1F00733C65 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		E19921861D7DB04D00186613 /* LFLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLFileManager.h; sourceTree = "<group>"; };
+		E19921871D7DB04D00186613 /* LFLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLFileManager.m; sourceTree = "<group>"; };
 		E1A78ADE1D7D3D04000D9CE6 /* NSDate+LFLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LFLExtension.h"; sourceTree = "<group>"; };
 		E1A78ADF1D7D3D04000D9CE6 /* NSDate+LFLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LFLExtension.m"; sourceTree = "<group>"; };
 		E1FAAFC11D799E1600E5DCBF /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
@@ -707,6 +710,8 @@
 				E1096D021CB6444000484BDB /* Categroy */,
 				E1096CB21CB6153300484BDB /* LFLGlobal.h */,
 				E1096CB31CB6153300484BDB /* LFLGlobal.m */,
+				E19921861D7DB04D00186613 /* LFLFileManager.h */,
+				E19921871D7DB04D00186613 /* LFLFileManager.m */,
 			);
 			path = LFLSrc;
 			sourceTree = "<group>";
@@ -1378,6 +1383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E10707011CC8851800D716D6 /* NSObject+EasyProperty.mm in Sources */,
+				E19921881D7DB04D00186613 /* LFLFileManager.m in Sources */,
 				E14F5C521D77F79E006BB37F /* SDWebImageManager.m in Sources */,
 				E14F5BF41D77F79E006BB37F /* NSEnumerator+RACSequenceAdditions.m in Sources */,
 				E14F5BC81D77F79E006BB37F /* JSONModelArray.m in Sources */,

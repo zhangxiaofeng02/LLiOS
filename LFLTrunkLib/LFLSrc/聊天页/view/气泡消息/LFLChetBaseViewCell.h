@@ -23,6 +23,8 @@
 @property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *contentLabelWidth;
 @property (weak, nonatomic, readonly) IBOutlet NSLayoutConstraint *contentLabelHeight;
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *bubbleImageView;
+@property (weak, nonatomic, readonly) IBOutlet UIButton *voicePlayButton;
+@property (assign, nonatomic) LFLChatMessageType *messageType;
 
 @property (weak, nonatomic) id<LFLChetBaseViewCellDelegate> delegate;
 
@@ -31,4 +33,8 @@
 - (CGFloat)sizeForText:(NSString *)message;
 
 - (void)showMenuView:(UIView *)parentView;
+
+- (IBAction)voiceButtonOnClick:(id)sender;
+
+- (void)setVoiceCellWidth:(NSInteger)width;
 @end

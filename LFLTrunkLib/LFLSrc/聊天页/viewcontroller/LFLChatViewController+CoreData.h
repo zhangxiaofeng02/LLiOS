@@ -13,4 +13,6 @@
 - (Class)provideClass;
 
 - (void)saveMessageToCoreData:(NSString *)message;
+
+- (void)saveVoiceMessageToCoreData:(NSString *)voiceUrl timeLong:(NSTimeInterval)length;
 @end

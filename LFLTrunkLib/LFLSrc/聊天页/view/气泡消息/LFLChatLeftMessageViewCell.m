@@ -18,6 +18,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.messageType = LFLChatMessageLeftType;
     [self.contentLabel setTextColor:[UIColor blackColor]];
     UIImage *bubbleImage = [LFLTrunkBundle imageName:@"left_head_icon"];
     bubbleImage = [bubbleImage resizableImageWithCapInsets:UIEdgeInsetsMake(25, 15, 5, 5)];
