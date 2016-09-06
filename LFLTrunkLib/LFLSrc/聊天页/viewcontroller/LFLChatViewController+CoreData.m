@@ -43,7 +43,7 @@
     }
     NSInteger voiceNo = [self getVoiceMessageNo];
     NSDictionary *property = @{@"time":[NSDate new],
-                               @"cell_height":@(0),
+                               @"cell_height":@(0),//这里虽然高度固定，但是还是塞了0，为了刷新
                                @"type":@(type),
                                @"msgNo":noDic[@"msgNo"],
                                @"groupKey":noDic[@"groupKey"],
@@ -51,6 +51,17 @@
                                @"voiceUrl":voiceUrl,
                                @"voiceLength":@(length)};
     [LFLFetcher addObject:[self provideClass] withPropertys:property];
+}
+
+- (void)updateVoiceMessage:(NSInteger)voiceNo timeLong:(NSTimeInterval)length {
+    LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"voiceNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
+    [object setValue:@(length) forKey:@"voiceLength"];
+    [LFLFetcher updateObjectPropertyWith:object];
+}
+
+- (void)deleteVoiceMessage:(NSInteger)voiceNo {
+    LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"voiceNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
+    [LFLFetcher deleteObjects:@[object]];
 }
 
 - (NSInteger)getVoiceMessageNo {

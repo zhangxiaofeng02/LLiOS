@@ -102,7 +102,11 @@
     }
 }
 
-- (void)setVoiceCellWidth:(NSInteger)width {
+- (void)setVoiceCellWidth:(NSInteger)width animation:(Boolean)animation {
     //override
+}
+
+- (void)stopPlaying {
+    
 }
 @end

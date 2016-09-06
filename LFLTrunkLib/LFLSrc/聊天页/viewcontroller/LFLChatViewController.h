@@ -10,6 +10,7 @@
 #import "LFLChatUserInputView.h"
 #import "LFLChatVoiceView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LFLChetBaseViewCell.h"
 
 static CGFloat kInPutBarHeight = 50;
 
@@ -31,8 +32,8 @@ static CGFloat kInPutBarHeight = 50;
 @property (nonatomic, strong) NSString *currentAudioPath;
 //正在录音的文件编号
 @property (nonatomic, assign) NSInteger currentAudioNo;
-//需要播放的录音路径
-//@property (nonatomic, strong) NSString *currentPlayAudioPath;
+@property (nonatomic, strong) NSTimer *checkAudioTimer;
+@property (nonatomic, strong) LFLChetBaseViewCell *currentPlayingCell;
 
 - (void)messageTableViewScrollAnimation:(BOOL)animated;
 @end

@@ -23,19 +23,26 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AGW-lc-7vn">
-                        <rect key="frame" x="252" y="5" width="123" height="40"/>
+                        <rect key="frame" x="335" y="5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" priority="750" constant="123" id="9qF-dB-Qdl"/>
+                            <constraint firstAttribute="width" priority="750" constant="40" id="9qF-dB-Qdl"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice_state_3.png" translatesAutoresizingMaskIntoConstraints="NO" id="JOB-RJ-Ojo">
+                        <rect key="frame" x="344" y="17" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="7pj-8M-avN"/>
+                            <constraint firstAttribute="width" constant="18" id="AO8-Q1-nRf"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqe-De-uz3">
-                        <rect key="frame" x="252" y="5" width="123" height="40"/>
+                        <rect key="frame" x="335" y="5" width="40" height="40"/>
                         <connections>
                             <action selector="voiceButtonOnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cLv-EY-FuM"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI1-N3-oSM">
-                        <rect key="frame" x="206" y="19" width="42" height="21"/>
+                        <rect key="frame" x="289" y="19" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ksx-5I-1jF"/>
                             <constraint firstAttribute="width" constant="42" id="hvO-5D-N8E"/>
@@ -48,6 +55,7 @@
                 <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Yqe-De-uz3" firstAttribute="bottom" secondItem="AGW-lc-7vn" secondAttribute="bottom" id="0Qw-7d-pcc"/>
+                    <constraint firstItem="JOB-RJ-Ojo" firstAttribute="top" secondItem="AGW-lc-7vn" secondAttribute="bottom" constant="-28" id="0Vp-Dm-QEY"/>
                     <constraint firstItem="Yqe-De-uz3" firstAttribute="leading" secondItem="aI1-N3-oSM" secondAttribute="trailing" constant="4" id="Dey-cF-nxS"/>
                     <constraint firstItem="AGW-lc-7vn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="165" id="Kkh-vm-A05"/>
                     <constraint firstItem="AGW-lc-7vn" firstAttribute="bottom" secondItem="hTd-gv-MKW" secondAttribute="bottom" id="MbV-09-5ZI"/>
@@ -55,6 +63,7 @@
                     <constraint firstItem="AGW-lc-7vn" firstAttribute="top" secondItem="hTd-gv-MKW" secondAttribute="top" id="UfF-yi-1rx"/>
                     <constraint firstItem="Yqe-De-uz3" firstAttribute="top" secondItem="AGW-lc-7vn" secondAttribute="top" id="YdQ-Sz-F2N"/>
                     <constraint firstAttribute="trailing" secondItem="hTd-gv-MKW" secondAttribute="trailing" constant="8" id="e4b-Z0-Vxd"/>
+                    <constraint firstItem="JOB-RJ-Ojo" firstAttribute="leading" secondItem="AGW-lc-7vn" secondAttribute="trailing" constant="-31" id="fMR-H5-g47"/>
                     <constraint firstItem="aI1-N3-oSM" firstAttribute="centerY" secondItem="Yqe-De-uz3" secondAttribute="centerY" constant="4" id="gm8-Qb-NKL"/>
                     <constraint firstItem="hTd-gv-MKW" firstAttribute="leading" secondItem="AGW-lc-7vn" secondAttribute="trailing" constant="6" id="lUm-jw-ShU"/>
                     <constraint firstItem="Yqe-De-uz3" firstAttribute="leading" secondItem="AGW-lc-7vn" secondAttribute="leading" id="qsg-Fs-BdC"/>
@@ -66,11 +75,13 @@
                 <outlet property="timeLengthLabel" destination="aI1-N3-oSM" id="DfP-iy-XTY"/>
                 <outlet property="voiceCellWidthCons" destination="9qF-dB-Qdl" id="wIl-d3-d8v"/>
                 <outlet property="voicePlayButton" destination="Yqe-De-uz3" id="nR8-rm-RKg"/>
+                <outlet property="voicePlayStateImageView" destination="JOB-RJ-Ojo" id="BzV-oi-Awy"/>
             </connections>
-            <point key="canvasLocation" x="-885.5" y="446"/>
+            <point key="canvasLocation" x="-1605.5" y="746"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="right_head_icon.png" width="40" height="40"/>
+        <image name="voice_state_3.png" width="25" height="25"/>
     </resources>
 </document>

@@ -11,5 +11,5 @@
 
 @interface LFLChatRightVoiceMessageViewCell : LFLChetBaseViewCell
 
-- (void)setVoiceCellWidth:(NSInteger)width;
+- (void)setVoiceCellWidth:(NSInteger)width animation:(Boolean)animation;
 @end

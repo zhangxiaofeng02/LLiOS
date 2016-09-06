@@ -26,15 +26,21 @@
 }
 
 - (void)voiceButtonTouchUpOutSide {
+    [self.checkAudioTimer invalidate];
+    self.checkAudioTimer = nil;
     [self.voiceView removeFromSuperview];
     [self.maskView removeFromSuperview];
     [self stopRecordVoice];
     self.currentAudioPath = nil;
-    self.currentAudioNo = 0;
     self.audioRecorder = nil;
+    //这里要多一个删除消息
+    [self deleteVoiceMessage:self.currentAudioNo];
+    self.currentAudioNo = 0;
 }
 
 - (void)voiceButtonTouchUpInSide {
+    [self.checkAudioTimer invalidate];
+    self.checkAudioTimer = nil;
     NSTimeInterval timeLength = [self stopRecordVoice];
     if (timeLength < 1.2) {
         [self.voiceView showTimeShortText];
@@ -48,7 +54,7 @@
         [self.voiceView removeFromSuperview];
         [self.maskView removeFromSuperview];
         if ([LFLFileManager voicFileExists:[NSString stringWithFormat:@"voice%@.caf",@(self.currentAudioNo)]]) { //录音文件已经存在
-            [self saveVoiceMessageToCoreData:self.currentAudioPath timeLong:timeLength];
+            [self updateVoiceMessage:self.currentAudioNo timeLong:timeLength];
         }
     }
     self.currentAudioPath = nil;
@@ -59,6 +65,8 @@
 - (void)voiceButtonTouchDown {
     [self addVoiceAnimationView];
     [self startRecordVoice];
+    self.checkAudioTimer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(addNewVoiceMessage) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:self.checkAudioTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)voiceButtonDragInside {
@@ -70,6 +78,9 @@
     
 }
 
+- (void)addNewVoiceMessage {
+    [self saveVoiceMessageToCoreData:self.currentAudioPath timeLong:0];
+}
 #pragma mark - 底部输入栏
 
 - (void)addUserInputView {
