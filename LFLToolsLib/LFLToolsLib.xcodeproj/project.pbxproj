@@ -24,6 +24,7 @@
 		E1096CC01CB615C300484BDB /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CBB1CB615C300484BDB /* TPKeyboardAvoidingTableView.m */; };
 		E1096CDA1CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096CD91CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		E1096D051CB6446F00484BDB /* UITableView+LFLRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = E1096D041CB6446F00484BDB /* UITableView+LFLRegister.m */; };
+		E1157C3B1D7ED02200D7BDDB /* LFLTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157C3A1D7ED02200D7BDDB /* LFLTools.m */; };
 		E14F5BB71D77F79E006BB37F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5A501D77F79E006BB37F /* AFHTTPSessionManager.m */; };
 		E14F5BB81D77F79E006BB37F /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5A531D77F79E006BB37F /* AFNetworkReachabilityManager.m */; };
 		E14F5BB91D77F79E006BB37F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F5A551D77F79E006BB37F /* AFSecurityPolicy.m */; };
@@ -257,6 +258,8 @@
 		E1096CD91CB62A2700484BDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		E1096D031CB6446F00484BDB /* UITableView+LFLRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LFLRegister.h"; sourceTree = "<group>"; };
 		E1096D041CB6446F00484BDB /* UITableView+LFLRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LFLRegister.m"; sourceTree = "<group>"; };
+		E1157C391D7ED02200D7BDDB /* LFLTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLTools.h; sourceTree = "<group>"; };
+		E1157C3A1D7ED02200D7BDDB /* LFLTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLTools.m; sourceTree = "<group>"; };
 		E14F5A4F1D77F79E006BB37F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		E14F5A501D77F79E006BB37F /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E14F5A511D77F79E006BB37F /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -712,6 +715,8 @@
 				E1096CB31CB6153300484BDB /* LFLGlobal.m */,
 				E19921861D7DB04D00186613 /* LFLFileManager.h */,
 				E19921871D7DB04D00186613 /* LFLFileManager.m */,
+				E1157C391D7ED02200D7BDDB /* LFLTools.h */,
+				E1157C3A1D7ED02200D7BDDB /* LFLTools.m */,
 			);
 			path = LFLSrc;
 			sourceTree = "<group>";
@@ -1482,6 +1487,7 @@
 				E14F5C591D77F79E006BB37F /* UIView+WebCacheOperation.m in Sources */,
 				E1FAB0251D799E1700E5DCBF /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				E14F5BF01D77F79E006BB37F /* MKAnnotationView+RACSignalSupport.m in Sources */,
+				E1157C3B1D7ED02200D7BDDB /* LFLTools.m in Sources */,
 				E14F5C001D77F79E006BB37F /* NSSet+RACSequenceAdditions.m in Sources */,
 				E14F5BBB1D77F79E006BB37F /* AFURLResponseSerialization.m in Sources */,
 				E14F5C141D77F79E006BB37F /* RACErrorSignal.m in Sources */,

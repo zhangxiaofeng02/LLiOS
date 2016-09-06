@@ -36,5 +36,7 @@
 
 - (IBAction)voiceButtonOnClick:(id)sender;
 
-- (void)setVoiceCellWidth:(NSInteger)width;
+- (void)setVoiceCellWidth:(NSInteger)width animation:(Boolean)animation;
+
+- (void)stopPlaying;
 @end

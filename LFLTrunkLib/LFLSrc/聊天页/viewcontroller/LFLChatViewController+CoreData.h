@@ -15,4 +15,8 @@
 - (void)saveMessageToCoreData:(NSString *)message;
 
 - (void)saveVoiceMessageToCoreData:(NSString *)voiceUrl timeLong:(NSTimeInterval)length;
+
+- (void)updateVoiceMessage:(NSInteger)voiceNo timeLong:(NSTimeInterval)length;
+
+- (void)deleteVoiceMessage:(NSInteger)voiceNo;
 @end

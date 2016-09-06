@@ -9,13 +9,12 @@
 #import "LFLChatViewController.h"
 #import "LFLChatRightMessageViewCell.h"
 #import "LFLChatLeftMessageViewCell.h"
-#import "LFLChetBaseViewCell.h"
 #import "LFLChatViewController+CoreData.h"
 #import "LFLChatViewController+UserInput.h"
 #import "LFLChatMessageHeaderView.h"
 #import "LFLChatRightVoiceMessageViewCell.h"
 
-@interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate>
+@interface LFLChatViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, LFLChatUserInputViewDelegate ,NSFetchedResultsControllerDelegate, LFLChetBaseViewCellDelegate, AVAudioPlayerDelegate>
 
 @property (weak, nonatomic, readwrite) IBOutlet UITableView *messageTableView;
 //消息cell
@@ -212,9 +211,8 @@
     } else if (type == LFLChatVoiceMessageRightType) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightVoiceMessageViewCell" forIndexPath:indexPath];
         NSInteger width = [message.voiceLength integerValue];
-        [cell setVoiceCellWidth:width];
+        [cell setVoiceCellWidth:width animation:NO];
     }
-    
     cell.delegate = self;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 
@@ -284,7 +282,7 @@
         _audioRecorder.delegate = self;
         _audioRecorder.meteringEnabled = YES;//如果要监控声波则必须设置为YES
         if (error) {
-            NSLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
+            LFLLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
             return nil;
         }
     }
@@ -419,12 +417,18 @@
     NSError *error = nil;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     self.audioPlayer.numberOfLoops = 0;
+    self.audioPlayer.delegate = self;
     [self.audioPlayer prepareToPlay];
     if (error) {
-        NSLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+        LFLLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
         return;
     }
     [self.audioPlayer play];
+    self.currentPlayingCell = cell;
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    [self.currentPlayingCell stopPlaying];
 }
 
 #pragma mark menuController

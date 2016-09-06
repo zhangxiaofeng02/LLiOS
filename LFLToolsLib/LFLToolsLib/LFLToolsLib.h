@@ -22,5 +22,9 @@
 
 //FileManager
 #import "LFLFileManager.h"
+
+//Tools
+#import "LFLTools.h"
+
 @interface LFLToolsLib : NSObject
 @end
