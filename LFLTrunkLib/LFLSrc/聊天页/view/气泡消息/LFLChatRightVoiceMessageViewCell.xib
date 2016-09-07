@@ -23,9 +23,9 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AGW-lc-7vn">
-                        <rect key="frame" x="335" y="5" width="40" height="40"/>
+                        <rect key="frame" x="300" y="5" width="75" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" priority="750" constant="40" id="9qF-dB-Qdl"/>
+                            <constraint firstAttribute="width" priority="750" constant="75" id="9qF-dB-Qdl"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voice_state_3.png" translatesAutoresizingMaskIntoConstraints="NO" id="JOB-RJ-Ojo">
@@ -36,13 +36,13 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqe-De-uz3">
-                        <rect key="frame" x="335" y="5" width="40" height="40"/>
+                        <rect key="frame" x="300" y="5" width="75" height="40"/>
                         <connections>
                             <action selector="voiceButtonOnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cLv-EY-FuM"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI1-N3-oSM">
-                        <rect key="frame" x="289" y="19" width="42" height="21"/>
+                        <rect key="frame" x="254" y="19" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ksx-5I-1jF"/>
                             <constraint firstAttribute="width" constant="42" id="hvO-5D-N8E"/>
