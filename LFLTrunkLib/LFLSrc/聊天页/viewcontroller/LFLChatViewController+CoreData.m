@@ -55,7 +55,9 @@
 
 - (void)updateVoiceMessage:(NSInteger)voiceNo timeLong:(NSTimeInterval)length {
     LFLChatMessage *object = [LFLChatMessage MR_findFirstWithPredicate:nil sortedBy:@"voiceNo" ascending:NO inContext:[[LFLFetcherManager shareInstance].coreDataStack context]];
-    [object setValue:@(length) forKey:@"voiceLength"];
+    NSInteger time = length;
+    time == 0 ? time = 1 : time;
+    [object setValue:@(time) forKey:@"voiceLength"];
     [LFLFetcher updateObjectPropertyWith:object];
 }
 

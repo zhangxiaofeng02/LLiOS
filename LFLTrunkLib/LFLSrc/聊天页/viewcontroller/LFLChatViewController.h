@@ -34,6 +34,6 @@ static CGFloat kInPutBarHeight = 50;
 @property (nonatomic, assign) NSInteger currentAudioNo;
 @property (nonatomic, strong) NSTimer *checkAudioTimer;
 @property (nonatomic, strong) LFLChetBaseViewCell *currentPlayingCell;
-
+@property (nonatomic, assign) BOOL menuControllerShow;
 - (void)messageTableViewScrollAnimation:(BOOL)animated;
 @end

@@ -12,7 +12,7 @@
 #ifdef DEBUG
 #define debugAssert(e) assert(e)
 #else
-#define debugAssert(e) (void(0))
+#define debugAssert(e) ((void)0)
 #endif
 
 //日志

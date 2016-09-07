@@ -118,6 +118,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerShow:) name:UIMenuControllerDidShowMenuNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuControllerHidden:) name:UIMenuControllerDidHideMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackGround:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 #pragma mark - 键盘弹出收起事件
@@ -210,7 +211,7 @@
         
     } else if (type == LFLChatVoiceMessageRightType) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"LFLChatRightVoiceMessageViewCell" forIndexPath:indexPath];
-        NSInteger width = [message.voiceLength integerValue];
+        CGFloat width = [message.voiceLength floatValue];
         [cell setVoiceCellWidth:width animation:NO];
     }
     cell.delegate = self;
@@ -362,10 +363,25 @@
     if (!self.keyBoardShow) {
         [cell becomeFirstResponder];
     }
+    
     UIMenuItem *itCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(handleCopyCell:)];
     UIMenuItem *itDelete = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(handleDeleteCell:)];
     UIMenuController *menu = [UIMenuController sharedMenuController];
-    [menu setMenuItems:[NSArray arrayWithObjects:itCopy, itDelete,  nil]];
+    
+    NSInteger cellType = cell.messageType;
+    switch (cellType) {
+        case LFLChatMessageLeftType:
+        case LFLChatMessageRightType:
+            [menu setMenuItems:[NSArray arrayWithObjects:itCopy, itDelete,  nil]];
+            break;
+        case LFLChatVoiceMessageLeftType:
+        case LFLChatVoiceMessageRightType:
+            [menu setMenuItems:[NSArray arrayWithObjects:itDelete,  nil]];
+            break;
+        default:
+            [menu setMenuItems:[NSArray arrayWithObjects:itDelete,  nil]];
+            break;
+    }
     CGRect rect = [cell convertRect:cell.bubbleImageView.frame toView:self.view];
     [menu setTargetRect:rect inView:self.view];
     [menu setMenuVisible:YES animated:YES];
@@ -378,6 +394,9 @@
 }
 
 - (void)cellTapAction:(LFLChetBaseViewCell *)cell {
+    if (self.menuControllerShow) {
+        return;
+    }
     NSInteger type = cell.messageType;
     switch (type) {
         case LFLChatMessageLeftType: {
@@ -389,10 +408,12 @@
         }
             break;
         case LFLChatVoiceMessageLeftType: {
+            [cell startVoiceAnimation];
             [self playAudioInCell:cell];
         }
             break;
         case LFLChatVoiceMessageRightType: {
+            [cell startVoiceAnimation];
             [self playAudioInCell:cell];
         }
             break;
@@ -412,6 +433,11 @@
     
     if ([self.audioPlayer isPlaying]) {
         [self.audioPlayer stop];
+        [self.currentPlayingCell stopPlaying];
+    }
+    if (self.currentPlayingCell && cell == self.currentPlayingCell) {//如果这次播放的和上次播放的是同一个就暂停
+        self.currentPlayingCell = nil;
+        return;
     }
     NSURL *url = [NSURL URLWithString:message.voiceUrl];
     NSError *error = nil;
@@ -429,16 +455,26 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [self.currentPlayingCell stopPlaying];
+    self.currentPlayingCell = nil;
 }
 
 #pragma mark menuController
 
 - (void)menuControllerShow:(id)sender {
-    
+    self.menuControllerShow = YES;
 }
 
 - (void)menuControllerHidden:(id)sender {
+    self.menuControllerShow = NO;
     [self.userInputView setInputViewNextResponser:nil];
 }
 
+#pragma mark 进入后台
+- (void)enterBackGround:(id)sender {
+    [self.currentPlayingCell stopPlaying];
+    if ([self.audioPlayer isPlaying]) {
+        [self.audioPlayer stop];
+    }
+    self.currentPlayingCell = nil;
+}
 @end

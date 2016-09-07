@@ -25,7 +25,7 @@
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *bubbleImageView;
 @property (weak, nonatomic, readonly) IBOutlet UIButton *voicePlayButton;
 @property (assign, nonatomic) LFLChatMessageType *messageType;
-
+@property (assign, nonatomic) BOOL playing;
 @property (weak, nonatomic) id<LFLChetBaseViewCellDelegate> delegate;
 
 - (void)setMessage:(NSString *)message;
@@ -39,4 +39,6 @@
 - (void)setVoiceCellWidth:(NSInteger)width animation:(Boolean)animation;
 
 - (void)stopPlaying;
+
+- (void)startVoiceAnimation;
 @end
