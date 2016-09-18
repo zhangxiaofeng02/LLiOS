@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Intents/Intents.h>
 
 @interface AppDelegate ()
 

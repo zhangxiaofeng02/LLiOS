@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ParameterVocabularies</key>
+	<array>
+		<dict>
+			<key>ParameterNames</key>
+			<array>
+				<string>INRequestRideIntent.rideOptionName</string>
+				<string>INStartWorkoutIntent.workoutName</string>
+			</array>
+			<key>ParameterVocabulary</key>
+			<array>
+				<dict>
+					<key>VocabularyItemIdentifier</key>
+					<string>xi1 er4 qi2</string>
+					<key>VocabularyItemSynonyms</key>
+					<array>
+						<dict>
+							<key>VocabularyItemExamples</key>
+							<array>
+								<string>xi1 e1 qi2</string>
+								<string>da3 che1 qu4 xi1 er4 qi2</string>
+								<string>da3 che1 qu4 xi1 e4 qi2</string>
+							</array>
+							<key>VocabularyItemPronunciation</key>
+							<string>xi1 er4 qi2</string>
+							<key>VocabularyItemPhrase</key>
+							<string>xi1 er4 qi2</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>IntentPhrases</key>
+	<array>
+		<dict>
+			<key>IntentName</key>
+			<string>INStartWorkoutIntent</string>
+			<key>IntentExamples</key>
+			<array>
+				<string>shi3 yong4 dai4 er3 ce4 shi4 zi4 ding4 yi4 yu3 ju4</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

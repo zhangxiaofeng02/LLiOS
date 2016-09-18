@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E1CD99C51CB292F200580FDC"
-               BuildableName = "LFLAppShell.app"
+               BuildableName = "&#x5ed6;&#x5446;&#x5446;.app"
                BlueprintName = "LFLAppShell"
                ReferencedContainer = "container:LFLAppShell.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E1CD99C51CB292F200580FDC"
-            BuildableName = "LFLAppShell.app"
+            BuildableName = "&#x5ed6;&#x5446;&#x5446;.app"
             BlueprintName = "LFLAppShell"
             ReferencedContainer = "container:LFLAppShell.xcodeproj">
          </BuildableReference>
@@ -56,11 +56,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E1CD99C51CB292F200580FDC"
-            BuildableName = "LFLAppShell.app"
+            BuildableName = "&#x5ed6;&#x5446;&#x5446;.app"
             BlueprintName = "LFLAppShell"
             ReferencedContainer = "container:LFLAppShell.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -75,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E1CD99C51CB292F200580FDC"
-            BuildableName = "LFLAppShell.app"
+            BuildableName = "&#x5ed6;&#x5446;&#x5446;.app"
             BlueprintName = "LFLAppShell"
             ReferencedContainer = "container:LFLAppShell.xcodeproj">
          </BuildableReference>
